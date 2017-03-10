@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.4.0)
   - MBProgressHUD (1.0.0)
   - R.swift (3.2.0):
     - R.swift.Library (~> 3.0.2)
@@ -8,18 +9,20 @@ PODS:
   - RxSwift (3.2.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.4)
   - MBProgressHUD
   - R.swift
   - RxCocoa
   - RxSwift
 
 SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   R.swift: 207a372a2b5977caef440c696a368009460641d1
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
   RxCocoa: ccdf43101a70407097a29082f648ba1676075b30
   RxSwift: 46574f70d416b7923c237195939cc488a7fbf3a0
 
-PODFILE CHECKSUM: 780a38c17d83813cdea0c0f2ce03c80bd344b813
+PODFILE CHECKSUM: 220ecd69bc0a3f27891e1884b4fc275786ffef17
 
 COCOAPODS: 1.2.0
