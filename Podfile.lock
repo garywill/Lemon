@@ -1,0 +1,19 @@
+PODS:
+  - MBProgressHUD (1.0.0)
+  - RxCocoa (3.2.0):
+    - RxSwift (~> 3.1)
+  - RxSwift (3.2.0)
+
+DEPENDENCIES:
+  - MBProgressHUD
+  - RxCocoa
+  - RxSwift
+
+SPEC CHECKSUMS:
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  RxCocoa: ccdf43101a70407097a29082f648ba1676075b30
+  RxSwift: 46574f70d416b7923c237195939cc488a7fbf3a0
+
+PODFILE CHECKSUM: 9e696283343d87dc613988ee012ab90294069a46
+
+COCOAPODS: 1.2.0
