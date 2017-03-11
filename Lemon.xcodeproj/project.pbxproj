@@ -124,11 +124,11 @@
 		A87AAB991E71887B00A1BE2F /* Lemon */ = {
 			isa = PBXGroup;
 			children = (
+				A87AABF01E744D3600A1BE2F /* Features */,
 				A87AABE91E73DAF200A1BE2F /* Model */,
 				A87AABE61E73C4A400A1BE2F /* Cache */,
 				A87AABE31E73BE7500A1BE2F /* Network */,
-				A87AABD91E7307EE00A1BE2F /* ProgressHUD */,
-				A87AABCD1E72F46700A1BE2F /* OAuth */,
+				A87AABD91E7307EE00A1BE2F /* UIElements */,
 				A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */,
 				A87AAB9C1E71887B00A1BE2F /* ViewController.swift */,
 				A87AAB9E1E71887B00A1BE2F /* Main.storyboard */,
@@ -169,12 +169,12 @@
 			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		A87AABD91E7307EE00A1BE2F /* ProgressHUD */ = {
+		A87AABD91E7307EE00A1BE2F /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
 				A87AABDA1E73080000A1BE2F /* ProgressHUD.swift */,
 			);
-			name = ProgressHUD;
+			name = UIElements;
 			sourceTree = "<group>";
 		};
 		A87AABE31E73BE7500A1BE2F /* Network */ = {
@@ -201,6 +201,14 @@
 				A87AABEE1E73DB5100A1BE2F /* User.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A87AABF01E744D3600A1BE2F /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				A87AABCD1E72F46700A1BE2F /* OAuth */,
+			);
+			name = Features;
 			sourceTree = "<group>";
 		};
 		D8A36D5A0674B46CCEF76595 /* Frameworks */ = {
