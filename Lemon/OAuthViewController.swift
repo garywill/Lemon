@@ -12,6 +12,8 @@ import SafariServices
 
 class OAuthViewController: UIViewController {
 
+    var safariVC: SFSafariViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,8 +26,10 @@ class OAuthViewController: UIViewController {
     
     @IBAction func OAuthButtonAction(_ sender: UIButton) {
         if let url = URL(string: OAuthConstants.URL) {
-            let safari = SFSafariViewController(url: url)
-            present(safari, animated: true, completion: nil)
+            safariVC = SFSafariViewController(url: url)
+            if let safari = safariVC {
+                present(safari, animated: true, completion: nil)
+            }
         }
     }
 
@@ -52,12 +56,20 @@ class OAuthViewController: UIViewController {
     }
     
     func OAuthFailed() {
-        ProgressHUD.showFailure(text: "OAuth Failed")
+        if let safari = safariVC {
+            safari.dismiss(animated: true, completion: {
+                ProgressHUD.showFailure(text: "OAuth Failed, please try again")
+            })
+        }
     }
     
     func OAuthSuccessed(_ accessToken: String) {
-        debugPrint(accessToken)
-        ProgressHUD.showSuccess(text: "OAuth Success")
+        if let safari = safariVC {
+            safari.dismiss(animated: true, completion: {
+                ProgressHUD.showSuccess(text: "OAuth Success")
+                debugPrint(accessToken)
+            })
+        }
     }
     
 }
