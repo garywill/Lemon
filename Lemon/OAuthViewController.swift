@@ -67,7 +67,9 @@ class OAuthViewController: UIViewController {
         if let safari = safariVC {
             safari.dismiss(animated: true, completion: {
                 ProgressHUD.showSuccess(text: "OAuth Success")
+                CacheManager.cachedToken = accessToken
                 debugPrint(accessToken)
+                NetworkManager.sharedManager.fetchRepos(accessToken)
             })
         }
     }

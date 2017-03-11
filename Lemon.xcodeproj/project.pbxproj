@@ -21,6 +21,11 @@
 		A87AABD81E72FFB100A1BE2F /* OAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A87AABD61E72FFB100A1BE2F /* OAuthViewController.xib */; };
 		A87AABDB1E73080000A1BE2F /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABDA1E73080000A1BE2F /* ProgressHUD.swift */; };
 		A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABDD1E73098600A1BE2F /* R.generated.swift */; };
+		A87AABE51E73BE9200A1BE2F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABE41E73BE9200A1BE2F /* NetworkManager.swift */; };
+		A87AABE81E73C4AF00A1BE2F /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABE71E73C4AF00A1BE2F /* CacheManager.swift */; };
+		A87AABEB1E73DB0500A1BE2F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABEA1E73DB0500A1BE2F /* Repository.swift */; };
+		A87AABED1E73DB3900A1BE2F /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABEC1E73DB3900A1BE2F /* Permission.swift */; };
+		A87AABEF1E73DB5100A1BE2F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABEE1E73DB5100A1BE2F /* User.swift */; };
 		E8BE42F6C53E77A52DD02337 /* Pods_Lemon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +61,11 @@
 		A87AABD61E72FFB100A1BE2F /* OAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OAuthViewController.xib; sourceTree = "<group>"; };
 		A87AABDA1E73080000A1BE2F /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		A87AABDD1E73098600A1BE2F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		A87AABE41E73BE9200A1BE2F /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		A87AABE71E73C4AF00A1BE2F /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		A87AABEA1E73DB0500A1BE2F /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		A87AABEC1E73DB3900A1BE2F /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
+		A87AABEE1E73DB5100A1BE2F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lemon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19E4BD50D67E92A86A1DC15 /* Pods-Lemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lemon/Pods-Lemon.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +124,9 @@
 		A87AAB991E71887B00A1BE2F /* Lemon */ = {
 			isa = PBXGroup;
 			children = (
+				A87AABE91E73DAF200A1BE2F /* Model */,
+				A87AABE61E73C4A400A1BE2F /* Cache */,
+				A87AABE31E73BE7500A1BE2F /* Network */,
 				A87AABD91E7307EE00A1BE2F /* ProgressHUD */,
 				A87AABCD1E72F46700A1BE2F /* OAuth */,
 				A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */,
@@ -162,6 +175,32 @@
 				A87AABDA1E73080000A1BE2F /* ProgressHUD.swift */,
 			);
 			name = ProgressHUD;
+			sourceTree = "<group>";
+		};
+		A87AABE31E73BE7500A1BE2F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A87AABE41E73BE9200A1BE2F /* NetworkManager.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		A87AABE61E73C4A400A1BE2F /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				A87AABE71E73C4AF00A1BE2F /* CacheManager.swift */,
+			);
+			name = Cache;
+			sourceTree = "<group>";
+		};
+		A87AABE91E73DAF200A1BE2F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A87AABEA1E73DB0500A1BE2F /* Repository.swift */,
+				A87AABEC1E73DB3900A1BE2F /* Permission.swift */,
+				A87AABEE1E73DB5100A1BE2F /* User.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		D8A36D5A0674B46CCEF76595 /* Frameworks */ = {
@@ -393,12 +432,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A87AABCF1E72F49800A1BE2F /* OAuthConstants.swift in Sources */,
+				A87AABE81E73C4AF00A1BE2F /* CacheManager.swift in Sources */,
 				A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */,
 				A87AABD21E72F75A00A1BE2F /* OAuthHelper.swift in Sources */,
 				A87AABDB1E73080000A1BE2F /* ProgressHUD.swift in Sources */,
+				A87AABE51E73BE9200A1BE2F /* NetworkManager.swift in Sources */,
 				A87AAB9D1E71887B00A1BE2F /* ViewController.swift in Sources */,
+				A87AABEB1E73DB0500A1BE2F /* Repository.swift in Sources */,
+				A87AABEF1E73DB5100A1BE2F /* User.swift in Sources */,
 				A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */,
 				A87AABD71E72FFB100A1BE2F /* OAuthViewController.swift in Sources */,
+				A87AABED1E73DB3900A1BE2F /* Permission.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

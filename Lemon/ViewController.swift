@@ -13,6 +13,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if let token = CacheManager.cachedToken {
+            NetworkManager.sharedManager.fetchRepos(token)
+        }
     }
 
     @IBAction func loginAction(_ sender: UIButton) {
@@ -21,8 +25,4 @@ class ViewController: UIViewController {
     }
 
 }
-
-extension ViewController: SFSafariViewControllerDelegate {
-}
-
 
