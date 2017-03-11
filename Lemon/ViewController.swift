@@ -7,19 +7,22 @@
 //
 
 import UIKit
+import SafariServices
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func loginAction(_ sender: UIButton) {
+        let OAuthVC = OAuthViewController()
+        present(OAuthVC, animated: true, completion: nil)
     }
-
 
 }
+
+extension ViewController: SFSafariViewControllerDelegate {
+}
+
 

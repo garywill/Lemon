@@ -7,12 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5821D74A290750E8892C8C52 /* Pods_LemonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D017D4186E8B110D3ABB714 /* Pods_LemonTests.framework */; };
 		A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */; };
 		A87AAB9D1E71887B00A1BE2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9C1E71887B00A1BE2F /* ViewController.swift */; };
 		A87AABA01E71887B00A1BE2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A87AAB9E1E71887B00A1BE2F /* Main.storyboard */; };
 		A87AABA21E71887B00A1BE2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A87AABA11E71887B00A1BE2F /* Assets.xcassets */; };
 		A87AABA51E71887B00A1BE2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A87AABA31E71887B00A1BE2F /* LaunchScreen.storyboard */; };
 		A87AABB01E71887B00A1BE2F /* LemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABAF1E71887B00A1BE2F /* LemonTests.swift */; };
+		A87AABCF1E72F49800A1BE2F /* OAuthConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABCE1E72F49800A1BE2F /* OAuthConstants.swift */; };
+		A87AABD21E72F75A00A1BE2F /* OAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABD11E72F75A00A1BE2F /* OAuthHelper.swift */; };
+		A87AABD41E72FAB800A1BE2F /* OAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABD31E72FAB800A1BE2F /* OAuthTests.swift */; };
+		A87AABD71E72FFB100A1BE2F /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABD51E72FFB100A1BE2F /* OAuthViewController.swift */; };
+		A87AABD81E72FFB100A1BE2F /* OAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A87AABD61E72FFB100A1BE2F /* OAuthViewController.xib */; };
+		A87AABDB1E73080000A1BE2F /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABDA1E73080000A1BE2F /* ProgressHUD.swift */; };
+		A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABDD1E73098600A1BE2F /* R.generated.swift */; };
+		E8BE42F6C53E77A52DD02337 /* Pods_Lemon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D017D4186E8B110D3ABB714 /* Pods_LemonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LemonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DED9CF752472A94611E688A /* Pods-LemonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LemonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LemonTests/Pods-LemonTests.debug.xcconfig"; sourceTree = "<group>"; };
+		874744732D132BED779D86B4 /* Pods-Lemon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lemon/Pods-Lemon.debug.xcconfig"; sourceTree = "<group>"; };
+		8883C0328350522278D325A2 /* Pods-LemonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LemonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LemonTests/Pods-LemonTests.release.xcconfig"; sourceTree = "<group>"; };
 		A87AAB971E71887B00A1BE2F /* Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A87AAB9C1E71887B00A1BE2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +49,15 @@
 		A87AABAB1E71887B00A1BE2F /* LemonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LemonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87AABAF1E71887B00A1BE2F /* LemonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LemonTests.swift; sourceTree = "<group>"; };
 		A87AABB11E71887B00A1BE2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A87AABCE1E72F49800A1BE2F /* OAuthConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthConstants.swift; sourceTree = "<group>"; };
+		A87AABD11E72F75A00A1BE2F /* OAuthHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthHelper.swift; sourceTree = "<group>"; };
+		A87AABD31E72FAB800A1BE2F /* OAuthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthTests.swift; sourceTree = "<group>"; };
+		A87AABD51E72FFB100A1BE2F /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
+		A87AABD61E72FFB100A1BE2F /* OAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OAuthViewController.xib; sourceTree = "<group>"; };
+		A87AABDA1E73080000A1BE2F /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		A87AABDD1E73098600A1BE2F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lemon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D19E4BD50D67E92A86A1DC15 /* Pods-Lemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lemon/Pods-Lemon.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8BE42F6C53E77A52DD02337 /* Pods_Lemon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +73,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5821D74A290750E8892C8C52 /* Pods_LemonTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8BECCEFFDDC162417A847423 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				874744732D132BED779D86B4 /* Pods-Lemon.debug.xcconfig */,
+				D19E4BD50D67E92A86A1DC15 /* Pods-Lemon.release.xcconfig */,
+				7DED9CF752472A94611E688A /* Pods-LemonTests.debug.xcconfig */,
+				8883C0328350522278D325A2 /* Pods-LemonTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A87AAB8E1E71887B00A1BE2F = {
 			isa = PBXGroup;
 			children = (
 				A87AAB991E71887B00A1BE2F /* Lemon */,
 				A87AABAE1E71887B00A1BE2F /* LemonTests */,
 				A87AAB981E71887B00A1BE2F /* Products */,
+				8BECCEFFDDC162417A847423 /* Pods */,
+				D8A36D5A0674B46CCEF76595 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +114,12 @@
 		A87AAB991E71887B00A1BE2F /* Lemon */ = {
 			isa = PBXGroup;
 			children = (
+				A87AABD91E7307EE00A1BE2F /* ProgressHUD */,
+				A87AABCD1E72F46700A1BE2F /* OAuth */,
 				A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */,
 				A87AAB9C1E71887B00A1BE2F /* ViewController.swift */,
 				A87AAB9E1E71887B00A1BE2F /* Main.storyboard */,
-				A87AABA11E71887B00A1BE2F /* Assets.xcassets */,
-				A87AABA31E71887B00A1BE2F /* LaunchScreen.storyboard */,
-				A87AABA61E71887B00A1BE2F /* Info.plist */,
+				A87AABD01E72F4A700A1BE2F /* SupportingFiles */,
 			);
 			path = Lemon;
 			sourceTree = "<group>";
@@ -92,8 +129,48 @@
 			children = (
 				A87AABAF1E71887B00A1BE2F /* LemonTests.swift */,
 				A87AABB11E71887B00A1BE2F /* Info.plist */,
+				A87AABD31E72FAB800A1BE2F /* OAuthTests.swift */,
 			);
 			path = LemonTests;
+			sourceTree = "<group>";
+		};
+		A87AABCD1E72F46700A1BE2F /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				A87AABCE1E72F49800A1BE2F /* OAuthConstants.swift */,
+				A87AABD11E72F75A00A1BE2F /* OAuthHelper.swift */,
+				A87AABD51E72FFB100A1BE2F /* OAuthViewController.swift */,
+				A87AABD61E72FFB100A1BE2F /* OAuthViewController.xib */,
+			);
+			name = OAuth;
+			sourceTree = "<group>";
+		};
+		A87AABD01E72F4A700A1BE2F /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A87AABDD1E73098600A1BE2F /* R.generated.swift */,
+				A87AABA11E71887B00A1BE2F /* Assets.xcassets */,
+				A87AABA31E71887B00A1BE2F /* LaunchScreen.storyboard */,
+				A87AABA61E71887B00A1BE2F /* Info.plist */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		A87AABD91E7307EE00A1BE2F /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				A87AABDA1E73080000A1BE2F /* ProgressHUD.swift */,
+			);
+			name = ProgressHUD;
+			sourceTree = "<group>";
+		};
+		D8A36D5A0674B46CCEF76595 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */,
+				6D017D4186E8B110D3ABB714 /* Pods_LemonTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,9 +180,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A87AABB41E71887B00A1BE2F /* Build configuration list for PBXNativeTarget "Lemon" */;
 			buildPhases = (
+				64F88CC3433308B9B25296E2 /* [CP] Check Pods Manifest.lock */,
+				A87AABDC1E73093200A1BE2F /* ShellScript */,
 				A87AAB931E71887B00A1BE2F /* Sources */,
 				A87AAB941E71887B00A1BE2F /* Frameworks */,
 				A87AAB951E71887B00A1BE2F /* Resources */,
+				8A537A046DF86F16943114B9 /* [CP] Embed Pods Frameworks */,
+				22493D5C782A8B86AF2BB4E4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,9 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A87AABB71E71887B00A1BE2F /* Build configuration list for PBXNativeTarget "LemonTests" */;
 			buildPhases = (
+				B187DD699054B3CCEC167E83 /* [CP] Check Pods Manifest.lock */,
 				A87AABA71E71887B00A1BE2F /* Sources */,
 				A87AABA81E71887B00A1BE2F /* Frameworks */,
 				A87AABA91E71887B00A1BE2F /* Resources */,
+				D5C11D02FBF0F110ABB222FC /* [CP] Embed Pods Frameworks */,
+				DA734AA9F4CFCC0247548B56 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A87AABD81E72FFB100A1BE2F /* OAuthViewController.xib in Resources */,
 				A87AABA51E71887B00A1BE2F /* LaunchScreen.storyboard in Resources */,
 				A87AABA21E71887B00A1BE2F /* Assets.xcassets in Resources */,
 				A87AABA01E71887B00A1BE2F /* Main.storyboard in Resources */,
@@ -196,13 +281,124 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		22493D5C782A8B86AF2BB4E4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lemon/Pods-Lemon-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64F88CC3433308B9B25296E2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8A537A046DF86F16943114B9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lemon/Pods-Lemon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A87AABDC1E73093200A1BE2F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
+		};
+		B187DD699054B3CCEC167E83 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D5C11D02FBF0F110ABB222FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LemonTests/Pods-LemonTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA734AA9F4CFCC0247548B56 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LemonTests/Pods-LemonTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A87AAB931E71887B00A1BE2F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A87AABCF1E72F49800A1BE2F /* OAuthConstants.swift in Sources */,
+				A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */,
+				A87AABD21E72F75A00A1BE2F /* OAuthHelper.swift in Sources */,
+				A87AABDB1E73080000A1BE2F /* ProgressHUD.swift in Sources */,
 				A87AAB9D1E71887B00A1BE2F /* ViewController.swift in Sources */,
 				A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */,
+				A87AABD71E72FFB100A1BE2F /* OAuthViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A87AABB01E71887B00A1BE2F /* LemonTests.swift in Sources */,
+				A87AABD41E72FAB800A1BE2F /* OAuthTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +536,7 @@
 		};
 		A87AABB51E71887B00A1BE2F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 874744732D132BED779D86B4 /* Pods-Lemon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PN5JMBRNLX;
@@ -353,6 +551,7 @@
 		};
 		A87AABB61E71887B00A1BE2F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D19E4BD50D67E92A86A1DC15 /* Pods-Lemon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PN5JMBRNLX;
@@ -367,6 +566,7 @@
 		};
 		A87AABB81E71887B00A1BE2F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DED9CF752472A94611E688A /* Pods-LemonTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -382,6 +582,7 @@
 		};
 		A87AABB91E71887B00A1BE2F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8883C0328350522278D325A2 /* Pods-LemonTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -414,6 +615,7 @@
 				A87AABB61E71887B00A1BE2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A87AABB71E71887B00A1BE2F /* Build configuration list for PBXNativeTarget "LemonTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +624,7 @@
 				A87AABB91E71887B00A1BE2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
