@@ -75,7 +75,7 @@ class OAuthViewController: UIViewController {
                 ProgressHUD.showSuccess(text: "OAuth Success")
                 CacheManager.cachedToken = accessToken
                 debugPrint(accessToken)
-                NetworkManager.sharedManager.fetchRepos(accessToken)
+//                NetworkManager.sharedManager.fetchRepos(accessToken)
             })
         }
     }

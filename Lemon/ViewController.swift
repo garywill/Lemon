@@ -14,8 +14,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let token = CacheManager.cachedToken {
-            NetworkManager.sharedManager.fetchRepos(token)
+        if let _ = CacheManager.cachedToken {
+            GitHubNetworkClient.fetchRepos(success: { (repos) in
+                debugPrint(repos)
+            }, failure: { (err) in
+                debugPrint(err)
+            })
         }
     }
 
