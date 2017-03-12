@@ -6,11 +6,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OAuthViewController" customModule="Lemon" customModuleProvider="target">
             <connections>
+                <outlet property="OAuthButton" destination="hMP-4L-X9K" id="SmT-jM-ROK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,9 +21,24 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMP-4L-X9K">
-                    <rect key="frame" x="137" y="318" width="100" height="30"/>
-                    <state key="normal" title="OAuth GitHub!"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🍋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdS-G6-bn1">
+                    <rect key="frame" x="133.5" y="105.5" width="108" height="119.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lemon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjD-O8-yYG">
+                    <rect key="frame" x="119.5" y="240.5" width="135.5" height="52.5"/>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="45"/>
+                    <color key="textColor" red="0.34509803921568627" green="0.37647058823529411" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMP-4L-X9K">
+                    <rect key="frame" x="38" y="343.5" width="300" height="47"/>
+                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
+                    <state key="normal" title="OAuth via GitHub">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="OAuthButtonAction:" destination="-1" eventType="touchUpInside" id="sft-ot-ty8"/>
                     </connections>
@@ -29,9 +46,16 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="hMP-4L-X9K" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="DpJ-Fk-05f"/>
-                <constraint firstItem="hMP-4L-X9K" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ssE-BE-A0F"/>
+                <constraint firstItem="hMP-4L-X9K" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="1.1" id="18i-rv-911"/>
+                <constraint firstItem="DdS-G6-bn1" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ecf-fN-YYA"/>
+                <constraint firstItem="yjD-O8-yYG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="GtT-n5-hyu"/>
+                <constraint firstItem="hMP-4L-X9K" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.07" id="Iaj-Vr-JQv"/>
+                <constraint firstItem="hMP-4L-X9K" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="N31-72-SJe"/>
+                <constraint firstItem="yjD-O8-yYG" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.8" id="S8F-YL-M7n"/>
+                <constraint firstItem="hMP-4L-X9K" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="heM-wq-RyC"/>
+                <constraint firstItem="DdS-G6-bn1" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.5" constant="-1.75" id="nyo-mA-bqT"/>
             </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
 </document>

@@ -12,10 +12,16 @@ import SafariServices
 
 class OAuthViewController: UIViewController {
 
+    @IBOutlet weak var OAuthButton: UIButton!
     var safariVC: SFSafariViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        OAuthButton.setBackgroundImage(UIImage.color(UIColor.lmGithubBlue), for: .normal)
+        OAuthButton.setBackgroundImage(UIImage.color(UIColor.lmGithubBlue.alpha(0.8)), for: .highlighted)
+        OAuthButton.layer.cornerRadius = 13
+        OAuthButton.layer.masksToBounds = true
 
         NotificationCenter.default.addObserver(self, selector: #selector(OAuthViewController.didReceiveOAuthURL(_:)), name: OAuthConstants.OAuthCallbackNotificationName, object: nil)
     }

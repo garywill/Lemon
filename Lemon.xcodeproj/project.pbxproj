@@ -26,6 +26,8 @@
 		A87AABEB1E73DB0500A1BE2F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABEA1E73DB0500A1BE2F /* Repository.swift */; };
 		A87AABED1E73DB3900A1BE2F /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABEC1E73DB3900A1BE2F /* Permission.swift */; };
 		A87AABEF1E73DB5100A1BE2F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABEE1E73DB5100A1BE2F /* User.swift */; };
+		A87AABF31E74564D00A1BE2F /* UIColor+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABF21E74564D00A1BE2F /* UIColor+Lemon.swift */; };
+		A87AABF51E74DDE600A1BE2F /* UIImage+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABF41E74DDE600A1BE2F /* UIImage+Lemon.swift */; };
 		E8BE42F6C53E77A52DD02337 /* Pods_Lemon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,8 @@
 		A87AABEA1E73DB0500A1BE2F /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		A87AABEC1E73DB3900A1BE2F /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		A87AABEE1E73DB5100A1BE2F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A87AABF21E74564D00A1BE2F /* UIColor+Lemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Lemon.swift"; sourceTree = "<group>"; };
+		A87AABF41E74DDE600A1BE2F /* UIImage+Lemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Lemon.swift"; sourceTree = "<group>"; };
 		AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lemon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19E4BD50D67E92A86A1DC15 /* Pods-Lemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lemon/Pods-Lemon.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,7 +132,7 @@
 				A87AABE91E73DAF200A1BE2F /* Model */,
 				A87AABE61E73C4A400A1BE2F /* Cache */,
 				A87AABE31E73BE7500A1BE2F /* Network */,
-				A87AABD91E7307EE00A1BE2F /* UIElements */,
+				A87AABD91E7307EE00A1BE2F /* UI Specific */,
 				A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */,
 				A87AAB9C1E71887B00A1BE2F /* ViewController.swift */,
 				A87AAB9E1E71887B00A1BE2F /* Main.storyboard */,
@@ -169,12 +173,14 @@
 			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		A87AABD91E7307EE00A1BE2F /* UIElements */ = {
+		A87AABD91E7307EE00A1BE2F /* UI Specific */ = {
 			isa = PBXGroup;
 			children = (
 				A87AABDA1E73080000A1BE2F /* ProgressHUD.swift */,
+				A87AABF21E74564D00A1BE2F /* UIColor+Lemon.swift */,
+				A87AABF41E74DDE600A1BE2F /* UIImage+Lemon.swift */,
 			);
-			name = UIElements;
+			name = "UI Specific";
 			sourceTree = "<group>";
 		};
 		A87AABE31E73BE7500A1BE2F /* Network */ = {
@@ -440,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A87AABCF1E72F49800A1BE2F /* OAuthConstants.swift in Sources */,
+				A87AABF31E74564D00A1BE2F /* UIColor+Lemon.swift in Sources */,
 				A87AABE81E73C4AF00A1BE2F /* CacheManager.swift in Sources */,
 				A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */,
 				A87AABD21E72F75A00A1BE2F /* OAuthHelper.swift in Sources */,
@@ -449,6 +456,7 @@
 				A87AABEB1E73DB0500A1BE2F /* Repository.swift in Sources */,
 				A87AABEF1E73DB5100A1BE2F /* User.swift in Sources */,
 				A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */,
+				A87AABF51E74DDE600A1BE2F /* UIImage+Lemon.swift in Sources */,
 				A87AABD71E72FFB100A1BE2F /* OAuthViewController.swift in Sources */,
 				A87AABED1E73DB3900A1BE2F /* Permission.swift in Sources */,
 			);

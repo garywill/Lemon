@@ -38,6 +38,7 @@ extension UIColor {
     }
 }
 
+// init
 public extension UIColor {
 
     /// SwifterSwift: Create UIColor from hexadecimal value with optional transparency.
@@ -45,7 +46,7 @@ public extension UIColor {
     /// - Parameters:
     ///   - hex: hex Int (example: 0xDECEB5).
     ///   - transparency: optional transparency value (default is 1).
-    public convenience init(hex: Int, transparency: CGFloat = 1) {
+    public convenience init(_ hex: Int, _ transparency: CGFloat = 1) {
         var trans: CGFloat {
             if transparency > 1 {
                 return 1
@@ -55,7 +56,7 @@ public extension UIColor {
                 return transparency
             }
         }
-        self.init(red:(hex >> 16) & 0xff, green:(hex >> 8) & 0xff, blue:hex & 0xff, transparency: trans)
+        self.init((hex >> 16) & 0xff, (hex >> 8) & 0xff, hex & 0xff, trans)
     }
 
     /// SwifterSwift: Create UIColor from hexadecimal string with optional transparency (if applicable).
@@ -63,7 +64,7 @@ public extension UIColor {
     /// - Parameters:
     ///   - hexString: hexadecimal string (examples: EDE7F6, 0xEDE7F6, #EDE7F6, #0ff, 0xF0F, ..).
     ///   - transparency: optional transparency value (default is 1).
-    public convenience init?(hexString: String, transparency: CGFloat = 1) {
+    public convenience init?(hexString: String, _ transparency: CGFloat = 1) {
         var string = ""
         if hexString.lowercased().hasPrefix("0x") {
             string =  hexString.replacingOccurrences(of: "0x", with: "")
@@ -83,7 +84,7 @@ public extension UIColor {
             return nil
         }
 
-        self.init(hex: Int(hexValue), transparency: transparency)
+        self.init(Int(hexValue), transparency)
     }
 
     /// SwifterSwift: Create UIColor from RGB values with optional transparency.
@@ -93,7 +94,7 @@ public extension UIColor {
     ///   - green: green component.
     ///   - blue: blue component.
     ///   - transparency: optional transparency value (default is 1).
-    public convenience init(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
+    public convenience init(_ red: Int, _ green: Int, _ blue: Int, _ transparency: CGFloat = 1) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
         assert(blue >= 0 && blue <= 255, "Invalid blue component")
@@ -107,5 +108,11 @@ public extension UIColor {
             }
         }
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: trans)
+    }
+}
+
+extension UIColor {
+    func alpha(_ alpha: CGFloat) -> UIColor {
+        return withAlphaComponent(alpha)
     }
 }
