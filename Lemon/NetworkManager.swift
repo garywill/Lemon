@@ -54,8 +54,16 @@ class NetworkManager {
     {
         guard let token = CacheManager.cachedToken else { return }
         sessionManager.adapter = AccessTokenAdapter(token)
+
+        LemonLog("\(method) ".uppercased() + "\(url) \(parameters)")
+        if parameters != nil {
+            LemonLog("parameters: \(parameters)")
+        }
+
+        
         sessionManager.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON { (response) in
             if let err = response.error {
+                LemonLog("\(method)".uppercased() + "\(url) \(parameters)" + "\(err)")
                 failure(err)
                 return
             }

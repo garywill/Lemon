@@ -29,6 +29,7 @@
 		A87AABF31E74564D00A1BE2F /* UIColor+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABF21E74564D00A1BE2F /* UIColor+Lemon.swift */; };
 		A87AABF51E74DDE600A1BE2F /* UIImage+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABF41E74DDE600A1BE2F /* UIImage+Lemon.swift */; };
 		A87AAC081E75977400A1BE2F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAC071E75977400A1BE2F /* Constants.swift */; };
+		A87AAC0A1E75B10A00A1BE2F /* DebugHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAC091E75B10A00A1BE2F /* DebugHelper.swift */; };
 		E8BE42F6C53E77A52DD02337 /* Pods_Lemon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		A87AABF21E74564D00A1BE2F /* UIColor+Lemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Lemon.swift"; sourceTree = "<group>"; };
 		A87AABF41E74DDE600A1BE2F /* UIImage+Lemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Lemon.swift"; sourceTree = "<group>"; };
 		A87AAC071E75977400A1BE2F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A87AAC091E75B10A00A1BE2F /* DebugHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugHelper.swift; sourceTree = "<group>"; };
 		AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lemon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19E4BD50D67E92A86A1DC15 /* Pods-Lemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lemon/Pods-Lemon.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				A87AAC071E75977400A1BE2F /* Constants.swift */,
+				A87AAC091E75B10A00A1BE2F /* DebugHelper.swift */,
 			);
 			name = AppConfig;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				A87AABCF1E72F49800A1BE2F /* OAuthConstants.swift in Sources */,
 				A87AABF31E74564D00A1BE2F /* UIColor+Lemon.swift in Sources */,
 				A87AABE81E73C4AF00A1BE2F /* CacheManager.swift in Sources */,
+				A87AAC0A1E75B10A00A1BE2F /* DebugHelper.swift in Sources */,
 				A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */,
 				A87AABD21E72F75A00A1BE2F /* OAuthHelper.swift in Sources */,
 				A87AAC081E75977400A1BE2F /* Constants.swift in Sources */,
