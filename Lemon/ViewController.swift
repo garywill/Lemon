@@ -21,7 +21,15 @@ class ViewController: UIViewController {
             })
 
             GitHubNetworkClient.fetchUserInfo(success: { (user) in
+                CacheManager.cachedUsername = user.login
                 LemonLog(user)
+            }, failure: { (err) in
+            })
+        }
+
+        if let username = CacheManager.cachedUsername {
+            GitHubNetworkClient.fetchReceivedEvents(username: username, success: { (events) in
+                LemonLog(events)
             }, failure: { (err) in
             })
         }

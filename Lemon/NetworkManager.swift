@@ -140,6 +140,17 @@ class GitHubNetworkClient {
         }
     }
 
+    class func fetchReceivedEvents(username: String, success: @escaping (Array<Event>) -> Void, failure: @escaping RequestFailure) {
+        NetworkManager.shared.request("/users/\(username)/received_events", successWithArrayObject: { (arrayOfObjs) in
+            let events = arrayOfObjs.map({ (dict) -> Event in
+                return Event(dict)
+            })
+            success(events)
+        }) { (err) in
+            failure(err)
+        }
+    }
+
     class func fetchRepos(success: @escaping (Array<Repository>) -> Void, failure: @escaping RequestFailure) {
         NetworkManager.shared.request("/user/repos", successWithArrayObject: { (arrayObject) in
             let repos = arrayObject.map({ (r) -> Repository in
