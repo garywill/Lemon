@@ -1,7 +1,7 @@
 //
 //	Repository.swift
 //
-//	Create by X140Yu Zhao on 11/3/2017
+//	Create by X140Yu on 11/3/2017
 //	Copyright © 2017. All rights reserved.
 //	Model file generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
 
@@ -57,8 +57,7 @@ class Repository {
     var notificationsUrl: String!
     var openIssues: Int!
     var openIssuesCount: Int!
-    var owner: Owner!
-    var permissions: Permission!
+    var owner: User!
     var privateField: Bool!
     var pullsUrl: String!
     var pushedAt: String!
@@ -133,10 +132,7 @@ class Repository {
         openIssues = dictionary["open_issues"] as? Int
         openIssuesCount = dictionary["open_issues_count"] as? Int
         if let ownerData = dictionary["owner"] as? [String:Any] {
-            owner = Owner(ownerData)
-        }
-        if let permissionsData = dictionary["permissions"] as? [String:Any] {
-            permissions = Permission(permissionsData)
+            owner = User(ownerData)
         }
         privateField = dictionary["private"] as? Bool
         pullsUrl = dictionary["pulls_url"] as? String
