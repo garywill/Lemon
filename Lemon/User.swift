@@ -88,5 +88,11 @@ class User {
         updatedAt = dictionary["updated_at"] as? String
         url = dictionary["url"] as? String
     }
-    
+
+}
+
+extension User: CustomStringConvertible {
+    var description: String {
+        return "User: `\(login ?? "")` `\(bio ?? "")` `\(blog ?? "")` `\(company ?? "")`"
+    }
 }

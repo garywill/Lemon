@@ -156,3 +156,10 @@ class Repository {
     }
     
 }
+
+
+extension Repository: CustomStringConvertible {
+    var description: String {
+        return "Repository: `\(name ?? "")` `\(owner.login ?? "")` `\(url ?? "")`"
+    }
+}
