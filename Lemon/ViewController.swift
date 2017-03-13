@@ -16,9 +16,13 @@ class ViewController: UIViewController {
 
         if let _ = CacheManager.cachedToken {
             GitHubNetworkClient.fetchRepos(success: { (repos) in
-                debugPrint(repos)
+                LemonLog(repos)
             }, failure: { (err) in
-                debugPrint(err)
+            })
+
+            GitHubNetworkClient.fetchUserInfo(success: { (user) in
+                LemonLog(user)
+            }, failure: { (err) in
             })
         }
     }

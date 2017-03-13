@@ -74,8 +74,7 @@ class OAuthViewController: UIViewController {
             safari.dismiss(animated: true, completion: {
                 ProgressHUD.showSuccess(text: "OAuth Success")
                 CacheManager.cachedToken = accessToken
-                debugPrint(accessToken)
-//                NetworkManager.sharedManager.fetchRepos(accessToken)
+                LemonLog(accessToken)
             })
         }
     }

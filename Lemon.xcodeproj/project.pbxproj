@@ -24,12 +24,11 @@
 		A87AABE51E73BE9200A1BE2F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABE41E73BE9200A1BE2F /* NetworkManager.swift */; };
 		A87AABE81E73C4AF00A1BE2F /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABE71E73C4AF00A1BE2F /* CacheManager.swift */; };
 		A87AABEB1E73DB0500A1BE2F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABEA1E73DB0500A1BE2F /* Repository.swift */; };
-		A87AABED1E73DB3900A1BE2F /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABEC1E73DB3900A1BE2F /* Permission.swift */; };
-		A87AABEF1E73DB5100A1BE2F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABEE1E73DB5100A1BE2F /* User.swift */; };
 		A87AABF31E74564D00A1BE2F /* UIColor+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABF21E74564D00A1BE2F /* UIColor+Lemon.swift */; };
 		A87AABF51E74DDE600A1BE2F /* UIImage+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABF41E74DDE600A1BE2F /* UIImage+Lemon.swift */; };
 		A87AAC081E75977400A1BE2F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAC071E75977400A1BE2F /* Constants.swift */; };
 		A87AAC0A1E75B10A00A1BE2F /* DebugHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAC091E75B10A00A1BE2F /* DebugHelper.swift */; };
+		A87AAC0C1E76284D00A1BE2F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAC0B1E76284D00A1BE2F /* User.swift */; };
 		E8BE42F6C53E77A52DD02337 /* Pods_Lemon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,12 +67,11 @@
 		A87AABE41E73BE9200A1BE2F /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A87AABE71E73C4AF00A1BE2F /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		A87AABEA1E73DB0500A1BE2F /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		A87AABEC1E73DB3900A1BE2F /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
-		A87AABEE1E73DB5100A1BE2F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A87AABF21E74564D00A1BE2F /* UIColor+Lemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Lemon.swift"; sourceTree = "<group>"; };
 		A87AABF41E74DDE600A1BE2F /* UIImage+Lemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Lemon.swift"; sourceTree = "<group>"; };
 		A87AAC071E75977400A1BE2F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A87AAC091E75B10A00A1BE2F /* DebugHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugHelper.swift; sourceTree = "<group>"; };
+		A87AAC0B1E76284D00A1BE2F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lemon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19E4BD50D67E92A86A1DC15 /* Pods-Lemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lemon/Pods-Lemon.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,8 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				A87AABEA1E73DB0500A1BE2F /* Repository.swift */,
-				A87AABEC1E73DB3900A1BE2F /* Permission.swift */,
-				A87AABEE1E73DB5100A1BE2F /* User.swift */,
+				A87AAC0B1E76284D00A1BE2F /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -468,13 +465,12 @@
 				A87AAC081E75977400A1BE2F /* Constants.swift in Sources */,
 				A87AABDB1E73080000A1BE2F /* ProgressHUD.swift in Sources */,
 				A87AABE51E73BE9200A1BE2F /* NetworkManager.swift in Sources */,
+				A87AAC0C1E76284D00A1BE2F /* User.swift in Sources */,
 				A87AAB9D1E71887B00A1BE2F /* ViewController.swift in Sources */,
 				A87AABEB1E73DB0500A1BE2F /* Repository.swift in Sources */,
-				A87AABEF1E73DB5100A1BE2F /* User.swift in Sources */,
 				A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */,
 				A87AABF51E74DDE600A1BE2F /* UIImage+Lemon.swift in Sources */,
 				A87AABD71E72FFB100A1BE2F /* OAuthViewController.swift in Sources */,
-				A87AABED1E73DB3900A1BE2F /* Permission.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
