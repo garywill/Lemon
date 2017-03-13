@@ -9,8 +9,9 @@
 import Foundation
 import Alamofire
 
-typealias RequestSuccessHandler = (Any) -> Void
-typealias RequestFailureHandler = (Error) -> Void
+typealias RequestSuccess = ([String: Any]) -> Void
+typealias RequestSuccessArray = (Array<[String: Any]>) -> Void
+typealias RequestFailure = (Error) -> Void
 
 enum NetworkError: Error {
     case parseFailed
@@ -35,11 +36,58 @@ class AccessTokenAdapter: RequestAdapter {
 }
 
 class NetworkManager {
-    static let sharedManager = NetworkManager()
+    static let shared = NetworkManager()
     var sessionManager: SessionManager
 
     private init() {
         sessionManager = SessionManager()
+    }
+
+
+    /// Base Request
+    @discardableResult
+    private func request(
+        _ url: URLConvertible,
+        method: HTTPMethod = .get,
+        parameters: Parameters? = nil,
+        encoding: ParameterEncoding = JSONEncoding.default,
+        headers: HTTPHeaders? = nil,
+        successWithRawData: @escaping (Any) -> Void, failure: @escaping RequestFailure) -> DataRequest?
+    {
+        guard let token = CacheManager.cachedToken else { return nil }
+        sessionManager.adapter = AccessTokenAdapter(token)
+
+        LemonLog("\(method) ".uppercased() + "\(url)")
+        if parameters != nil {
+            LemonLog("parameters: \(parameters)")
+        }
+
+        var urlToRequest = url
+        if urlToRequest is String {
+            let urlString = urlToRequest as! String
+            if urlString.hasPrefix(Constants.GitHubBaseURL) == false {
+                if urlString.hasPrefix("/") == false {
+                    urlToRequest = Constants.GitHubBaseURL + "/" + urlString
+                } else {
+                    urlToRequest = Constants.GitHubBaseURL + urlString
+                }
+            }
+        }
+
+        return sessionManager.request(urlToRequest, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON { (response) in
+            if let err = response.error {
+                LemonLog("\(method)".uppercased() + "\(url) \(parameters)" + "\(err)")
+                failure(err)
+                return
+            }
+
+            if let result = response.result.value {
+                successWithRawData(result)
+                return
+            }
+
+            failure(NetworkError.parseFailed)
+        }
     }
 
 
@@ -50,50 +98,56 @@ class NetworkManager {
         parameters: Parameters? = nil,
         encoding: ParameterEncoding = JSONEncoding.default,
         headers: HTTPHeaders? = nil,
-        success: @escaping RequestSuccessHandler, failure: @escaping RequestFailureHandler)
+        successWithArrayObject: @escaping RequestSuccessArray, failure: @escaping RequestFailure) -> DataRequest?
     {
-        guard let token = CacheManager.cachedToken else { return }
-        sessionManager.adapter = AccessTokenAdapter(token)
 
-        LemonLog("\(method) ".uppercased() + "\(url) \(parameters)")
-        if parameters != nil {
-            LemonLog("parameters: \(parameters)")
+        return request(url, method: method, parameters: parameters, encoding: encoding, headers: headers, successWithRawData: { (result) in
+            if let r = result as? Array<[String: Any]> {
+                successWithArrayObject(r)
+            }
+        }) { (err) in
+            failure(err)
         }
+    }
 
-        
-        sessionManager.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON { (response) in
-            if let err = response.error {
-                LemonLog("\(method)".uppercased() + "\(url) \(parameters)" + "\(err)")
-                failure(err)
-                return
+    @discardableResult
+    open func request(
+        _ url: URLConvertible,
+        method: HTTPMethod = .get,
+        parameters: Parameters? = nil,
+        encoding: ParameterEncoding = JSONEncoding.default,
+        headers: HTTPHeaders? = nil,
+        successWithObject: @escaping RequestSuccess, failure: @escaping RequestFailure) -> DataRequest?
+    {
+        return request(url, method: method, parameters: parameters, encoding: encoding, headers: headers, successWithRawData: { (result) in
+            if let r = result as? [String: Any] {
+                successWithObject(r)
             }
-
-            if let result = response.result.value {
-                success(result)
-                return
-            }
-
-            failure(NetworkError.parseFailed)
+        }) { (err) in
+            failure(err)
         }
     }
 
 }
 
 class GitHubNetworkClient {
-    class func fetchRepos(success: @escaping (Array<Repository>) -> Void, failure: @escaping RequestFailureHandler) {
-        let url = "https://api.github.com/user/repos"
-        NetworkManager.sharedManager.request(url, method: .get, success: { (res) in
-            guard let r = res as? Array<Any> else {
-                failure(NetworkError.parseFailed)
-                return
-            }
-            let repos = r.map({ (r) -> Repository in
-                return Repository(r as! [String : Any])
+
+    class func fetchUserInfo(success: @escaping (User) -> Void, failure: @escaping RequestFailure) {
+        NetworkManager.shared.request("/user", successWithObject: { (res) in
+            success(User(res))
+        }) { (err) in
+            failure(err)
+        }
+    }
+
+    class func fetchRepos(success: @escaping (Array<Repository>) -> Void, failure: @escaping RequestFailure) {
+        NetworkManager.shared.request("/user/repos", successWithArrayObject: { (arrayObject) in
+            let repos = arrayObject.map({ (r) -> Repository in
+                return Repository(r)
             })
             success(repos)
-
-        }) { (error) in
-            failure(NetworkError.parseFailed)
+        }) { (err) in
+            failure(err)
         }
     }
 }
