@@ -67,6 +67,6 @@ class Event {
 
 extension Event: CustomStringConvertible {
     var description: String {
-        return "Event: `\(type ?? "")` Actor: `\(actor.login ?? "")` Repo: `\(repo.url ?? "")` `\(eventType ?? "")`"
+        return "Event: `\(type ?? "")` Actor: `\(actor.login ?? "")` Repo: `\(repo.url ?? "")`"
     }
 }

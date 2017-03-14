@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5821D74A290750E8892C8C52 /* Pods_LemonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D017D4186E8B110D3ABB714 /* Pods_LemonTests.framework */; };
 		A801319D1E76BCFD00876D4E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A801319C1E76BCFD00876D4E /* Event.swift */; };
+		A80131AA1E77729900876D4E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80131A91E77729900876D4E /* TabBarViewController.swift */; };
+		A80131AC1E7772B400876D4E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80131AB1E7772B400876D4E /* ProfileViewController.swift */; };
+		A80131AE1E7772C300876D4E /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80131AD1E7772C300876D4E /* EventsViewController.swift */; };
+		A80131B11E77739100876D4E /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80131B01E77739100876D4E /* ExploreViewController.swift */; };
 		A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */; };
 		A87AAB9D1E71887B00A1BE2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9C1E71887B00A1BE2F /* ViewController.swift */; };
 		A87AABA01E71887B00A1BE2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A87AAB9E1E71887B00A1BE2F /* Main.storyboard */; };
@@ -49,6 +53,10 @@
 		874744732D132BED779D86B4 /* Pods-Lemon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lemon/Pods-Lemon.debug.xcconfig"; sourceTree = "<group>"; };
 		8883C0328350522278D325A2 /* Pods-LemonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LemonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LemonTests/Pods-LemonTests.release.xcconfig"; sourceTree = "<group>"; };
 		A801319C1E76BCFD00876D4E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		A80131A91E77729900876D4E /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		A80131AB1E7772B400876D4E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A80131AD1E7772C300876D4E /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		A80131B01E77739100876D4E /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		A87AAB971E71887B00A1BE2F /* Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A87AAB9C1E71887B00A1BE2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +115,38 @@
 				8883C0328350522278D325A2 /* Pods-LemonTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A80131A21E776F9A00876D4E /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				A80131AD1E7772C300876D4E /* EventsViewController.swift */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
+		A80131A51E77707F00876D4E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A80131AB1E7772B400876D4E /* ProfileViewController.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		A80131A81E77727C00876D4E /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A80131A91E77729900876D4E /* TabBarViewController.swift */,
+			);
+			name = TabBar;
+			sourceTree = "<group>";
+		};
+		A80131AF1E77737C00876D4E /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				A80131B01E77739100876D4E /* ExploreViewController.swift */,
+			);
+			name = Explore;
 			sourceTree = "<group>";
 		};
 		A87AAB8E1E71887B00A1BE2F = {
@@ -217,6 +257,10 @@
 		A87AABF01E744D3600A1BE2F /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A80131AF1E77737C00876D4E /* Explore */,
+				A80131A81E77727C00876D4E /* TabBar */,
+				A80131A51E77707F00876D4E /* Profile */,
+				A80131A21E776F9A00876D4E /* Events */,
 				A87AABCD1E72F46700A1BE2F /* OAuth */,
 			);
 			name = Features;
@@ -460,14 +504,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				A87AABCF1E72F49800A1BE2F /* OAuthConstants.swift in Sources */,
+				A80131AE1E7772C300876D4E /* EventsViewController.swift in Sources */,
 				A87AABF31E74564D00A1BE2F /* UIColor+Lemon.swift in Sources */,
 				A87AABE81E73C4AF00A1BE2F /* CacheManager.swift in Sources */,
 				A87AAC0A1E75B10A00A1BE2F /* DebugHelper.swift in Sources */,
 				A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */,
 				A87AABD21E72F75A00A1BE2F /* OAuthHelper.swift in Sources */,
+				A80131AC1E7772B400876D4E /* ProfileViewController.swift in Sources */,
 				A87AAC081E75977400A1BE2F /* Constants.swift in Sources */,
 				A87AABDB1E73080000A1BE2F /* ProgressHUD.swift in Sources */,
 				A801319D1E76BCFD00876D4E /* Event.swift in Sources */,
+				A80131AA1E77729900876D4E /* TabBarViewController.swift in Sources */,
+				A80131B11E77739100876D4E /* ExploreViewController.swift in Sources */,
 				A87AABE51E73BE9200A1BE2F /* NetworkManager.swift in Sources */,
 				A87AAC0C1E76284D00A1BE2F /* User.swift in Sources */,
 				A87AAB9D1E71887B00A1BE2F /* ViewController.swift in Sources */,
