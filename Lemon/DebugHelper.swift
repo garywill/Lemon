@@ -14,7 +14,6 @@ func LemonLog<T>(_ object: @autoclosure () -> T, _ file: String = #file, _ funct
         let fileURL = NSURL(string: file)?.lastPathComponent ?? "Unknown file"
         let queue = Thread.isMainThread ? "UI" : "BG"
 
-//        print("<\(queue)> \(fileURL) \(function)[\(line)]: " + String(reflecting: value))
         print("[\(queue)] [\(fileURL):\(line)]: " + String(reflecting: value))
     #endif
 }

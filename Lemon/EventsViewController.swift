@@ -7,18 +7,17 @@
 //
 
 import UIKit
-import AsyncDisplayKit
 
 class EventsViewController: UIViewController {
 
-    var tableNode: ASTableNode
+    var tableNode: ASTableNode!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView = ASTableNode(style: .plain)
-        tableNode.delegate = self
-        tableNode.dataSource = self
+        tableNode = ASTableNode(style: .plain)
+//        tableNode.delegate = self
+//        tableNode.dataSource = self
 
         if let username = CacheManager.cachedUsername {
             GitHubNetworkClient.fetchReceivedEvents(username: username, success: { (events) in
