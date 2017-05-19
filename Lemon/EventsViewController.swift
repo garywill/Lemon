@@ -10,14 +10,8 @@ import UIKit
 
 class EventsViewController: UIViewController {
 
-    var tableNode: ASTableNode!
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableNode = ASTableNode(style: .plain)
-//        tableNode.delegate = self
-//        tableNode.dataSource = self
 
         if let username = CacheManager.cachedUsername {
             GitHubNetworkClient.fetchReceivedEvents(username: username, success: { (events) in
@@ -25,7 +19,10 @@ class EventsViewController: UIViewController {
             }, failure: { (err) in
             })
         }
-
+        
+        
+        let oauthVC = OAuthViewController(nibName: R.nib.oAuthViewController.name, bundle: R.nib.oAuthViewController.bundle)
+        present(oauthVC, animated: true, completion: nil)
     }
 
 

@@ -1,6 +1,12 @@
 PODS:
   - Alamofire (4.4.0)
   - MBProgressHUD (1.0.0)
+  - Moya/Core (8.0.4):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - Moya/ReactiveSwift (8.0.4):
+    - Moya/Core
+    - ReactiveSwift (~> 1.1)
   - R.swift (3.2.0):
     - R.swift.Library (~> 3.0.2)
   - R.swift.Library (3.0.2)
@@ -11,17 +17,19 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - MBProgressHUD
+  - Moya/ReactiveSwift
   - R.swift
   - ReactiveSwift (~> 1.1)
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  Moya: a08bc060c7a44eee27447b239ed33a189b641e2b
   R.swift: 207a372a2b5977caef440c696a368009460641d1
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
   ReactiveSwift: 2489549e3231a6ff68ec99f3d320bb264f10ba0a
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
 
-PODFILE CHECKSUM: dfcfe1f49faa52acea01b1f87ec2d887dd0232b5
+PODFILE CHECKSUM: 6f040f0620f0c2f631ee96dfebab8362bf4fb891
 
 COCOAPODS: 1.2.1

@@ -8,6 +8,7 @@ target 'Lemon' do
   pod 'R.swift' # https://github.com/mac-cain13/R.swift
   pod 'Alamofire', '~> 4.4' # https://github.com/Alamofire/Alamofire
   pod 'ReactiveSwift', '~> 1.1' # https://github.com/ReactiveCocoa/ReactiveSwift
+  pod 'Moya/ReactiveSwift' # https://github.com/Moya/Moya
 
   target 'LemonTests' do
     inherit! :search_paths

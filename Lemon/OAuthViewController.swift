@@ -10,10 +10,14 @@ import UIKit
 import Alamofire
 import SafariServices
 
+import Result
+import ReactiveSwift
+
 class OAuthViewController: UIViewController {
 
     @IBOutlet weak var OAuthButton: UIButton!
-    var safariVC: SFSafariViewController?
+    var safari: SFSafariViewController?
+    let viewModel = OAuthViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,30 +27,24 @@ class OAuthViewController: UIViewController {
         OAuthButton.layer.cornerRadius = 13
         OAuthButton.layer.masksToBounds = true
 
-        NotificationCenter.default.addObserver(self, selector: #selector(OAuthViewController.didReceiveOAuthURL(_:)), name: OAuthConstants.OAuthCallbackNotificationName, object: nil)
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    @IBAction func OAuthButtonAction(_ sender: UIButton) {
-        if let url = URL(string: OAuthConstants.URL) {
-            safariVC = SFSafariViewController(url: url)
-            if let safari = safariVC {
-                present(safari, animated: true, completion: nil)
-            }
+        NotificationCenter.default.reactive.notifications(forName: OAuthConstants.OAuthCallbackNotificationName)
+            .observeValues { [weak self] notification in
+                guard let url = notification.object as? URL else { self?.OAuthFailed(); return }
+                self?.viewModel.inputs.oauthURL(url)
+        }
+        
+        self.viewModel.outputs.oauthCode.skipNil().observeValues { [weak self] code in
+            self?.processCallbackCode(code)
         }
     }
-
-    func didReceiveOAuthURL(_ notification: NSNotification) {
-        guard let url = notification.object as? URL else { OAuthFailed(); return }
-        guard let code = OAuthHelper.decode("code", url.absoluteString) else { OAuthFailed(); return }
-        processCallbackCode(code)
-    }
-
-    func processCallbackCode(_ code: String) {
-        Alamofire.request(OAuthConstants.AccessTokenRequestURL, method: .post, parameters: OAuthConstants.accessTokenParamDiction(code), encoding: JSONEncoding.default, headers: nil).responseString { [unowned self] (response) in
+    
+    fileprivate func processCallbackCode(_ code: String) {
+        Alamofire.request(OAuthConstants.AccessTokenRequestURL,
+                          method: .post,
+                          parameters: OAuthConstants.accessTokenParamDiction(code),
+                          encoding: JSONEncoding.default,
+                          headers: nil)
+            .responseString { [unowned self] (response) in
             do {
                 /// fuck GitHub, it's not a valid JSON, so we have to parse by hand
                 let result = try response.result.unwrap()
@@ -60,23 +58,24 @@ class OAuthViewController: UIViewController {
             }
         }
     }
-    
+
+    @IBAction func OAuthButtonAction(_ sender: UIButton) {
+        let url = URL(string: OAuthConstants.URL)!
+        safari = SFSafariViewController(url: url)
+        guard let sa = safari else { return }
+        present(sa, animated: true, completion: nil)
+    }
+
     func OAuthFailed() {
-        if let safari = safariVC {
-            safari.dismiss(animated: true, completion: {
-                ProgressHUD.showFailure(text: "OAuth Failed, please try again")
-            })
-        }
+        ProgressHUD.showFailure(text: "OAuth Failed, please try again")
+        safari?.dismiss(animated: true)
     }
-    
+
     func OAuthSuccessed(_ accessToken: String) {
-        if let safari = safariVC {
-            safari.dismiss(animated: true, completion: {
-                ProgressHUD.showSuccess(text: "OAuth Success")
-                CacheManager.cachedToken = accessToken
-                LemonLog(accessToken)
-            })
-        }
+        ProgressHUD.showSuccess(text: "OAuth Success")
+        CacheManager.cachedToken = accessToken
+        LemonLog(accessToken)
+        safari?.dismiss(animated: true)
     }
-    
+
 }
