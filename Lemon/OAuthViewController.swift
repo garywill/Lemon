@@ -45,17 +45,13 @@ class OAuthViewController: UIViewController {
                           encoding: JSONEncoding.default,
                           headers: nil)
             .responseString { [unowned self] (response) in
-            do {
                 /// fuck GitHub, it's not a valid JSON, so we have to parse by hand
-                let result = try response.result.unwrap()
-                if let token = OAuthHelper.decode("access_token", "?" + result) {
+                let result = try? response.result.unwrap()
+                if let r = result, let token = OAuthHelper.decode("access_token", "?" + r) {
                     self.OAuthSuccessed(token)
-                } else {
-                    self.OAuthFailed()
+                    return
                 }
-            } catch {
                 self.OAuthFailed()
-            }
         }
     }
 

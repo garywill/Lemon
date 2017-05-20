@@ -15,6 +15,8 @@
 		A80131B11E77739100876D4E /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80131B01E77739100876D4E /* ExploreViewController.swift */; };
 		A83B7AAB1ECF437B005F08F8 /* OAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7AAA1ECF437B005F08F8 /* OAuthViewModel.swift */; };
 		A83B7AAD1ECF496B005F08F8 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */; };
+		A83B7ACC1ED0134C005F08F8 /* Response+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7ACB1ED0134C005F08F8 /* Response+ObjectMapper.swift */; };
+		A83B7ACE1ED01381005F08F8 /* SignalProducer+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7ACD1ED01381005F08F8 /* SignalProducer+ObjectMapper.swift */; };
 		A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */; };
 		A87AAB9D1E71887B00A1BE2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9C1E71887B00A1BE2F /* ViewController.swift */; };
 		A87AABA01E71887B00A1BE2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A87AAB9E1E71887B00A1BE2F /* Main.storyboard */; };
@@ -28,7 +30,6 @@
 		A87AABD81E72FFB100A1BE2F /* OAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A87AABD61E72FFB100A1BE2F /* OAuthViewController.xib */; };
 		A87AABDB1E73080000A1BE2F /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABDA1E73080000A1BE2F /* ProgressHUD.swift */; };
 		A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABDD1E73098600A1BE2F /* R.generated.swift */; };
-		A87AABE51E73BE9200A1BE2F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABE41E73BE9200A1BE2F /* NetworkManager.swift */; };
 		A87AABE81E73C4AF00A1BE2F /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABE71E73C4AF00A1BE2F /* CacheManager.swift */; };
 		A87AABEB1E73DB0500A1BE2F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABEA1E73DB0500A1BE2F /* Repository.swift */; };
 		A87AABF31E74564D00A1BE2F /* UIColor+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABF21E74564D00A1BE2F /* UIColor+Lemon.swift */; };
@@ -61,6 +62,8 @@
 		A80131B01E77739100876D4E /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		A83B7AAA1ECF437B005F08F8 /* OAuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewModel.swift; sourceTree = "<group>"; };
 		A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
+		A83B7ACB1ED0134C005F08F8 /* Response+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+ObjectMapper.swift"; sourceTree = "<group>"; };
+		A83B7ACD1ED01381005F08F8 /* SignalProducer+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SignalProducer+ObjectMapper.swift"; sourceTree = "<group>"; };
 		A87AAB971E71887B00A1BE2F /* Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A87AAB9C1E71887B00A1BE2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +81,6 @@
 		A87AABD61E72FFB100A1BE2F /* OAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OAuthViewController.xib; sourceTree = "<group>"; };
 		A87AABDA1E73080000A1BE2F /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		A87AABDD1E73098600A1BE2F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
-		A87AABE41E73BE9200A1BE2F /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A87AABE71E73C4AF00A1BE2F /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		A87AABEA1E73DB0500A1BE2F /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		A87AABF21E74564D00A1BE2F /* UIColor+Lemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Lemon.swift"; sourceTree = "<group>"; };
@@ -236,8 +238,9 @@
 		A87AABE31E73BE7500A1BE2F /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				A87AABE41E73BE9200A1BE2F /* NetworkManager.swift */,
 				A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */,
+				A83B7ACB1ED0134C005F08F8 /* Response+ObjectMapper.swift */,
+				A83B7ACD1ED01381005F08F8 /* SignalProducer+ObjectMapper.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				A87AABF31E74564D00A1BE2F /* UIColor+Lemon.swift in Sources */,
 				A87AABE81E73C4AF00A1BE2F /* CacheManager.swift in Sources */,
 				A87AAC0A1E75B10A00A1BE2F /* DebugHelper.swift in Sources */,
+				A83B7ACE1ED01381005F08F8 /* SignalProducer+ObjectMapper.swift in Sources */,
 				A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */,
 				A87AABD21E72F75A00A1BE2F /* OAuthHelper.swift in Sources */,
 				A80131AC1E7772B400876D4E /* ProfileViewController.swift in Sources */,
@@ -524,10 +528,10 @@
 				A83B7AAB1ECF437B005F08F8 /* OAuthViewModel.swift in Sources */,
 				A80131AA1E77729900876D4E /* TabBarViewController.swift in Sources */,
 				A80131B11E77739100876D4E /* ExploreViewController.swift in Sources */,
-				A87AABE51E73BE9200A1BE2F /* NetworkManager.swift in Sources */,
 				A87AAC0C1E76284D00A1BE2F /* User.swift in Sources */,
 				A87AAB9D1E71887B00A1BE2F /* ViewController.swift in Sources */,
 				A87AABEB1E73DB0500A1BE2F /* Repository.swift in Sources */,
+				A83B7ACC1ED0134C005F08F8 /* Response+ObjectMapper.swift in Sources */,
 				A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */,
 				A87AABF51E74DDE600A1BE2F /* UIImage+Lemon.swift in Sources */,
 				A87AABD71E72FFB100A1BE2F /* OAuthViewController.swift in Sources */,

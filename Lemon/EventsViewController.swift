@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Result
+import ReactiveSwift
 
 class EventsViewController: UIViewController {
 
@@ -14,15 +16,26 @@ class EventsViewController: UIViewController {
         super.viewDidLoad()
 
         if let username = CacheManager.cachedUsername {
-            GitHubNetworkClient.fetchReceivedEvents(username: username, success: { (events) in
-                LemonLog(events)
-            }, failure: { (err) in
-            })
+            GitHubProvider
+                .request(.Events(login: username))
+                .observe(on: UIScheduler())
+                .map(to: [Event.self])
+                .startWithResult{ result in
+                    LemonLog(result.value)
+                }
+        } else {
+            GitHubProvider
+                .request(.User)
+                .observe(on: UIScheduler())
+                .map(to: User.self)
+                .startWithResult{ result in
+                    LemonLog(result.value)
+                    CacheManager.cachedUsername = result.value?.login
+                }
         }
-        
-        
-        let oauthVC = OAuthViewController(nibName: R.nib.oAuthViewController.name, bundle: R.nib.oAuthViewController.bundle)
-        present(oauthVC, animated: true, completion: nil)
+
+        //let oauthVC = OAuthViewController(nibName: R.nib.oAuthViewController.name, bundle: R.nib.oAuthViewController.bundle)
+        //present(oauthVC, animated: true, completion: nil)
     }
 
 

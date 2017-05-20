@@ -9,6 +9,8 @@ target 'Lemon' do
   pod 'Alamofire', '~> 4.4' # https://github.com/Alamofire/Alamofire
   pod 'ReactiveSwift', '~> 1.1' # https://github.com/ReactiveCocoa/ReactiveSwift
   pod 'Moya/ReactiveSwift' # https://github.com/Moya/Moya
+  pod 'ObjectMapper', '~> 2.2' # https://github.com/Hearst-DD/ObjectMapper
+
 
   target 'LemonTests' do
     inherit! :search_paths
