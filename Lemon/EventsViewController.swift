@@ -8,47 +8,40 @@
 
 import UIKit
 import Result
-import ReactiveSwift
+import RxSwift
+import Moya
+import Moya_ObjectMapper
 
 class EventsViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let username = CacheManager.cachedUsername {
-            GitHubProvider
-                .request(.Events(login: username))
-                .observe(on: UIScheduler())
-                .map(to: [Event.self])
-                .startWithResult{ result in
-                    LemonLog(result.value)
-                }
-        } else {
-            GitHubProvider
-                .request(.User)
-                .observe(on: UIScheduler())
-                .map(to: User.self)
-                .startWithResult{ result in
-                    LemonLog(result.value)
-                    CacheManager.cachedUsername = result.value?.login
-                }
-        }
+//        if let username = CacheManager.cachedUsername {
+//            GitHubProvider
+//                .request(.Events(login: username))
+//                .mapArray(Event.self)
+//                .observeOn(MainScheduler.instance)
+//                .subscribe{ events in
+//                    LemonLog(events)
+//                }
+//                .addDisposableTo(disposeBag)
+//        } else {
+//            GitHubProvider
+//                .request(.User)
+//                .mapObject(User.self)
+//                .observeOn(MainScheduler.instance)
+//                .subscribe { event in
+//                    CacheManager.cachedUsername = event.element?.login
+//                }
+//                .addDisposableTo(disposeBag)
+//        }
 
-        //let oauthVC = OAuthViewController(nibName: R.nib.oAuthViewController.name, bundle: R.nib.oAuthViewController.bundle)
-        //present(oauthVC, animated: true, completion: nil)
+        let oauthVC = OAuthViewController(nibName: R.nib.oAuthViewController.name, bundle: R.nib.oAuthViewController.bundle)
+        present(oauthVC, animated: true, completion: nil)
     }
-
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

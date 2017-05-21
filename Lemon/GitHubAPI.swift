@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-public var GitHubProvider = ReactiveSwiftMoyaProvider<GitHub>(
+public var GitHubProvider = RxMoyaProvider<GitHub>(
     endpointClosure: endpointClosure
 )
 

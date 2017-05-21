@@ -6,11 +6,16 @@ target 'Lemon' do
   # Pods for Lemon
   pod 'MBProgressHUD'
   pod 'R.swift' # https://github.com/mac-cain13/R.swift
-  pod 'Alamofire', '~> 4.4' # https://github.com/Alamofire/Alamofire
-  pod 'ReactiveSwift', '~> 1.1' # https://github.com/ReactiveCocoa/ReactiveSwift
-  pod 'Moya/ReactiveSwift' # https://github.com/Moya/Moya
-  pod 'ObjectMapper', '~> 2.2' # https://github.com/Hearst-DD/ObjectMapper
-
+  pod 'TTTAttributedLabel'
+  
+  # Rx
+  pod 'Moya/RxSwift'
+  pod 'RxAlamofire'
+  pod 'RxSwift', '~> 3.0'
+  pod 'RxCocoa', '~> 3.0'
+  pod 'RxDataSources', '~> 1.0'
+  pod 'RxOptional'
+  pod 'Moya-ObjectMapper/RxSwift'
 
   target 'LemonTests' do
     inherit! :search_paths
