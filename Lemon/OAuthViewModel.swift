@@ -17,6 +17,7 @@ import RxAlamofire
 
 public protocol OAuthViewModelInputs {
     var oauthURL: PublishSubject<URL?> { get }
+    var cancelProcess: PublishSubject<()> { get }
 }
 
 public protocol OAuthViewModelOutputs {
@@ -30,10 +31,14 @@ public protocol OAuthViewModelType {
 
 public final class OAuthViewModel: OAuthViewModelType, OAuthViewModelInputs, OAuthViewModelOutputs {
     
+    
+    private let disposeBag = DisposeBag()
+    
     init() {
         oauthURL = PublishSubject<URL?>()
-        
-        oauthCode = oauthURL.asDriver(onErrorJustReturn: nil)
+        cancelProcess = PublishSubject<()>()
+
+        let realCode = oauthURL.asDriver(onErrorJustReturn: nil)
             .map { url -> String? in
                 return decodeOAuth(url)
             }.flatMap { url -> Driver<String?> in
@@ -48,11 +53,21 @@ public final class OAuthViewModel: OAuthViewModelType, OAuthViewModelInputs, OAu
                                     return OAuthHelper.decode("access_token", "?" + str)
                     }.asDriver(onErrorJustReturn: nil)
         }
+
+        let cancel: Driver<String?> = cancelProcess.asDriver(onErrorJustReturn: ()).map { return nil }
+        
+        /// Once user dismiss the VC, cancel that ULR process
+        cancelProcess.subscribe(onNext: {
+            let disposable = realCode.asObservable().subscribe()
+            disposable.dispose()
+        }).addDisposableTo(disposeBag)
+
+        oauthCode = Driver<String?>.merge(realCode, cancel)
     }
     
     public var oauthCode: Driver<String?>
     public var oauthURL: PublishSubject<URL?>
-    
+    public var cancelProcess: PublishSubject<()>
     
     public var outputs: OAuthViewModelOutputs { return self }
     public var inputs: OAuthViewModelInputs { return self }

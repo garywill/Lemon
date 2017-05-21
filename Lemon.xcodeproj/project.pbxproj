@@ -15,6 +15,7 @@
 		A80131B11E77739100876D4E /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80131B01E77739100876D4E /* ExploreViewController.swift */; };
 		A83B7AAB1ECF437B005F08F8 /* OAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7AAA1ECF437B005F08F8 /* OAuthViewModel.swift */; };
 		A83B7AAD1ECF496B005F08F8 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */; };
+		A83B7AD01ED137B4005F08F8 /* OAuthViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7ACF1ED137B4005F08F8 /* OAuthViewModelTest.swift */; };
 		A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */; };
 		A87AAB9D1E71887B00A1BE2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9C1E71887B00A1BE2F /* ViewController.swift */; };
 		A87AABA01E71887B00A1BE2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A87AAB9E1E71887B00A1BE2F /* Main.storyboard */; };
@@ -60,6 +61,7 @@
 		A80131B01E77739100876D4E /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		A83B7AAA1ECF437B005F08F8 /* OAuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewModel.swift; sourceTree = "<group>"; };
 		A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
+		A83B7ACF1ED137B4005F08F8 /* OAuthViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewModelTest.swift; sourceTree = "<group>"; };
 		A87AAB971E71887B00A1BE2F /* Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A87AAB9C1E71887B00A1BE2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				A87AABCE1E72F49800A1BE2F /* OAuthConstants.swift */,
 				A87AABD11E72F75A00A1BE2F /* OAuthHelper.swift */,
 				A83B7AAA1ECF437B005F08F8 /* OAuthViewModel.swift */,
+				A83B7ACF1ED137B4005F08F8 /* OAuthViewModelTest.swift */,
 				A87AABD51E72FFB100A1BE2F /* OAuthViewController.swift */,
 				A87AABD61E72FFB100A1BE2F /* OAuthViewController.xib */,
 			);
@@ -535,6 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A87AABB01E71887B00A1BE2F /* LemonTests.swift in Sources */,
+				A83B7AD01ED137B4005F08F8 /* OAuthViewModelTest.swift in Sources */,
 				A87AABD41E72FAB800A1BE2F /* OAuthTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -49,6 +49,7 @@ class OAuthViewController: UIViewController {
         let url = URL(string: OAuthConstants.URL)!
         safari = SFSafariViewController(url: url)
         guard let sa = safari else { return }
+        sa.delegate = self
         present(sa, animated: true, completion: nil)
     }
     
@@ -58,10 +59,19 @@ class OAuthViewController: UIViewController {
     }
     
     func OAuthSuccessed(_ accessToken: String) {
+        safari?.dismiss(animated: true)
         ProgressHUD.showSuccess(text: "OAuth Success")
         CacheManager.cachedToken = accessToken
         LemonLog(accessToken)
-        safari?.dismiss(animated: true)
+    }
+}
+
+extension OAuthViewController: SFSafariViewControllerDelegate {
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        self.viewModel.inputs.cancelProcess.onNext(())
     }
     
+    func safariViewController(_ controller: SFSafariViewController, didCompleteInitialLoad didLoadSuccessfully: Bool) {
+        
+    }
 }
