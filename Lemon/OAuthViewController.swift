@@ -70,8 +70,4 @@ extension OAuthViewController: SFSafariViewControllerDelegate {
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         self.viewModel.inputs.cancelProcess.onNext(())
     }
-    
-    func safariViewController(_ controller: SFSafariViewController, didCompleteInitialLoad didLoadSuccessfully: Bool) {
-        
-    }
 }

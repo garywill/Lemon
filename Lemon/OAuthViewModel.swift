@@ -41,7 +41,8 @@ public final class OAuthViewModel: OAuthViewModelType, OAuthViewModelInputs, OAu
         let realCode = oauthURL.asDriver(onErrorJustReturn: nil)
             .map { url -> String? in
                 return decodeOAuth(url)
-            }.flatMap { url -> Driver<String?> in
+            }
+            .flatMap { url -> Driver<String?> in
                 guard let u = url else {
                     return Driver.just(nil)
                 }
@@ -49,10 +50,12 @@ public final class OAuthViewModel: OAuthViewModelType, OAuthViewModelInputs, OAu
                                   method: .post,
                                   parameters: OAuthConstants.accessTokenParamDiction(u),
                                   encoding: JSONEncoding.default,
-                                  headers: nil).rx.responseString().map { response, str in
+                                  headers: nil).rx.responseString()
+                                .map { response, str in
                                     return OAuthHelper.decode("access_token", "?" + str)
-                    }.asDriver(onErrorJustReturn: nil)
-        }
+                                }
+                                .asDriver(onErrorJustReturn: nil)
+            }
 
         let cancel: Driver<String?> = cancelProcess.asDriver(onErrorJustReturn: ()).map { return nil }
         
