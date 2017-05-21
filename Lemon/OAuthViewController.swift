@@ -20,7 +20,7 @@ class OAuthViewController: UIViewController {
     let viewModel = OAuthViewModel()
     
     let disposeBag = DisposeBag()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,24 +44,7 @@ class OAuthViewController: UIViewController {
             self?.OAuthSuccessed(c)
         }).addDisposableTo(disposeBag)
     }
-    
-//    fileprivate func processCallbackCode(_ code: String) {
-//        Alamofire.request(OAuthConstants.AccessTokenRequestURL,
-//                          method: .post,
-//                          parameters: OAuthConstants.accessTokenParamDiction(code),
-//                          encoding: JSONEncoding.default,
-//                          headers: nil)
-//            .responseString { [unowned self] (response) in
-//                /// fuck GitHub, it's not a valid JSON, so we have to parse by hand
-//                let result = try? response.result.unwrap()
-//                if let r = result, let token = OAuthHelper.decode("access_token", "?" + r) {
-//                    self.OAuthSuccessed(token)
-//                    return
-//                }
-//                self.OAuthFailed()
-//        }
-//    }
-    
+
     @IBAction func OAuthButtonAction(_ sender: UIButton) {
         let url = URL(string: OAuthConstants.URL)!
         safari = SFSafariViewController(url: url)
