@@ -9,79 +9,79 @@ import Foundation
 import ObjectMapper
 
 enum EventType {
-    // when user star a repo
-    case WatchEvent(String)
-    case ForkEvent(Repository)
-    // ref_type ref master_branch description
-    case CreateEvent(String, String?, String, String)
+  // when user star a repo
+  case WatchEvent(String)
+  case ForkEvent(Repository)
+  // ref_type ref master_branch description
+  case CreateEvent(String, String?, String, String)
 }
 
 fileprivate let KnownEvents = [
-    "WatchEvent",
-    "ForkEvent",
-    "CreateEvent"
+  "WatchEvent",
+  "ForkEvent",
+  "CreateEvent"
 ]
 
 class Event: Mappable {
+  
+  var actor: User?
+  var createdAt: String?
+  var id: String?
+  var publicField: Bool?
+  var repo: Repository?
+  var type: String?
+  var eventType: EventType?
+  private var payloadData: [String : AnyObject] = [:]
+  
+  public init(){}
+  
+  public required init?(map: Map){
+    guard let type = map.JSON["type"] as? String else { return nil }
     
-    var actor: User?
-    var createdAt: String?
-    var id: String?
-    var publicField: Bool?
-    var repo: Repository?
-    var type: String?
-    var eventType: EventType?
-    private var payloadData: [String : AnyObject] = [:]
+    for t in KnownEvents {
+      if t == type {
+        return
+      }
+    }
+    return nil
+  }
+  
+  public func mapping(map: Map)
+  {
+    actor <- map["actor"]
+    createdAt <- map["created_at"]
+    id <- map["id"]
+    publicField <- map["public"]
+    repo <- map["repo"]
+    type <- map["type"]
+    payloadData <- map["payload"]
     
-    public init(){}
-
-    public required init?(map: Map){
-        guard let type = map.JSON["type"] as? String else { return nil }
-        
-        for t in KnownEvents {
-            if t == type {
-                return
-            }
-        }
-        return nil
+    guard let typeString = type else { return }
+    
+    switch typeString {
+    case "WatchEvent":
+      if let action = payloadData["action"] as? String {
+        eventType = EventType.WatchEvent(action)
+      }
+    case "ForkEvent":
+      if let forkeeDict = payloadData["forkee"] as? Map, let forkee = Repository(map: forkeeDict) {
+        eventType = EventType.ForkEvent(forkee)
+      }
+    case "CreateEvent":
+      if let ref_type = payloadData["ref_type"] as? String,
+        let ref = payloadData["ref"] as? String,
+        let master_branch = payloadData["master_branch"] as? String,
+        let description = payloadData["description"] as? String {
+        eventType = EventType.CreateEvent(ref_type, ref, master_branch, description)
+      }
+    default:
+      break
     }
-
-    public func mapping(map: Map)
-    {
-        actor <- map["actor"]
-        createdAt <- map["created_at"]
-        id <- map["id"]
-        publicField <- map["public"]
-        repo <- map["repo"]
-        type <- map["type"]
-        payloadData <- map["payload"]
-        
-        guard let typeString = type else { return }
-        
-        switch typeString {
-        case "WatchEvent":
-            if let action = payloadData["action"] as? String {
-                eventType = EventType.WatchEvent(action)
-            }
-        case "ForkEvent":
-            if let forkeeDict = payloadData["forkee"] as? Map, let forkee = Repository(map: forkeeDict) {
-                eventType = EventType.ForkEvent(forkee)
-            }
-        case "CreateEvent":
-            if let ref_type = payloadData["ref_type"] as? String,
-                let ref = payloadData["ref"] as? String,
-                let master_branch = payloadData["master_branch"] as? String,
-                let description = payloadData["description"] as? String {
-                eventType = EventType.CreateEvent(ref_type, ref, master_branch, description)
-            }
-        default:
-            break
-        }
-    }
+  }
 }
 
 extension Event: CustomStringConvertible {
-    var description: String {
-        return "Event: `\(type ?? "")` Actor: `\(actor?.login ?? "")` Repo: `\(repo?.url ?? "")`"
-    }
+  var description: String {
+    return "Event: `\(type ?? "")` Actor: `\(actor?.login ?? "")` Repo: `\(repo?.url ?? "")`"
+  }
 }
