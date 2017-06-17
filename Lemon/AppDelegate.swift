@@ -21,11 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     /// if we got the access token
     
-    //if _ = CacheManager.cachedToken {
-    //
-    //}
-    let oauthVC = OAuthViewController(nibName: R.nib.oAuthViewController.name, bundle: R.nib.oAuthViewController.bundle)
-    self.window?.rootViewController = oauthVC
+    if let _ = CacheManager.cachedToken {
+      self.window?.rootViewController = R.storyboard.main().instantiateInitialViewController()
+    } else {
+      let oauthVC = OAuthViewController(nibName: R.nib.oAuthViewController.name, bundle: R.nib.oAuthViewController.bundle)
+      self.window?.rootViewController = oauthVC
+    }
     return true
   }
   

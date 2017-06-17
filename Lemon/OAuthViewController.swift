@@ -66,7 +66,13 @@ class OAuthViewController: UIViewController {
     appDelegate.window!.rootViewController = R.storyboard.main().instantiateInitialViewController()
     ProgressHUD.showSuccess("OAuth Success")
     CacheManager.cachedToken = accessToken
-    LemonLog(accessToken)
+    LemonLog.Log(accessToken)
+  }
+  
+  static func show() {
+    let oauthVC = OAuthViewController(nibName: R.nib.oAuthViewController.name, bundle: R.nib.oAuthViewController.bundle)
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    appDelegate.window?.rootViewController?.present(oauthVC, animated: true, completion: nil)
   }
 }
 
