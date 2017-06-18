@@ -17,6 +17,8 @@ target 'Lemon' do
   pod 'RxOptional'
   pod 'Moya-ObjectMapper/RxSwift'
 
+  pod 'Texture'
+
   target 'LemonTests' do
     inherit! :search_paths
   end

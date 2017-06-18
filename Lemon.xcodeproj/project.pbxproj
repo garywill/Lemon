@@ -15,9 +15,7 @@
 		A80131B11E77739100876D4E /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80131B01E77739100876D4E /* ExploreViewController.swift */; };
 		A83B7AAB1ECF437B005F08F8 /* OAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7AAA1ECF437B005F08F8 /* OAuthViewModel.swift */; };
 		A83B7AAD1ECF496B005F08F8 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */; };
-		A83C96D31EF577F700CE46FE /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83C96D21EF577F700CE46FE /* EventTableViewCell.swift */; };
 		A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */; };
-		A87AAB9D1E71887B00A1BE2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9C1E71887B00A1BE2F /* ViewController.swift */; };
 		A87AABA01E71887B00A1BE2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A87AAB9E1E71887B00A1BE2F /* Main.storyboard */; };
 		A87AABA21E71887B00A1BE2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A87AABA11E71887B00A1BE2F /* Assets.xcassets */; };
 		A87AABA51E71887B00A1BE2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A87AABA31E71887B00A1BE2F /* LaunchScreen.storyboard */; };
@@ -36,6 +34,7 @@
 		A87AAC081E75977400A1BE2F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAC071E75977400A1BE2F /* Constants.swift */; };
 		A87AAC0A1E75B10A00A1BE2F /* DebugHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAC091E75B10A00A1BE2F /* DebugHelper.swift */; };
 		A87AAC0C1E76284D00A1BE2F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAC0B1E76284D00A1BE2F /* User.swift */; };
+		A8D1BB4B1EF62E7300FA6847 /* EventCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D1BB4A1EF62E7300FA6847 /* EventCellNode.swift */; };
 		E8BE42F6C53E77A52DD02337 /* Pods_Lemon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,10 +60,8 @@
 		A80131B01E77739100876D4E /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		A83B7AAA1ECF437B005F08F8 /* OAuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewModel.swift; sourceTree = "<group>"; };
 		A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
-		A83C96D21EF577F700CE46FE /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		A87AAB971E71887B00A1BE2F /* Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A87AAB9C1E71887B00A1BE2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A87AAB9F1E71887B00A1BE2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A87AABA11E71887B00A1BE2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A87AABA41E71887B00A1BE2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -86,6 +83,7 @@
 		A87AAC071E75977400A1BE2F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A87AAC091E75B10A00A1BE2F /* DebugHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugHelper.swift; sourceTree = "<group>"; };
 		A87AAC0B1E76284D00A1BE2F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A8D1BB4A1EF62E7300FA6847 /* EventCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCellNode.swift; sourceTree = "<group>"; };
 		AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lemon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19E4BD50D67E92A86A1DC15 /* Pods-Lemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lemon/Pods-Lemon.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,7 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				A80131AD1E7772C300876D4E /* EventsViewController.swift */,
-				A83C96D21EF577F700CE46FE /* EventTableViewCell.swift */,
+				A8D1BB4A1EF62E7300FA6847 /* EventCellNode.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -184,7 +182,6 @@
 				A87AABE31E73BE7500A1BE2F /* Network */,
 				A87AABD91E7307EE00A1BE2F /* UI Specific */,
 				A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */,
-				A87AAB9C1E71887B00A1BE2F /* ViewController.swift */,
 				A87AAB9E1E71887B00A1BE2F /* Main.storyboard */,
 				A87AABD01E72F4A700A1BE2F /* SupportingFiles */,
 			);
@@ -515,18 +512,17 @@
 				A87AABE81E73C4AF00A1BE2F /* CacheManager.swift in Sources */,
 				A87AAC0A1E75B10A00A1BE2F /* DebugHelper.swift in Sources */,
 				A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */,
+				A8D1BB4B1EF62E7300FA6847 /* EventCellNode.swift in Sources */,
 				A87AABD21E72F75A00A1BE2F /* OAuthHelper.swift in Sources */,
 				A80131AC1E7772B400876D4E /* ProfileViewController.swift in Sources */,
 				A87AAC081E75977400A1BE2F /* Constants.swift in Sources */,
 				A83B7AAD1ECF496B005F08F8 /* GitHubAPI.swift in Sources */,
 				A87AABDB1E73080000A1BE2F /* ProgressHUD.swift in Sources */,
 				A801319D1E76BCFD00876D4E /* Event.swift in Sources */,
-				A83C96D31EF577F700CE46FE /* EventTableViewCell.swift in Sources */,
 				A83B7AAB1ECF437B005F08F8 /* OAuthViewModel.swift in Sources */,
 				A80131AA1E77729900876D4E /* TabBarViewController.swift in Sources */,
 				A80131B11E77739100876D4E /* ExploreViewController.swift in Sources */,
 				A87AAC0C1E76284D00A1BE2F /* User.swift in Sources */,
-				A87AAB9D1E71887B00A1BE2F /* ViewController.swift in Sources */,
 				A87AABEB1E73DB0500A1BE2F /* Repository.swift in Sources */,
 				A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */,
 				A87AABF51E74DDE600A1BE2F /* UIImage+Lemon.swift in Sources */,

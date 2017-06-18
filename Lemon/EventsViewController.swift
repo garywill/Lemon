@@ -11,9 +11,10 @@ import Result
 import RxSwift
 import Moya
 import Moya_ObjectMapper
+import AsyncDisplayKit
 
 class EventsViewController: UIViewController {
-  @IBOutlet weak var tableView: UITableView!
+  let tableNode = ASTableNode()
   
   var events = Variable<[Event]>([])
   
@@ -22,18 +23,23 @@ class EventsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    tableView.delegate = self
-    tableView.dataSource = self
-//    tableView.register(EventTableViewCell.self, forCellReuseIdentifier: "cell")
-    
+    view.addSubnode(tableNode)
+    tableNode.dataSource = self
+    tableNode.delegate = self
+
     events.asObservable()
       .subscribeOn(MainScheduler.instance)
       .subscribe(onNext: { [weak self] events in
-        self?.tableView.reloadData()
+        self?.tableNode.reloadData()
       })
       .addDisposableTo(disposeBag)
     
     requestEvents()
+  }
+  
+  override func viewWillLayoutSubviews() {
+    super.viewWillLayoutSubviews()
+    tableNode.frame = view.bounds
   }
   
   func requestEvents() {
@@ -53,6 +59,7 @@ class EventsViewController: UIViewController {
         }
         return Observable.from([])
       }
+      .debug()
       .do(onError: { error in
         ProgressHUD.showFailure("Failed to get events")
       })
@@ -63,19 +70,24 @@ class EventsViewController: UIViewController {
   }
 }
 
-extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
-  func numberOfSections(in tableView: UITableView) -> Int {
+extension EventsViewController: ASTableDataSource, ASTableDelegate {
+  func tableNode(_ tableNode: ASTableNode, constrainedSizeForRowAt indexPath: IndexPath) -> ASSizeRange {
+    let width = UIScreen.main.bounds.size.width;
+    let min = CGSize(width: width, height: 100)
+    let max = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
+    return ASSizeRange(min: min, max: max)
+  }
+
+  func numberOfSections(in tableNode: ASTableNode) -> Int {
     return 1
   }
-  
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+  func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
     return events.value.count
   }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EventTableViewCell
+
+  func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
     let event = events.value[indexPath.row]
-    cell.configure(event)
-    return cell
+    return EventCellNode(event: event)
   }
 }
