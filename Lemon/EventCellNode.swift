@@ -17,6 +17,11 @@ class EventCellNode: ASCellNode {
   var timeLabel = ASTextNode()
   var avatar = ASNetworkImageNode()
   
+  override func didLoad() {
+    layer.as_allowsHighlightDrawing = true
+    super.didLoad()
+  }
+  
   init(event: Event) {
     super.init()
     
@@ -26,7 +31,7 @@ class EventCellNode: ASCellNode {
       switch eventType {
       case .WatchEvent(let action):
         if let userName = event.actor?.login, let userURL = event.actor?.url {
-          let userNameAttrString = NSAttributedString(string: userName + " ",
+          let userNameAttrString = NSAttributedString(string: userName,
                                                       attributes:
             [
               NSForegroundColorAttributeName: UIColor.lmGithubBlue,
@@ -35,7 +40,7 @@ class EventCellNode: ASCellNode {
             ])
           attrString.append(userNameAttrString)
         }
-        let actionAttrString = NSAttributedString(string: action + "\n", attributes:
+        let actionAttrString = NSAttributedString(string: " " + action + "\n", attributes:
           [
             NSForegroundColorAttributeName: UIColor.lmDarkGrey,
             NSFontAttributeName: UIFont(name: "Menlo-Regular", size: 17)!
@@ -58,14 +63,25 @@ class EventCellNode: ASCellNode {
     eventLabel.delegate = self
     eventLabel.isUserInteractionEnabled = true
     eventLabel.linkAttributeNames = [linkAttributeName]
+    let paraStyle = NSMutableParagraphStyle()
+    paraStyle.lineSpacing = 3
+    attrString.addAttributes(
+      [
+        NSParagraphStyleAttributeName: paraStyle
+      ], range: NSRange(location: 0, length: attrString.length))
     eventLabel.attributedText = attrString
     eventLabel.passthroughNonlinkTouches = true
     
     timeLabel.maximumNumberOfLines = 1
     eventLabel.maximumNumberOfLines = 10
 
-    if let t = event.createdAt {
-      timeLabel.attributedText = NSAttributedString(string: t, attributes: nil)
+    if let date = event.createdAt {
+      let dateAttrString = NSAttributedString(string: date.lm_ago(), attributes:
+        [
+          NSForegroundColorAttributeName: UIColor.lmLightGrey,
+          NSFontAttributeName: UIFont(name: "Menlo-Regular", size: 14)!
+        ])
+      timeLabel.attributedText = dateAttrString
     }
 
     if let u = event.actor?.avatarUrl {

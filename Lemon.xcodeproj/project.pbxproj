@@ -35,6 +35,7 @@
 		A87AAC0A1E75B10A00A1BE2F /* DebugHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAC091E75B10A00A1BE2F /* DebugHelper.swift */; };
 		A87AAC0C1E76284D00A1BE2F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAC0B1E76284D00A1BE2F /* User.swift */; };
 		A8D1BB4B1EF62E7300FA6847 /* EventCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D1BB4A1EF62E7300FA6847 /* EventCellNode.swift */; };
+		A8D1BB4D1EF69FC100FA6847 /* Date+ago.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D1BB4C1EF69FC100FA6847 /* Date+ago.swift */; };
 		E8BE42F6C53E77A52DD02337 /* Pods_Lemon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		A87AAC091E75B10A00A1BE2F /* DebugHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugHelper.swift; sourceTree = "<group>"; };
 		A87AAC0B1E76284D00A1BE2F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A8D1BB4A1EF62E7300FA6847 /* EventCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCellNode.swift; sourceTree = "<group>"; };
+		A8D1BB4C1EF69FC100FA6847 /* Date+ago.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+ago.swift"; sourceTree = "<group>"; };
 		AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lemon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19E4BD50D67E92A86A1DC15 /* Pods-Lemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lemon/Pods-Lemon.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -227,6 +229,7 @@
 				A87AABDA1E73080000A1BE2F /* ProgressHUD.swift */,
 				A87AABF21E74564D00A1BE2F /* UIColor+Lemon.swift */,
 				A87AABF41E74DDE600A1BE2F /* UIImage+Lemon.swift */,
+				A8D1BB4C1EF69FC100FA6847 /* Date+ago.swift */,
 			);
 			name = "UI Specific";
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */,
 				A87AABF51E74DDE600A1BE2F /* UIImage+Lemon.swift in Sources */,
 				A87AABD71E72FFB100A1BE2F /* OAuthViewController.swift in Sources */,
+				A8D1BB4D1EF69FC100FA6847 /* Date+ago.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,8 @@
 import Foundation
 import ObjectMapper
 
+
+
 enum EventType {
   // when user stars a repo
   case WatchEvent(String)
@@ -17,16 +19,17 @@ enum EventType {
   case CreateEvent(String, String?, String, String)
 }
 
+// currently only support WatchEvent
 fileprivate let KnownEvents = [
-  "WatchEvent",
-  "ForkEvent",
-  "CreateEvent"
+  "WatchEvent"
+  //"ForkEvent",
+  //"CreateEvent"
 ]
 
 class Event: Mappable {
   
   var actor: User?
-  var createdAt: String?
+  var createdAt: Date?
   var id: String?
   var publicField: Bool?
   var repo: Repository?
@@ -45,13 +48,14 @@ class Event: Mappable {
         return
       }
     }
+    
     return nil
   }
   
   public func mapping(map: Map)
   {
     actor <- map["actor"]
-    createdAt <- map["created_at"]
+    createdAt <- (map["created_at"], DateFormatterTransform(dateFormatter: dateFormatter))
     id <- map["id"]
     publicField <- map["public"]
     repo <- map["repo"]
