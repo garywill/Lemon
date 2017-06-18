@@ -26,6 +26,7 @@ class EventsViewController: UIViewController {
     view.addSubnode(tableNode)
     tableNode.dataSource = self
     tableNode.delegate = self
+    tableNode.allowsSelection = false
 
     events.asObservable()
       .subscribeOn(MainScheduler.instance)
