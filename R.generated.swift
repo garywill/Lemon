@@ -31,12 +31,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 2 images.
+  /// This `R.image` struct is generated, and contains static references to 3 images.
   struct image {
     /// Image `ProgressHud_Fail_normal`.
     static let progressHud_Fail_normal = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProgressHud_Fail_normal")
     /// Image `ProgressHud_Success_normal`.
     static let progressHud_Success_normal = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProgressHud_Success_normal")
+    /// Image `event_star`.
+    static let event_star = Rswift.ImageResource(bundle: R.hostingBundle, name: "event_star")
     
     /// `UIImage(named: "ProgressHud_Fail_normal", bundle: ..., traitCollection: ...)`
     static func progressHud_Fail_normal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -46,6 +48,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "ProgressHud_Success_normal", bundle: ..., traitCollection: ...)`
     static func progressHud_Success_normal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.progressHud_Success_normal, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "event_star", bundle: ..., traitCollection: ...)`
+    static func event_star(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.event_star, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}

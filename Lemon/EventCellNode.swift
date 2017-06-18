@@ -13,9 +13,10 @@ import PINRemoteImage
 let linkAttributeName = "com.lemon.ios.linkAttributeName"
 
 class EventCellNode: ASCellNode {
-  var eventLabel = ASTextNode()
-  var timeLabel = ASTextNode()
-  var avatar = ASNetworkImageNode()
+  let eventLabel = ASTextNode()
+  let timeLabel = ASTextNode()
+  let avatar = ASNetworkImageNode()
+  let iconNode = ASImageNode()
   
   override func didLoad() {
     layer.as_allowsHighlightDrawing = true
@@ -56,6 +57,7 @@ class EventCellNode: ASCellNode {
             ])
           attrString.append(repoAttrString)
         }
+        iconNode.image = #imageLiteral(resourceName: "event_star")
         break
       default: break
       }
@@ -91,6 +93,7 @@ class EventCellNode: ASCellNode {
     addSubnode(eventLabel)
     addSubnode(timeLabel)
     addSubnode(avatar)
+    addSubnode(iconNode)
   }
 
   override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -112,6 +115,8 @@ class EventCellNode: ASCellNode {
       return output
     }
 
+    let icon = ASInsetLayoutSpec(insets: UIEdgeInsets.init(top: 5, left: .infinity, bottom: .infinity, right: 5) , child: iconNode)
+
     let time = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .end, alignItems: .stretch, children: [timeLabel])
 
     let spec = ASStackLayoutSpec(direction: .vertical, spacing: 10, justifyContent: .start, alignItems: .stretch, children: [eventLabel, time])
@@ -119,7 +124,8 @@ class EventCellNode: ASCellNode {
 
     let all = ASStackLayoutSpec(direction: .horizontal, spacing: 10, justifyContent: .start, alignItems: .stretch, children: [avatar, spec])
 
-    return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(10, 10, 10, 10), child: all)
+    let inset =  ASInsetLayoutSpec(insets: UIEdgeInsetsMake(10, 10, 10, 10), child: all)
+    return ASOverlayLayoutSpec(child: inset, overlay: icon)
   }
 
 }
