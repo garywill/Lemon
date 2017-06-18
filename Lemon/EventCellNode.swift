@@ -41,6 +41,21 @@ class EventCellNode: ASCellNode {
     avatar.style.preferredSize = CGSize(width: 50, height: 50)
     eventLabel.style.maxWidth = ASDimensionMake(300)
     eventLabel.style.flexGrow = 1.0
+    avatar.imageModificationBlock = { image in
+      let rect = CGRect(origin: .zero, size: image.size)
+      
+      UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale)
+      UIGraphicsGetCurrentContext()?.addPath(UIBezierPath(roundedRect: rect, byRoundingCorners: UIRectCorner.allCorners,
+                                    cornerRadii: CGSize(width: 50, height: 50)).cgPath)
+      UIGraphicsGetCurrentContext()?.clip()
+      
+      image.draw(in: rect)
+      UIGraphicsGetCurrentContext()!.drawPath(using: .fillStroke)
+      let output = UIGraphicsGetImageFromCurrentImageContext();
+      UIGraphicsEndImageContext();
+      
+      return output
+    }
 
     let time = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .end, alignItems: .stretch, children: [timeLabel])
 

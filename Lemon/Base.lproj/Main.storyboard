@@ -19,7 +19,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="HTA-F4-eLb" kind="relationship" relationship="viewControllers" id="cRf-j6-i07"/>
+                        <segue destination="N6Y-Eu-aWM" kind="relationship" relationship="viewControllers" id="Men-W7-uJ4"/>
                         <segue destination="TP5-1W-asN" kind="relationship" relationship="viewControllers" id="lS6-c8-u8y"/>
                         <segue destination="aWr-GX-Agw" kind="relationship" relationship="viewControllers" id="1Ks-Zw-WZ9"/>
                     </connections>
@@ -64,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BxZ-Kr-miH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="751.20000000000005" y="-457.42128935532236"/>
+            <point key="canvasLocation" x="2007.2" y="-457.42128935532236"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="H57-RM-IdV">
@@ -84,25 +84,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K5o-Aj-tg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="561" y="947"/>
-        </scene>
-        <!--Events-->
-        <scene sceneID="90a-rl-iGd">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HTA-F4-eLb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Events" id="Eo9-Q1-wXB"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MVn-2q-wx8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="keB-Hv-flD" kind="relationship" relationship="rootViewController" id="xxe-KB-5ip"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NFD-h3-mF8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-84" y="-457"/>
         </scene>
         <!--Profile-->
         <scene sceneID="hcM-5k-Fl6">
@@ -141,6 +122,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e4d-Bh-FBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-84" y="292"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="wKV-Az-S8R">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N6Y-Eu-aWM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="DXl-AY-Q7a"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hIm-tP-CIA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="keB-Hv-flD" kind="relationship" relationship="rootViewController" id="vyp-fc-p16"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aN2-AB-Jng" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1068" y="-457.42128935532236"/>
         </scene>
     </scenes>
 </document>

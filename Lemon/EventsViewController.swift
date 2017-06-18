@@ -22,7 +22,7 @@ class EventsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
     view.addSubnode(tableNode)
     tableNode.dataSource = self
     tableNode.delegate = self
@@ -39,9 +39,12 @@ class EventsViewController: UIViewController {
   
   override func viewWillLayoutSubviews() {
     super.viewWillLayoutSubviews()
-    tableNode.frame = view.bounds
+    let statusBarHeight = UIApplication.shared.statusBarFrame.height
+    let navHeight = self.navigationController?.navigationBar.bounds.size.height ?? 0
+    let tabBarheight = self.tabBarController?.tabBar.bounds.size.height ?? 0
+    tableNode.frame = CGRect(x: 0, y: navHeight + statusBarHeight, width: view.bounds.width, height: view.bounds.height - navHeight - tabBarheight - statusBarHeight)
   }
-  
+
   func requestEvents() {
     GitHubProvider
       .request(.User)
