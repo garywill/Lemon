@@ -57,7 +57,6 @@ PODS:
     - PINRemoteImage/iOS (= 3.0.0-beta.9)
     - PINRemoteImage/PINCache
     - Texture/Core
-  - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - MBProgressHUD
@@ -70,7 +69,6 @@ DEPENDENCIES:
   - RxOptional
   - RxSwift (~> 3.0)
   - Texture
-  - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
@@ -90,8 +88,7 @@ SPEC CHECKSUMS:
   RxOptional: b97b59183af80d1e729ac9e51d09a10be668d6a8
   RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
   Texture: e01a363c2b6567e1ff27a878995e0d271fbb424c
-  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: b1e2a752d4b5fbe514f458d4a22e8e44a8d4cebb
+PODFILE CHECKSUM: fcfbdca45685c782b4cbd8172982a39e25a424b9
 
 COCOAPODS: 1.2.1

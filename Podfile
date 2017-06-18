@@ -6,7 +6,6 @@ target 'Lemon' do
   # Pods for Lemon
   pod 'MBProgressHUD'
   pod 'R.swift' # https://github.com/mac-cain13/R.swift
-  pod 'TTTAttributedLabel'
   
   # Rx
   pod 'Moya/RxSwift'
