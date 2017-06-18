@@ -10,6 +10,8 @@ import UIKit
 import AsyncDisplayKit
 import PINRemoteImage
 
+let linkAttributeName = "com.lemon.ios.linkAttributeName"
+
 class EventCellNode: ASCellNode {
   var eventLabel = ASTextNode()
   var timeLabel = ASTextNode()
@@ -18,12 +20,50 @@ class EventCellNode: ASCellNode {
   init(event: Event) {
     super.init()
     
+    let attrString = NSMutableAttributedString()
+    
+    if let eventType = event.eventType {
+      switch eventType {
+      case .WatchEvent(let action):
+        if let userName = event.actor?.login, let userURL = event.actor?.url {
+          let userNameAttrString = NSAttributedString(string: userName + " ",
+                                                      attributes:
+            [
+              NSForegroundColorAttributeName: UIColor.lmGithubBlue,
+              NSFontAttributeName: UIFont(name: "Menlo-Regular", size: 17)!,
+              linkAttributeName: URL(string: userURL)!
+            ])
+          attrString.append(userNameAttrString)
+        }
+        let actionAttrString = NSAttributedString(string: action + "\n", attributes:
+          [
+            NSForegroundColorAttributeName: UIColor.lmDarkGrey,
+            NSFontAttributeName: UIFont(name: "Menlo-Regular", size: 17)!
+          ]
+        )
+        attrString.append(actionAttrString)
+        if let repo = event.repo?.name, let repoURL = event.repo?.url {
+          let repoAttrString = NSAttributedString(string: repo, attributes:
+            [
+              NSForegroundColorAttributeName: UIColor.lmGithubBlue,
+              NSFontAttributeName: UIFont(name: "Menlo-Regular", size: 17)!,
+              linkAttributeName: URL(string: repoURL)!
+            ])
+          attrString.append(repoAttrString)
+        }
+        break
+      default: break
+      }
+    }
+    eventLabel.delegate = self
+    eventLabel.isUserInteractionEnabled = true
+    eventLabel.linkAttributeNames = [linkAttributeName]
+    eventLabel.attributedText = attrString
+    eventLabel.passthroughNonlinkTouches = true
+    
     timeLabel.maximumNumberOfLines = 1
     eventLabel.maximumNumberOfLines = 10
 
-    if let e = event.repo?.url {
-      eventLabel.attributedText = NSAttributedString(string: e, attributes: nil)
-    }
     if let t = event.createdAt {
       timeLabel.attributedText = NSAttributedString(string: t, attributes: nil)
     }
@@ -41,14 +81,13 @@ class EventCellNode: ASCellNode {
     avatar.style.preferredSize = CGSize(width: 50, height: 50)
     eventLabel.style.maxWidth = ASDimensionMake(300)
     eventLabel.style.flexGrow = 1.0
+    // corner radius
     avatar.imageModificationBlock = { image in
       let rect = CGRect(origin: .zero, size: image.size)
-      
       UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale)
       UIGraphicsGetCurrentContext()?.addPath(UIBezierPath(roundedRect: rect, byRoundingCorners: UIRectCorner.allCorners,
                                     cornerRadii: CGSize(width: 50, height: 50)).cgPath)
       UIGraphicsGetCurrentContext()?.clip()
-      
       image.draw(in: rect)
       UIGraphicsGetCurrentContext()!.drawPath(using: .fillStroke)
       let output = UIGraphicsGetImageFromCurrentImageContext();
@@ -67,4 +106,14 @@ class EventCellNode: ASCellNode {
     return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(10, 10, 10, 10), child: all)
   }
 
+}
+
+extension EventCellNode: ASTextNodeDelegate {
+  func textNode(_ textNode: ASTextNode, shouldHighlightLinkAttribute attribute: String, value: Any, at point: CGPoint) -> Bool {
+    return true
+  }
+  
+  func textNode(_ textNode: ASTextNode, tappedLinkAttribute attribute: String, value: Any, at point: CGPoint, textRange: NSRange) {
+    UIApplication.shared.open(value as! URL)
+  }
 }

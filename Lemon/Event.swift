@@ -9,10 +9,11 @@ import Foundation
 import ObjectMapper
 
 enum EventType {
-  // when user star a repo
+  // when user stars a repo
   case WatchEvent(String)
+  /// repo
   case ForkEvent(Repository)
-  // ref_type ref master_branch description
+  /// ref_type ref master_branch description
   case CreateEvent(String, String?, String, String)
 }
 
@@ -38,6 +39,7 @@ class Event: Mappable {
   public required init?(map: Map){
     guard let type = map.JSON["type"] as? String else { return nil }
     
+    // ignore unknown events
     for t in KnownEvents {
       if t == type {
         return
