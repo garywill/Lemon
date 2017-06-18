@@ -9,12 +9,16 @@
 import UIKit
 import AsyncDisplayKit
 import PINRemoteImage
+import RxSwift
+import RxCocoa
 
 class EventCellNode: ASCellNode {
   let eventLabel = ASTextNode()
   let timeLabel = ASTextNode()
   let avatar = ASNetworkImageNode()
   let iconNode = ASImageNode()
+  let viewModel: EventCellViewModel
+  public let bag = DisposeBag()
   
   override func didLoad() {
     layer.as_allowsHighlightDrawing = true
@@ -22,6 +26,7 @@ class EventCellNode: ASCellNode {
   }
   
   init(viewModel: EventCellViewModel) {
+    self.viewModel = viewModel
     super.init()
 
     eventLabel.linkAttributeNames = [viewModel.linkAttributeName]
@@ -30,6 +35,7 @@ class EventCellNode: ASCellNode {
     if let avatarURL = viewModel.avatarURL {
       avatar.url = avatarURL
     }
+    avatar.addTarget(self, action: #selector(handleAvatarTouched), forControlEvents: .touchUpInside)
 
     eventLabel.delegate = self
     eventLabel.isUserInteractionEnabled = true
@@ -63,14 +69,21 @@ class EventCellNode: ASCellNode {
     return ASOverlayLayoutSpec(child: inset, overlay: icon)
   }
 
+
+  func handleAvatarTouched() {
+    if let u = viewModel.event.actor?.url {
+      viewModel.inputs.didTapLink.onNext(URL(string: u))
+    }
+  }
+
 }
 
 extension EventCellNode: ASTextNodeDelegate {
   func textNode(_ textNode: ASTextNode, shouldHighlightLinkAttribute attribute: String, value: Any, at point: CGPoint) -> Bool {
     return true
   }
-  
+
   func textNode(_ textNode: ASTextNode, tappedLinkAttribute attribute: String, value: Any, at point: CGPoint, textRange: NSRange) {
-    UIApplication.shared.open(value as! URL)
+    viewModel.inputs.didTapLink.onNext(value as? URL)
   }
 }

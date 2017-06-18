@@ -8,15 +8,43 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
-public final class EventCellViewModel {
+public protocol EventViewModelInputs {
+  var didTapLink: PublishSubject<URL?> { get }
+}
+
+public protocol EventViewModelOutputs {
+  var linkURL: Driver<URL?> { get }
+}
+
+public protocol EventViewModelType {
+  var inputs: EventViewModelInputs { get }
+  var outputs: EventViewModelOutputs { get }
+}
+
+public final class EventCellViewModel: EventViewModelType, EventViewModelOutputs, EventViewModelInputs {
+
+  public var outputs: EventViewModelOutputs { return self }
+  public var inputs: EventViewModelInputs { return self }
+
+  public var linkURL: Driver<URL?>
+  public var didTapLink: PublishSubject<URL?>
+
   var eventAttributedString = NSAttributedString()
   var dateAttributedString = NSAttributedString()
   let linkAttributeName = "com.lemon.ios.linkAttributeName"
   var avatarURL: URL?
   var iconImage: UIImage?
+  let event: GitHubEvent
 
   init(event: GitHubEvent) {
+
+    self.event = event
+    didTapLink = PublishSubject()
+    linkURL = didTapLink.asDriver(onErrorJustReturn: nil)
+
     let attrString = NSMutableAttributedString()
 
     if let eventType = event.eventType {

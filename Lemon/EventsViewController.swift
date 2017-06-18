@@ -26,7 +26,6 @@ class EventsViewController: UIViewController {
     view.addSubnode(tableNode)
     tableNode.dataSource = self
     tableNode.delegate = self
-    tableNode.allowsSelection = false
 
     events.asObservable()
       .subscribeOn(MainScheduler.instance)
@@ -70,6 +69,11 @@ class EventsViewController: UIViewController {
       })
       .addDisposableTo(disposeBag)
   }
+
+  func deal(url: URL?) {
+    guard let url = url else { return }
+    LemonLog.Log(url)
+  }
 }
 
 extension EventsViewController: ASTableDataSource, ASTableDelegate {
@@ -78,6 +82,14 @@ extension EventsViewController: ASTableDataSource, ASTableDelegate {
     let min = CGSize(width: width, height: 100)
     let max = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
     return ASSizeRange(min: min, max: max)
+  }
+
+  func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
+    tableNode.deselectRow(at: indexPath, animated: true)
+    let event = events.value[indexPath.row]
+    if let URLString = event.repo?.url {
+      self.deal(url: URL(string: URLString))
+    }
   }
 
   func numberOfSections(in tableNode: ASTableNode) -> Int {
@@ -91,6 +103,12 @@ extension EventsViewController: ASTableDataSource, ASTableDelegate {
   func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
     let event = events.value[indexPath.row]
     let viewModel = EventCellViewModel(event: event)
-    return EventCellNode(viewModel: viewModel)
+    let node = EventCellNode(viewModel: viewModel)
+    viewModel.outputs.linkURL.asObservable()
+      .subscribe(onNext: { [weak self] URL in
+        self?.deal(url: URL)
+      }).addDisposableTo(node.bag)
+
+    return node
   }
 }
