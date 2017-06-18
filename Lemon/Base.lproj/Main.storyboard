@@ -17,6 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.20392156862745098" green="0.40000000000000002" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="N6Y-Eu-aWM" kind="relationship" relationship="viewControllers" id="Men-W7-uJ4"/>
@@ -89,7 +90,7 @@
         <scene sceneID="hcM-5k-Fl6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aWr-GX-Agw" customClass="LemonNavigationViewController" customModule="Lemon" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="Ojx-hb-lJR"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="tabbar_profile" id="Ojx-hb-lJR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xlb-Sd-bSe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -108,7 +109,7 @@
         <scene sceneID="Tx6-NP-eBT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TP5-1W-asN" customClass="LemonNavigationViewController" customModule="Lemon" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Explore" id="OY2-ic-i14"/>
+                    <tabBarItem key="tabBarItem" title="Explore" image="tabbar_explore" id="OY2-ic-i14"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g6I-Cu-4MG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -123,11 +124,11 @@
             </objects>
             <point key="canvasLocation" x="-84" y="292"/>
         </scene>
-        <!--Item-->
+        <!--Events-->
         <scene sceneID="wKV-Az-S8R">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N6Y-Eu-aWM" customClass="LemonNavigationViewController" customModule="Lemon" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="DXl-AY-Q7a"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="tabbar_events" id="DXl-AY-Q7a"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hIm-tP-CIA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -143,4 +144,9 @@
             <point key="canvasLocation" x="1068" y="-457.42128935532236"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tabbar_events" width="26" height="21"/>
+        <image name="tabbar_explore" width="21" height="27"/>
+        <image name="tabbar_profile" width="22" height="25"/>
+    </resources>
 </document>

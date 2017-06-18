@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 3 images.
+  /// This `R.image` struct is generated, and contains static references to 6 images.
   struct image {
     /// Image `ProgressHud_Fail_normal`.
     static let progressHud_Fail_normal = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProgressHud_Fail_normal")
@@ -39,6 +39,12 @@ struct R: Rswift.Validatable {
     static let progressHud_Success_normal = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProgressHud_Success_normal")
     /// Image `event_star`.
     static let event_star = Rswift.ImageResource(bundle: R.hostingBundle, name: "event_star")
+    /// Image `tabbar_events`.
+    static let tabbar_events = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabbar_events")
+    /// Image `tabbar_explore`.
+    static let tabbar_explore = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabbar_explore")
+    /// Image `tabbar_profile`.
+    static let tabbar_profile = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabbar_profile")
     
     /// `UIImage(named: "ProgressHud_Fail_normal", bundle: ..., traitCollection: ...)`
     static func progressHud_Fail_normal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -53,6 +59,21 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "event_star", bundle: ..., traitCollection: ...)`
     static func event_star(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.event_star, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "tabbar_events", bundle: ..., traitCollection: ...)`
+    static func tabbar_events(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tabbar_events, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "tabbar_explore", bundle: ..., traitCollection: ...)`
+    static func tabbar_explore(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tabbar_explore, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "tabbar_profile", bundle: ..., traitCollection: ...)`
+    static func tabbar_profile(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tabbar_profile, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -108,7 +129,7 @@ struct R: Rswift.Validatable {
   
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
-      // There are no resources to validate
+      try _R.validate()
     }
     
     fileprivate init() {}
@@ -119,7 +140,11 @@ struct R: Rswift.Validatable {
   fileprivate init() {}
 }
 
-struct _R {
+struct _R: Rswift.Validatable {
+  static func validate() throws {
+    try storyboard.validate()
+  }
+  
   struct nib {
     struct _OAuthViewController: Rswift.NibResourceType {
       let bundle = R.hostingBundle
@@ -135,7 +160,11 @@ struct _R {
     fileprivate init() {}
   }
   
-  struct storyboard {
+  struct storyboard: Rswift.Validatable {
+    static func validate() throws {
+      try main.validate()
+    }
+    
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
       typealias InitialController = UIKit.UIViewController
       
@@ -145,11 +174,17 @@ struct _R {
       fileprivate init() {}
     }
     
-    struct main: Rswift.StoryboardResourceWithInitialControllerType {
+    struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = TabBarViewController
       
       let bundle = R.hostingBundle
       let name = "Main"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "tabbar_profile") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar_profile' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "tabbar_explore") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar_explore' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "tabbar_events") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar_events' is used in storyboard 'Main', but couldn't be loaded.") }
+      }
       
       fileprivate init() {}
     }
