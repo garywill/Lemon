@@ -26,7 +26,7 @@ fileprivate let KnownEvents = [
   //"CreateEvent"
 ]
 
-class Event: Mappable {
+class GitHubEvent: Mappable {
   
   var actor: User?
   var createdAt: Date?
@@ -86,7 +86,7 @@ class Event: Mappable {
   }
 }
 
-extension Event: CustomStringConvertible {
+extension GitHubEvent: CustomStringConvertible {
   var description: String {
     return "Event: `\(type ?? "")` Actor: `\(actor?.login ?? "")` Repo: `\(repo?.url ?? "")`"
   }

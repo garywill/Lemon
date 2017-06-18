@@ -10,8 +10,6 @@ import UIKit
 import AsyncDisplayKit
 import PINRemoteImage
 
-let linkAttributeName = "com.lemon.ios.linkAttributeName"
-
 class EventCellNode: ASCellNode {
   let eventLabel = ASTextNode()
   let timeLabel = ASTextNode()
@@ -23,73 +21,22 @@ class EventCellNode: ASCellNode {
     super.didLoad()
   }
   
-  init(event: Event) {
+  init(viewModel: EventCellViewModel) {
     super.init()
-    
-    let attrString = NSMutableAttributedString()
-    
-    if let eventType = event.eventType {
-      switch eventType {
-      case .WatchEvent(let action):
-        if let userName = event.actor?.login, let userURL = event.actor?.url {
-          let userNameAttrString = NSAttributedString(string: userName,
-                                                      attributes:
-            [
-              NSForegroundColorAttributeName: UIColor.lmGithubBlue,
-              NSFontAttributeName: UIFont(name: "Menlo-Regular", size: 17)!,
-              linkAttributeName: URL(string: userURL)!
-            ])
-          attrString.append(userNameAttrString)
-        }
-        let actionAttrString = NSAttributedString(string: " " + action + "\n", attributes:
-          [
-            NSForegroundColorAttributeName: UIColor.lmDarkGrey,
-            NSFontAttributeName: UIFont(name: "Menlo-Regular", size: 17)!
-          ]
-        )
-        attrString.append(actionAttrString)
-        if let repo = event.repo?.name, let repoURL = event.repo?.url {
-          let repoAttrString = NSAttributedString(string: repo, attributes:
-            [
-              NSForegroundColorAttributeName: UIColor.lmGithubBlue,
-              NSFontAttributeName: UIFont(name: "Menlo-Regular", size: 17)!,
-              linkAttributeName: URL(string: repoURL)!
-            ])
-          attrString.append(repoAttrString)
-        }
-        iconNode.image = #imageLiteral(resourceName: "event_star")
-        break
-      default: break
-      }
+
+    eventLabel.linkAttributeNames = [viewModel.linkAttributeName]
+    eventLabel.attributedText = viewModel.eventAttributedString
+    timeLabel.attributedText = viewModel.dateAttributedString
+    if let avatarURL = viewModel.avatarURL {
+      avatar.url = avatarURL
     }
+
     eventLabel.delegate = self
     eventLabel.isUserInteractionEnabled = true
-    eventLabel.linkAttributeNames = [linkAttributeName]
-    let paraStyle = NSMutableParagraphStyle()
-    paraStyle.lineSpacing = 3
-    attrString.addAttributes(
-      [
-        NSParagraphStyleAttributeName: paraStyle
-      ], range: NSRange(location: 0, length: attrString.length))
-    eventLabel.attributedText = attrString
     eventLabel.passthroughNonlinkTouches = true
-    
     timeLabel.maximumNumberOfLines = 1
     eventLabel.maximumNumberOfLines = 10
 
-    if let date = event.createdAt {
-      let dateAttrString = NSAttributedString(string: date.lm_ago(), attributes:
-        [
-          NSForegroundColorAttributeName: UIColor.lmLightGrey,
-          NSFontAttributeName: UIFont(name: "Menlo-Regular", size: 14)!
-        ])
-      timeLabel.attributedText = dateAttrString
-    }
-
-    if let u = event.actor?.avatarUrl {
-      avatar.url = URL(string: u)
-    }
-    
     addSubnode(eventLabel)
     addSubnode(timeLabel)
     addSubnode(avatar)
@@ -101,19 +48,7 @@ class EventCellNode: ASCellNode {
     eventLabel.style.maxWidth = ASDimensionMake(300)
     eventLabel.style.flexGrow = 1.0
     // corner radius
-    avatar.imageModificationBlock = { image in
-      let rect = CGRect(origin: .zero, size: image.size)
-      UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale)
-      UIGraphicsGetCurrentContext()?.addPath(UIBezierPath(roundedRect: rect, byRoundingCorners: UIRectCorner.allCorners,
-                                    cornerRadii: CGSize(width: 50, height: 50)).cgPath)
-      UIGraphicsGetCurrentContext()?.clip()
-      image.draw(in: rect)
-      UIGraphicsGetCurrentContext()!.drawPath(using: .fillStroke)
-      let output = UIGraphicsGetImageFromCurrentImageContext();
-      UIGraphicsEndImageContext();
-      
-      return output
-    }
+    avatar.imageModificationBlock = { $0.lm_cornerRadiused() }
 
     let icon = ASInsetLayoutSpec(insets: UIEdgeInsets.init(top: 5, left: .infinity, bottom: .infinity, right: 5) , child: iconNode)
 

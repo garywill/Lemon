@@ -16,7 +16,7 @@ import AsyncDisplayKit
 class EventsViewController: UIViewController {
   let tableNode = ASTableNode()
 
-  var events = Variable<[Event]>([])
+  var events = Variable<[GitHubEvent]>([])
 
   let disposeBag = DisposeBag()
 
@@ -52,11 +52,11 @@ class EventsViewController: UIViewController {
       .do(onError: { error in
         ProgressHUD.showFailure("OAuth first")
       })
-      .flatMap { user -> Observable<[Event]> in
+      .flatMap { user -> Observable<[GitHubEvent]> in
         if let login = user.login {
           return GitHubProvider
             .request(.Events(login: login))
-            .mapArray(Event.self)
+            .mapArray(GitHubEvent.self)
             .observeOn(MainScheduler.instance)
         }
         return Observable.from([])
@@ -90,6 +90,7 @@ extension EventsViewController: ASTableDataSource, ASTableDelegate {
 
   func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
     let event = events.value[indexPath.row]
-    return EventCellNode(event: event)
+    let viewModel = EventCellViewModel(event: event)
+    return EventCellNode(viewModel: viewModel)
   }
 }

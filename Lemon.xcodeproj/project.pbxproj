@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		5821D74A290750E8892C8C52 /* Pods_LemonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D017D4186E8B110D3ABB714 /* Pods_LemonTests.framework */; };
-		A801319D1E76BCFD00876D4E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = A801319C1E76BCFD00876D4E /* Event.swift */; };
+		A801319D1E76BCFD00876D4E /* GitHubEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A801319C1E76BCFD00876D4E /* GitHubEvent.swift */; };
 		A80131AA1E77729900876D4E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80131A91E77729900876D4E /* TabBarViewController.swift */; };
 		A80131AC1E7772B400876D4E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80131AB1E7772B400876D4E /* ProfileViewController.swift */; };
 		A80131AE1E7772C300876D4E /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80131AD1E7772C300876D4E /* EventsViewController.swift */; };
 		A80131B11E77739100876D4E /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80131B01E77739100876D4E /* ExploreViewController.swift */; };
 		A8063EBA1EF6B1BE00DB076F /* LemonNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8063EB91EF6B1BE00DB076F /* LemonNavigationViewController.swift */; };
+		A80CF4FD1EF6CE51007DC8D9 /* UIFont+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80CF4FC1EF6CE51007DC8D9 /* UIFont+Lemon.swift */; };
+		A81ED1831EF6C88600B968E7 /* EventCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81ED1821EF6C88600B968E7 /* EventCellViewModel.swift */; };
 		A83B7AAB1ECF437B005F08F8 /* OAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7AAA1ECF437B005F08F8 /* OAuthViewModel.swift */; };
 		A83B7AAD1ECF496B005F08F8 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */; };
 		A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */; };
@@ -55,12 +57,14 @@
 		7DED9CF752472A94611E688A /* Pods-LemonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LemonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LemonTests/Pods-LemonTests.debug.xcconfig"; sourceTree = "<group>"; };
 		874744732D132BED779D86B4 /* Pods-Lemon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lemon/Pods-Lemon.debug.xcconfig"; sourceTree = "<group>"; };
 		8883C0328350522278D325A2 /* Pods-LemonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LemonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LemonTests/Pods-LemonTests.release.xcconfig"; sourceTree = "<group>"; };
-		A801319C1E76BCFD00876D4E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		A801319C1E76BCFD00876D4E /* GitHubEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubEvent.swift; sourceTree = "<group>"; };
 		A80131A91E77729900876D4E /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		A80131AB1E7772B400876D4E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A80131AD1E7772C300876D4E /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		A80131B01E77739100876D4E /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		A8063EB91EF6B1BE00DB076F /* LemonNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LemonNavigationViewController.swift; sourceTree = "<group>"; };
+		A80CF4FC1EF6CE51007DC8D9 /* UIFont+Lemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Lemon.swift"; sourceTree = "<group>"; };
+		A81ED1821EF6C88600B968E7 /* EventCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCellViewModel.swift; sourceTree = "<group>"; };
 		A83B7AAA1ECF437B005F08F8 /* OAuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewModel.swift; sourceTree = "<group>"; };
 		A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		A87AAB971E71887B00A1BE2F /* Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +132,7 @@
 			children = (
 				A80131AD1E7772C300876D4E /* EventsViewController.swift */,
 				A8D1BB4A1EF62E7300FA6847 /* EventCellNode.swift */,
+				A81ED1821EF6C88600B968E7 /* EventCellViewModel.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				A87AABF21E74564D00A1BE2F /* UIColor+Lemon.swift */,
 				A87AABF41E74DDE600A1BE2F /* UIImage+Lemon.swift */,
 				A8D1BB4C1EF69FC100FA6847 /* Date+ago.swift */,
+				A80CF4FC1EF6CE51007DC8D9 /* UIFont+Lemon.swift */,
 			);
 			name = "UI Specific";
 			sourceTree = "<group>";
@@ -258,7 +264,7 @@
 			children = (
 				A87AABEA1E73DB0500A1BE2F /* Repository.swift */,
 				A87AAC0B1E76284D00A1BE2F /* User.swift */,
-				A801319C1E76BCFD00876D4E /* Event.swift */,
+				A801319C1E76BCFD00876D4E /* GitHubEvent.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -513,6 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A87AABCF1E72F49800A1BE2F /* OAuthConstants.swift in Sources */,
+				A81ED1831EF6C88600B968E7 /* EventCellViewModel.swift in Sources */,
 				A80131AE1E7772C300876D4E /* EventsViewController.swift in Sources */,
 				A87AABF31E74564D00A1BE2F /* UIColor+Lemon.swift in Sources */,
 				A87AABE81E73C4AF00A1BE2F /* CacheManager.swift in Sources */,
@@ -524,13 +531,14 @@
 				A87AAC081E75977400A1BE2F /* Constants.swift in Sources */,
 				A83B7AAD1ECF496B005F08F8 /* GitHubAPI.swift in Sources */,
 				A87AABDB1E73080000A1BE2F /* ProgressHUD.swift in Sources */,
-				A801319D1E76BCFD00876D4E /* Event.swift in Sources */,
+				A801319D1E76BCFD00876D4E /* GitHubEvent.swift in Sources */,
 				A83B7AAB1ECF437B005F08F8 /* OAuthViewModel.swift in Sources */,
 				A80131AA1E77729900876D4E /* TabBarViewController.swift in Sources */,
 				A80131B11E77739100876D4E /* ExploreViewController.swift in Sources */,
 				A87AAC0C1E76284D00A1BE2F /* User.swift in Sources */,
 				A87AABEB1E73DB0500A1BE2F /* Repository.swift in Sources */,
 				A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */,
+				A80CF4FD1EF6CE51007DC8D9 /* UIFont+Lemon.swift in Sources */,
 				A8063EBA1EF6B1BE00DB076F /* LemonNavigationViewController.swift in Sources */,
 				A87AABF51E74DDE600A1BE2F /* UIImage+Lemon.swift in Sources */,
 				A87AABD71E72FFB100A1BE2F /* OAuthViewController.swift in Sources */,
