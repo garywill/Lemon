@@ -88,7 +88,7 @@
         <!--Profile-->
         <scene sceneID="hcM-5k-Fl6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aWr-GX-Agw" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aWr-GX-Agw" customClass="LemonNavigationViewController" customModule="Lemon" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" id="Ojx-hb-lJR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xlb-Sd-bSe">
@@ -107,7 +107,7 @@
         <!--Explore-->
         <scene sceneID="Tx6-NP-eBT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TP5-1W-asN" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TP5-1W-asN" customClass="LemonNavigationViewController" customModule="Lemon" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore" id="OY2-ic-i14"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g6I-Cu-4MG">
@@ -126,10 +126,10 @@
         <!--Item-->
         <scene sceneID="wKV-Az-S8R">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N6Y-Eu-aWM" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N6Y-Eu-aWM" customClass="LemonNavigationViewController" customModule="Lemon" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="DXl-AY-Q7a"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hIm-tP-CIA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hIm-tP-CIA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

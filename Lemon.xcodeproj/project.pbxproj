@@ -13,6 +13,7 @@
 		A80131AC1E7772B400876D4E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80131AB1E7772B400876D4E /* ProfileViewController.swift */; };
 		A80131AE1E7772C300876D4E /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80131AD1E7772C300876D4E /* EventsViewController.swift */; };
 		A80131B11E77739100876D4E /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80131B01E77739100876D4E /* ExploreViewController.swift */; };
+		A8063EBA1EF6B1BE00DB076F /* LemonNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8063EB91EF6B1BE00DB076F /* LemonNavigationViewController.swift */; };
 		A83B7AAB1ECF437B005F08F8 /* OAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7AAA1ECF437B005F08F8 /* OAuthViewModel.swift */; };
 		A83B7AAD1ECF496B005F08F8 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */; };
 		A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */; };
@@ -59,6 +60,7 @@
 		A80131AB1E7772B400876D4E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A80131AD1E7772C300876D4E /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		A80131B01E77739100876D4E /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		A8063EB91EF6B1BE00DB076F /* LemonNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LemonNavigationViewController.swift; sourceTree = "<group>"; };
 		A83B7AAA1ECF437B005F08F8 /* OAuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewModel.swift; sourceTree = "<group>"; };
 		A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		A87AAB971E71887B00A1BE2F /* Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				A80131A91E77729900876D4E /* TabBarViewController.swift */,
+				A8063EB91EF6B1BE00DB076F /* LemonNavigationViewController.swift */,
 			);
 			name = TabBar;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				A87AAC0C1E76284D00A1BE2F /* User.swift in Sources */,
 				A87AABEB1E73DB0500A1BE2F /* Repository.swift in Sources */,
 				A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */,
+				A8063EBA1EF6B1BE00DB076F /* LemonNavigationViewController.swift in Sources */,
 				A87AABF51E74DDE600A1BE2F /* UIImage+Lemon.swift in Sources */,
 				A87AABD71E72FFB100A1BE2F /* OAuthViewController.swift in Sources */,
 				A8D1BB4D1EF69FC100FA6847 /* Date+ago.swift in Sources */,

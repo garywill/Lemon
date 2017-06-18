@@ -15,11 +15,11 @@ import AsyncDisplayKit
 
 class EventsViewController: UIViewController {
   let tableNode = ASTableNode()
-  
+
   var events = Variable<[Event]>([])
-  
+
   let disposeBag = DisposeBag()
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -34,16 +34,14 @@ class EventsViewController: UIViewController {
         self?.tableNode.reloadData()
       })
       .addDisposableTo(disposeBag)
-    
+
     requestEvents()
   }
-  
+
   override func viewWillLayoutSubviews() {
     super.viewWillLayoutSubviews()
-    let statusBarHeight = UIApplication.shared.statusBarFrame.height
-    let navHeight = self.navigationController?.navigationBar.bounds.size.height ?? 0
     let tabBarheight = self.tabBarController?.tabBar.bounds.size.height ?? 0
-    tableNode.frame = CGRect(x: 0, y: navHeight + statusBarHeight, width: view.bounds.width, height: view.bounds.height - navHeight - tabBarheight - statusBarHeight)
+    tableNode.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height - tabBarheight)
   }
 
   func requestEvents() {
