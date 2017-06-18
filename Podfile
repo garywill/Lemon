@@ -6,6 +6,7 @@ target 'Lemon' do
   # Pods for Lemon
   pod 'MBProgressHUD'
   pod 'R.swift' # https://github.com/mac-cain13/R.swift
+  pod 'Texture'
   
   # Rx
   pod 'Moya/RxSwift'
@@ -15,8 +16,6 @@ target 'Lemon' do
   pod 'RxDataSources', '~> 1.0'
   pod 'RxOptional'
   pod 'Moya-ObjectMapper/RxSwift'
-
-  pod 'Texture'
 
   target 'LemonTests' do
     inherit! :search_paths
