@@ -15,6 +15,7 @@ import AsyncDisplayKit
 
 class EventsViewController: UIViewController {
   let tableNode = ASTableNode()
+  let refreshControl = UIRefreshControl()
 
   var events = Variable<[GitHubEvent]>([])
 
@@ -22,6 +23,36 @@ class EventsViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    let firstPage = GitHubProvider
+      .request(.User)
+      .mapObject(User.self)
+      .flatMap { user -> Observable<[GitHubEvent]> in
+        if let login = user.login {
+          return GitHubProvider
+            .request(.Events(login: login))
+            .mapArray(GitHubEvent.self)
+            .observeOn(MainScheduler.instance)
+        }
+        return Observable.from([])
+      }
+      .debug()
+
+    refreshControl.backgroundColor = UIColor.clear
+    refreshControl.tintColor = UIColor.lmLightGrey
+    refreshControl.rx.controlEvent(.valueChanged)
+      .flatMap { _ in
+        return firstPage
+      }
+      .subscribe(onNext: { events in
+        self.events.value = events
+        self.refreshControl.endRefreshing()
+      }, onError: { error in
+        self.refreshControl.endRefreshing()
+      })
+      .disposed(by: disposeBag)
+
+    tableNode.view.addSubview(refreshControl)
 
     view.addSubnode(tableNode)
     tableNode.dataSource = self
@@ -32,9 +63,7 @@ class EventsViewController: UIViewController {
       .subscribe(onNext: { [weak self] events in
         self?.tableNode.reloadData()
       })
-      .addDisposableTo(disposeBag)
-
-    requestEvents()
+      .disposed(by: disposeBag)
   }
 
   override func viewWillLayoutSubviews() {
@@ -50,6 +79,7 @@ class EventsViewController: UIViewController {
       .observeOn(MainScheduler.instance)
       .do(onError: { error in
         ProgressHUD.showFailure("OAuth first")
+        self.refreshControl.endRefreshing()
       })
       .flatMap { user -> Observable<[GitHubEvent]> in
         if let login = user.login {
@@ -63,9 +93,11 @@ class EventsViewController: UIViewController {
       .debug()
       .do(onError: { error in
         ProgressHUD.showFailure("Failed to get events")
+        self.refreshControl.endRefreshing()
       })
       .subscribe(onNext: { elements in
         self.events.value = elements
+        self.refreshControl.endRefreshing()
       })
       .addDisposableTo(disposeBag)
   }
