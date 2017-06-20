@@ -21,6 +21,20 @@ class EventsViewController: UIViewController {
 
   let disposeBag = DisposeBag()
 
+  struct State {
+    var itemCount: Int
+    var page: Int
+    var fetchingMore: Bool
+    static let empty = State(itemCount: 0, page: 1, fetchingMore: false)
+  }
+
+  enum Action {
+    case beginBatchFetch
+    case endBatchFetch(resultCount: Int)
+  }
+
+    fileprivate(set) var state: State = .empty
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -30,7 +44,7 @@ class EventsViewController: UIViewController {
       .flatMap { user -> Observable<[GitHubEvent]> in
         if let login = user.login {
           return GitHubProvider
-            .request(.Events(login: login))
+            .request(.Events(login: login, page: 1))
             .mapArray(GitHubEvent.self)
             .observeOn(MainScheduler.instance)
         }
@@ -47,6 +61,8 @@ class EventsViewController: UIViewController {
       .subscribe(onNext: { events in
         self.events.value = events
         self.refreshControl.endRefreshing()
+        self.state.page = 1
+        self.state.itemCount = events.count
       }, onError: { error in
         self.refreshControl.endRefreshing()
       })
@@ -62,44 +78,16 @@ class EventsViewController: UIViewController {
       .subscribeOn(MainScheduler.instance)
       .subscribe(onNext: { [weak self] events in
         self?.tableNode.reloadData()
+        self?.state.itemCount = events.count
       })
       .disposed(by: disposeBag)
+
   }
 
   override func viewWillLayoutSubviews() {
     super.viewWillLayoutSubviews()
     let tabBarheight = self.tabBarController?.tabBar.bounds.size.height ?? 0
     tableNode.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height - tabBarheight)
-  }
-
-  func requestEvents() {
-    GitHubProvider
-      .request(.User)
-      .mapObject(User.self)
-      .observeOn(MainScheduler.instance)
-      .do(onError: { error in
-        ProgressHUD.showFailure("OAuth first")
-        self.refreshControl.endRefreshing()
-      })
-      .flatMap { user -> Observable<[GitHubEvent]> in
-        if let login = user.login {
-          return GitHubProvider
-            .request(.Events(login: login))
-            .mapArray(GitHubEvent.self)
-            .observeOn(MainScheduler.instance)
-        }
-        return Observable.from([])
-      }
-      .debug()
-      .do(onError: { error in
-        ProgressHUD.showFailure("Failed to get events")
-        self.refreshControl.endRefreshing()
-      })
-      .subscribe(onNext: { elements in
-        self.events.value = elements
-        self.refreshControl.endRefreshing()
-      })
-      .addDisposableTo(disposeBag)
   }
 
   func deal(url: URL?) {
@@ -129,10 +117,22 @@ extension EventsViewController: ASTableDataSource, ASTableDelegate {
   }
 
   func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
-    return events.value.count
+    var count = events.value.count
+    if state.fetchingMore {
+      count += 1
+    }
+    return count
   }
 
   func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode {
+    let rowCount = self.tableNode(tableNode, numberOfRowsInSection: 0)
+
+    if state.fetchingMore && indexPath.row == rowCount - 1 {
+      let node = TailLoadingCellNode()
+      node.style.height = ASDimensionMake(44.0)
+      return node;
+    }
+
     let event = events.value[indexPath.row]
     let viewModel = EventCellViewModel(event: event)
     let node = EventCellNode(viewModel: viewModel)
@@ -142,5 +142,50 @@ extension EventsViewController: ASTableDataSource, ASTableDelegate {
       }).addDisposableTo(node.bag)
 
     return node
+  }
+
+  func tableNode(_ tableNode: ASTableNode, willBeginBatchFetchWith context: ASBatchContext) {
+
+    if events.value.count == 0 {
+      context.completeBatchFetching(true)
+      return
+    }
+
+    GitHubProvider
+      .request(.User)
+      .mapObject(User.self)
+      .flatMap { user -> Observable<[GitHubEvent]> in
+        if let login = user.login {
+          return GitHubProvider
+            .request(.Events(login: login, page: self.state.page + 1))
+            .mapArray(GitHubEvent.self)
+            .observeOn(MainScheduler.instance)
+        }
+        return Observable.just([])
+      }
+      .subscribe(onNext: { e in
+        let action = Action.endBatchFetch(resultCount: e.count)
+        let oldState = self.state
+        self.state = EventsViewController.handleAction(action, fromState: oldState)
+        self.state.page += 1
+        self.events.value.append(contentsOf: e)
+        context.completeBatchFetching(true)
+      }, onError: { e in
+        ProgressHUD.showText(e.localizedDescription)
+        context.completeBatchFetching(true)
+      })
+      .addDisposableTo(disposeBag)
+  }
+
+  fileprivate static func handleAction(_ action: Action, fromState state: State) -> State {
+    var state = state
+    switch action {
+    case .beginBatchFetch:
+      state.fetchingMore = true
+    case let .endBatchFetch(resultCount):
+      state.itemCount += resultCount
+      state.fetchingMore = false
+    }
+    return state
   }
 }

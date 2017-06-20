@@ -36,7 +36,7 @@ private extension String {
 
 public enum GitHub {
   case User
-  case Events(login: String)
+  case Events(login: String, page: Int)
 }
 
 
@@ -47,7 +47,7 @@ extension GitHub: TargetType {
     switch self {
     case .User:
       return "/user"
-    case .Events(let login):
+    case .Events(let login, _):
       return "/users/\(login)/received_events"
     }
   }
@@ -62,12 +62,15 @@ extension GitHub: TargetType {
   
   public var parameters: [String: Any]? {
     switch self {
-    case .User,
-         .Events(_):
+    case .User:
       return nil
+    case .Events(_, let page):
+      var params: [String : AnyObject] = [:]
+      params["page"] = page as AnyObject
+      return params
     }
   }
-  
+
   var multipartBody: [MultipartFormData]? {
     return nil
   }

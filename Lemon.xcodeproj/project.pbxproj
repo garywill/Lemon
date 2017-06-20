@@ -18,6 +18,7 @@
 		A81ED1831EF6C88600B968E7 /* EventCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81ED1821EF6C88600B968E7 /* EventCellViewModel.swift */; };
 		A83B7AAB1ECF437B005F08F8 /* OAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7AAA1ECF437B005F08F8 /* OAuthViewModel.swift */; };
 		A83B7AAD1ECF496B005F08F8 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */; };
+		A864D56F1EF8160D00C25052 /* TailLoadingCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864D56E1EF8160D00C25052 /* TailLoadingCellNode.swift */; };
 		A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */; };
 		A87AABA01E71887B00A1BE2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A87AAB9E1E71887B00A1BE2F /* Main.storyboard */; };
 		A87AABA21E71887B00A1BE2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A87AABA11E71887B00A1BE2F /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		A81ED1821EF6C88600B968E7 /* EventCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCellViewModel.swift; sourceTree = "<group>"; };
 		A83B7AAA1ECF437B005F08F8 /* OAuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewModel.swift; sourceTree = "<group>"; };
 		A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
+		A864D56E1EF8160D00C25052 /* TailLoadingCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TailLoadingCellNode.swift; sourceTree = "<group>"; };
 		A87AAB971E71887B00A1BE2F /* Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A87AAB9F1E71887B00A1BE2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				A87AABF41E74DDE600A1BE2F /* UIImage+Lemon.swift */,
 				A8D1BB4C1EF69FC100FA6847 /* Date+ago.swift */,
 				A80CF4FC1EF6CE51007DC8D9 /* UIFont+Lemon.swift */,
+				A864D56E1EF8160D00C25052 /* TailLoadingCellNode.swift */,
 			);
 			name = "UI Specific";
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				A87AAC0A1E75B10A00A1BE2F /* DebugHelper.swift in Sources */,
 				A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */,
 				A8D1BB4B1EF62E7300FA6847 /* EventCellNode.swift in Sources */,
+				A864D56F1EF8160D00C25052 /* TailLoadingCellNode.swift in Sources */,
 				A87AABD21E72F75A00A1BE2F /* OAuthHelper.swift in Sources */,
 				A80131AC1E7772B400876D4E /* ProfileViewController.swift in Sources */,
 				A87AAC081E75977400A1BE2F /* Constants.swift in Sources */,
