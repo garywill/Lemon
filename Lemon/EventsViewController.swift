@@ -55,7 +55,7 @@ class EventsViewController: UIViewController {
     refreshControl.backgroundColor = UIColor.clear
     refreshControl.tintColor = UIColor.lmLightGrey
     refreshControl.rx.controlEvent(.valueChanged)
-      .flatMap { _ in
+  .flatMap { _ in
         return firstPage
       }
       .subscribe(onNext: { events in
@@ -63,6 +63,7 @@ class EventsViewController: UIViewController {
         self.refreshControl.endRefreshing()
         self.state.page = 1
         self.state.itemCount = events.count
+        self.state = EventsViewController.handleAction(.endBatchFetch(resultCount: 20), fromState: self.state)
       }, onError: { error in
         self.refreshControl.endRefreshing()
       })
@@ -130,7 +131,7 @@ extension EventsViewController: ASTableDataSource, ASTableDelegate {
     if state.fetchingMore && indexPath.row == rowCount - 1 {
       let node = TailLoadingCellNode()
       node.style.height = ASDimensionMake(44.0)
-      return node;
+      return node
     }
 
     let event = events.value[indexPath.row]
@@ -151,6 +152,7 @@ extension EventsViewController: ASTableDataSource, ASTableDelegate {
       return
     }
 
+    state.fetchingMore = true
     GitHubProvider
       .request(.User)
       .mapObject(User.self)
@@ -169,9 +171,13 @@ extension EventsViewController: ASTableDataSource, ASTableDelegate {
         self.state = EventsViewController.handleAction(action, fromState: oldState)
         self.state.page += 1
         self.events.value.append(contentsOf: e)
+        self.state.fetchingMore = false
         context.completeBatchFetching(true)
       }, onError: { e in
-        ProgressHUD.showText(e.localizedDescription)
+        let e = e as! MoyaError
+        if e.response?.statusCode == 422 {
+          ProgressHUD.showText("GitHub API only support 300 events :(")
+        }
         context.completeBatchFetching(true)
       })
       .addDisposableTo(disposeBag)
