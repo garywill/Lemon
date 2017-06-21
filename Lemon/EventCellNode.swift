@@ -32,6 +32,7 @@ class EventCellNode: ASCellNode {
     eventLabel.linkAttributeNames = [viewModel.linkAttributeName]
     eventLabel.attributedText = viewModel.eventAttributedString
     timeLabel.attributedText = viewModel.dateAttributedString
+    iconNode.image = viewModel.iconImage
     if let avatarURL = viewModel.avatarURL {
       avatar.url = avatarURL
     }
