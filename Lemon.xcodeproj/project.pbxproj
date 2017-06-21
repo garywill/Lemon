@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		A8063EBA1EF6B1BE00DB076F /* LemonNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8063EB91EF6B1BE00DB076F /* LemonNavigationViewController.swift */; };
 		A80CF4FD1EF6CE51007DC8D9 /* UIFont+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80CF4FC1EF6CE51007DC8D9 /* UIFont+Lemon.swift */; };
 		A81ED1831EF6C88600B968E7 /* EventCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81ED1821EF6C88600B968E7 /* EventCellViewModel.swift */; };
+		A831C6C21EF9F97300CE5D1A /* RepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A831C6C11EF9F97300CE5D1A /* RepoViewController.swift */; };
 		A83B7AAB1ECF437B005F08F8 /* OAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7AAA1ECF437B005F08F8 /* OAuthViewModel.swift */; };
 		A83B7AAD1ECF496B005F08F8 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */; };
 		A864D56F1EF8160D00C25052 /* TailLoadingCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864D56E1EF8160D00C25052 /* TailLoadingCellNode.swift */; };
@@ -66,6 +67,7 @@
 		A8063EB91EF6B1BE00DB076F /* LemonNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LemonNavigationViewController.swift; sourceTree = "<group>"; };
 		A80CF4FC1EF6CE51007DC8D9 /* UIFont+Lemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Lemon.swift"; sourceTree = "<group>"; };
 		A81ED1821EF6C88600B968E7 /* EventCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCellViewModel.swift; sourceTree = "<group>"; };
+		A831C6C11EF9F97300CE5D1A /* RepoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoViewController.swift; sourceTree = "<group>"; };
 		A83B7AAA1ECF437B005F08F8 /* OAuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewModel.swift; sourceTree = "<group>"; };
 		A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		A864D56E1EF8160D00C25052 /* TailLoadingCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TailLoadingCellNode.swift; sourceTree = "<group>"; };
@@ -162,6 +164,14 @@
 				A80131B01E77739100876D4E /* ExploreViewController.swift */,
 			);
 			name = Explore;
+			sourceTree = "<group>";
+		};
+		A831C6BE1EF9F8AD00CE5D1A /* Repo */ = {
+			isa = PBXGroup;
+			children = (
+				A831C6C11EF9F97300CE5D1A /* RepoViewController.swift */,
+			);
+			name = Repo;
 			sourceTree = "<group>";
 		};
 		A87AAB8E1E71887B00A1BE2F = {
@@ -275,6 +285,7 @@
 		A87AABF01E744D3600A1BE2F /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A831C6BE1EF9F8AD00CE5D1A /* Repo */,
 				A80131AF1E77737C00876D4E /* Explore */,
 				A80131A81E77727C00876D4E /* TabBar */,
 				A80131A51E77707F00876D4E /* Profile */,
@@ -355,7 +366,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = X140Yu;
+				ORGANIZATIONNAME = "X140Yu <zhaoxinyu1994@gmail.com>";
 				TargetAttributes = {
 					A87AAB961E71887B00A1BE2F = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -371,7 +382,7 @@
 				};
 			};
 			buildConfigurationList = A87AAB921E71887B00A1BE2F /* Build configuration list for PBXProject "Lemon" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -523,6 +534,7 @@
 			files = (
 				A87AABCF1E72F49800A1BE2F /* OAuthConstants.swift in Sources */,
 				A81ED1831EF6C88600B968E7 /* EventCellViewModel.swift in Sources */,
+				A831C6C21EF9F97300CE5D1A /* RepoViewController.swift in Sources */,
 				A80131AE1E7772C300876D4E /* EventsViewController.swift in Sources */,
 				A87AABF31E74564D00A1BE2F /* UIColor+Lemon.swift in Sources */,
 				A87AABE81E73C4AF00A1BE2F /* CacheManager.swift in Sources */,
