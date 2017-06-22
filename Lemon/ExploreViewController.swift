@@ -10,7 +10,11 @@ import UIKit
 
 class ExploreViewController: UIViewController {
   
-  override func viewDidLoad() {
+    @IBAction func test(_ sender: UIButton) {
+        let vc = RepoViewController.repoVC(name: "X140Yu/Lemon")
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    override func viewDidLoad() {
     super.viewDidLoad()
     
     // Do any additional setup after loading the view.
