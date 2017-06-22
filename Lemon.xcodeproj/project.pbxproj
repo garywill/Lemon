@@ -20,6 +20,7 @@
 		A831C6C41EF9FB0D00CE5D1A /* RepoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A831C6C31EF9FB0D00CE5D1A /* RepoViewController.storyboard */; };
 		A83B7AAB1ECF437B005F08F8 /* OAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7AAA1ECF437B005F08F8 /* OAuthViewModel.swift */; };
 		A83B7AAD1ECF496B005F08F8 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */; };
+		A84E6A7B1EFB86DB00D516E2 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E6A7A1EFB86DB00D516E2 /* FollowButton.swift */; };
 		A864D56F1EF8160D00C25052 /* TailLoadingCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864D56E1EF8160D00C25052 /* TailLoadingCellNode.swift */; };
 		A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */; };
 		A87AABA01E71887B00A1BE2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A87AAB9E1E71887B00A1BE2F /* Main.storyboard */; };
@@ -64,14 +65,15 @@
 		A80131A91E77729900876D4E /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		A80131AB1E7772B400876D4E /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A80131AD1E7772C300876D4E /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
-		A80131B01E77739100876D4E /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		A80131B01E77739100876D4E /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
 		A8063EB91EF6B1BE00DB076F /* LemonNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LemonNavigationViewController.swift; sourceTree = "<group>"; };
 		A80CF4FC1EF6CE51007DC8D9 /* UIFont+Lemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Lemon.swift"; sourceTree = "<group>"; };
 		A81ED1821EF6C88600B968E7 /* EventCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCellViewModel.swift; sourceTree = "<group>"; };
-		A831C6C11EF9F97300CE5D1A /* RepoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoViewController.swift; sourceTree = "<group>"; };
+		A831C6C11EF9F97300CE5D1A /* RepoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = RepoViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
 		A831C6C31EF9FB0D00CE5D1A /* RepoViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RepoViewController.storyboard; sourceTree = "<group>"; };
 		A83B7AAA1ECF437B005F08F8 /* OAuthViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewModel.swift; sourceTree = "<group>"; };
 		A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
+		A84E6A7A1EFB86DB00D516E2 /* FollowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; tabWidth = 2; };
 		A864D56E1EF8160D00C25052 /* TailLoadingCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TailLoadingCellNode.swift; sourceTree = "<group>"; };
 		A87AAB971E71887B00A1BE2F /* Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +87,7 @@
 		A87AABCE1E72F49800A1BE2F /* OAuthConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthConstants.swift; sourceTree = "<group>"; };
 		A87AABD11E72F75A00A1BE2F /* OAuthHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthHelper.swift; sourceTree = "<group>"; };
 		A87AABD31E72FAB800A1BE2F /* OAuthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthTests.swift; sourceTree = "<group>"; };
-		A87AABD51E72FFB100A1BE2F /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
+		A87AABD51E72FFB100A1BE2F /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
 		A87AABD61E72FFB100A1BE2F /* OAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OAuthViewController.xib; sourceTree = "<group>"; };
 		A87AABDA1E73080000A1BE2F /* ProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		A87AABDD1E73098600A1BE2F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
@@ -255,6 +257,7 @@
 				A8D1BB4C1EF69FC100FA6847 /* Date+ago.swift */,
 				A80CF4FC1EF6CE51007DC8D9 /* UIFont+Lemon.swift */,
 				A864D56E1EF8160D00C25052 /* TailLoadingCellNode.swift */,
+				A84E6A7A1EFB86DB00D516E2 /* FollowButton.swift */,
 			);
 			name = "UI Specific";
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				A864D56F1EF8160D00C25052 /* TailLoadingCellNode.swift in Sources */,
 				A87AABD21E72F75A00A1BE2F /* OAuthHelper.swift in Sources */,
 				A80131AC1E7772B400876D4E /* ProfileViewController.swift in Sources */,
+				A84E6A7B1EFB86DB00D516E2 /* FollowButton.swift in Sources */,
 				A87AAC081E75977400A1BE2F /* Constants.swift in Sources */,
 				A83B7AAD1ECF496B005F08F8 /* GitHubAPI.swift in Sources */,
 				A87AABDB1E73080000A1BE2F /* ProgressHUD.swift in Sources */,
@@ -707,6 +711,7 @@
 				INFOPLIST_FILE = Lemon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.x140yu.Lemon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -722,6 +727,7 @@
 				INFOPLIST_FILE = Lemon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.x140yu.Lemon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
