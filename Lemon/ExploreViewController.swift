@@ -10,10 +10,15 @@ import UIKit
 
 class ExploreViewController: UIViewController {
 
-  @IBAction func test(_ sender: UIButton) {
-    //let vc = RepoViewController.repoVC(name: "X140Yu/Lemon")
-    //navigationController?.pushViewController(vc, animated: true)
-    LemonLog.Log("viasdj")
+  @IBAction func test(_ sender: FollowButton) {
+    switch sender.currentState {
+    case .following:
+      sender.currentState = .busy
+    case .unfollow:
+      sender.currentState = .busy
+    case .busy:
+      sender.currentState = .following
+    }
   }
 
   override func viewDidLoad() {

@@ -16,7 +16,7 @@ enum FollowButtonState {
 
 class FollowButton: UIButton {
 
-  let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+  private let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 
   var currentState: FollowButtonState = .busy {
     didSet {
@@ -59,7 +59,7 @@ class FollowButton: UIButton {
     addSubview(loadingIndicator)
     loadingIndicator.center = CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0)
 
-    currentState = .busy
+    currentState = .unfollow
 
     layer.cornerRadius = 7
     layer.masksToBounds = true
