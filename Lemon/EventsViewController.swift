@@ -33,7 +33,7 @@ class EventsViewController: UIViewController {
     case endBatchFetch(resultCount: Int)
   }
 
-    fileprivate(set) var state: State = .empty
+  fileprivate(set) var state: State = .empty
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -55,7 +55,7 @@ class EventsViewController: UIViewController {
     refreshControl.backgroundColor = UIColor.clear
     refreshControl.tintColor = UIColor.lmLightGrey
     refreshControl.rx.controlEvent(.valueChanged)
-  .flatMap { _ in
+      .flatMap { _ in
         return firstPage
       }
       .subscribe(onNext: { events in
@@ -94,6 +94,8 @@ class EventsViewController: UIViewController {
   func deal(url: URL?) {
     guard let url = url else { return }
     LemonLog.Log(url)
+    let repoVC = RepoViewController.repoVC(url: url)
+    navigationController?.pushViewController(repoVC, animated: true)
   }
 }
 

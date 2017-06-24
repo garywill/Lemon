@@ -37,6 +37,11 @@ private extension String {
 public enum GitHub {
   case User
   case Events(login: String, page: Int)
+  case Repo(name: String)
+  case Users(name: String)
+  case FollowStatus(name: String)
+  // https://developer.github.com/v3/activity/starring/
+  case StarStatus(repoName: String)
 }
 
 
@@ -49,20 +54,36 @@ extension GitHub: TargetType {
       return "/user"
     case .Events(let login, _):
       return "/users/\(login)/received_events"
+    case .Repo(let name):
+      return "/repos/\(name)"
+    case .Users(let name):
+      return "/users/\(name)"
+    case .FollowStatus(let name):
+      return "/user/following/\(name)"
+    case .StarStatus(let name):
+      return "/user/starred/\(name)"
     }
   }
   
   public var method: Moya.Method {
     switch self {
     case .User,
-         .Events(_):
+         .Events(_),
+         .Repo(_),
+         .FollowStatus(_),
+         .StarStatus(_),
+         .Users(_):
       return .get
     }
   }
   
   public var parameters: [String: Any]? {
     switch self {
-    case .User:
+    case .User,
+         .Users(_),
+         .FollowStatus(_),
+         .StarStatus(_),
+         .Repo(_):
       return nil
     case .Events(_, let page):
       var params: [String : AnyObject] = [:]

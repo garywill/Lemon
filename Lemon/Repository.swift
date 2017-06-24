@@ -78,8 +78,8 @@ public struct Repository: Mappable {
   var treesUrl : String?
   var updatedAt : String?
   var url : String?
-  var watchers : Int?
-  var watchersCount : Int?
+  var watchers : Int = 0
+  var watchersCount : Int = 0
   
   public init?(map: Map){}
   

@@ -7,24 +7,25 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class ExploreViewController: UIViewController {
 
   @IBAction func test(_ sender: FollowButton) {
-    switch sender.currentState {
-    case .following:
-      sender.currentState = .busy
-    case .unfollow:
-      sender.currentState = .busy
-    case .busy:
-      sender.currentState = .following
-    }
+    let repo = Repository(JSON: [
+      "owner": [
+        "login": "facebook"
+      ],
+      "name": "facebook/shimmer"
+      ])
+
+    let detail = RepoViewController.repoVC(repo: repo!)
+    navigationController?.pushViewController(detail, animated: true)
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    // Do any additional setup after loading the view.
   }
 
 }

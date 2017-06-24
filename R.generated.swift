@@ -31,12 +31,20 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 6 images.
+  /// This `R.image` struct is generated, and contains static references to 10 images.
   struct image {
+    /// Image `Button_fork_disable`.
+    static let button_fork_disable = Rswift.ImageResource(bundle: R.hostingBundle, name: "Button_fork_disable")
+    /// Image `Button_star_normal`.
+    static let button_star_normal = Rswift.ImageResource(bundle: R.hostingBundle, name: "Button_star_normal")
+    /// Image `Button_watch_disable`.
+    static let button_watch_disable = Rswift.ImageResource(bundle: R.hostingBundle, name: "Button_watch_disable")
     /// Image `ProgressHud_Fail_normal`.
     static let progressHud_Fail_normal = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProgressHud_Fail_normal")
     /// Image `ProgressHud_Success_normal`.
     static let progressHud_Success_normal = Rswift.ImageResource(bundle: R.hostingBundle, name: "ProgressHud_Success_normal")
+    /// Image `button_star_unstar`.
+    static let button_star_unstar = Rswift.ImageResource(bundle: R.hostingBundle, name: "button_star_unstar")
     /// Image `event_star`.
     static let event_star = Rswift.ImageResource(bundle: R.hostingBundle, name: "event_star")
     /// Image `tabbar_events`.
@@ -46,6 +54,21 @@ struct R: Rswift.Validatable {
     /// Image `tabbar_profile`.
     static let tabbar_profile = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabbar_profile")
     
+    /// `UIImage(named: "Button_fork_disable", bundle: ..., traitCollection: ...)`
+    static func button_fork_disable(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.button_fork_disable, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Button_star_normal", bundle: ..., traitCollection: ...)`
+    static func button_star_normal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.button_star_normal, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Button_watch_disable", bundle: ..., traitCollection: ...)`
+    static func button_watch_disable(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.button_watch_disable, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "ProgressHud_Fail_normal", bundle: ..., traitCollection: ...)`
     static func progressHud_Fail_normal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.progressHud_Fail_normal, compatibleWith: traitCollection)
@@ -54,6 +77,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "ProgressHud_Success_normal", bundle: ..., traitCollection: ...)`
     static func progressHud_Success_normal(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.progressHud_Success_normal, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "button_star_unstar", bundle: ..., traitCollection: ...)`
+    static func button_star_unstar(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.button_star_unstar, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "event_star", bundle: ..., traitCollection: ...)`
@@ -207,6 +235,8 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "button_star_unstar") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'button_star_unstar' is used in storyboard 'RepoViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Button_fork_disable") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Button_fork_disable' is used in storyboard 'RepoViewController', but couldn't be loaded.") }
         if _R.storyboard.repoViewController().repoViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'repoViewController' could not be loaded from storyboard 'RepoViewController' as 'RepoViewController'.") }
       }
       
