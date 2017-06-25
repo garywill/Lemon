@@ -1,4 +1,4 @@
-# platform :ios, '9.0'
+platform :ios, '9.0'
 
 target 'Lemon' do
   use_frameworks!
@@ -7,6 +7,7 @@ target 'Lemon' do
   pod 'MBProgressHUD'
   pod 'R.swift' # https://github.com/mac-cain13/R.swift
   pod 'Texture'
+  pod 'MarkdownView', :git => 'git@github.com:X140Yu/MarkdownView.git', :commit => '46721b6'
   
   # Rx
   pod 'Moya/RxSwift'
