@@ -14,9 +14,9 @@ class ExploreViewController: UIViewController {
   @IBAction func test(_ sender: FollowButton) {
     let repo = Repository(JSON: [
       "owner": [
-        "login": "facebook"
+        "login": "hollisliu"
       ],
-      "name": "facebook/shimmer"
+      "name": "hollisliu/iOS-Vision-Text-Detection-Demo"
       ])
 
     let detail = RepoViewController.repoVC(repo: repo!)

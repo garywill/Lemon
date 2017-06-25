@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import PINRemoteImage
+import MarkdownView
 
 class RepoViewController: UIViewController {
 
@@ -23,7 +24,8 @@ class RepoViewController: UIViewController {
   @IBOutlet weak var followButton: FollowButton!
   @IBOutlet weak var starButton: CountButton!
   @IBOutlet weak var forButton: CountButton!
-//  @IBOutlet weak var watchButton: CountButton!
+  @IBOutlet weak var markdownView: MarkdownView!
+  @IBOutlet weak var markdownViewHeight: NSLayoutConstraint!
 
   let bag = DisposeBag()
   var name: String?
@@ -58,6 +60,7 @@ class RepoViewController: UIViewController {
     guard let name = name, let login = ownerLogin else {
       return
     }
+    markdownView.baseURL = "https://raw.githubusercontent.com/\(name)/master"
     // TODO: If the login is the same as current
     title = name
     GitHubProvider
@@ -101,6 +104,13 @@ class RepoViewController: UIViewController {
         }
       })
       .addDisposableTo(bag)
+
+    GitHubProvider
+      .request(.Readme(name: name))
+      .subscribe(onNext: { res in
+        guard let rawMD = String(data: res.data, encoding: .utf8) else { return }
+        self.markdownView.load(markdown: rawMD)
+      }).addDisposableTo(bag)
   }
 
   func refreshUI(_ r: Repository) {
@@ -115,11 +125,18 @@ class RepoViewController: UIViewController {
   }
 
   func setupStyles() {
+    nameLabel.text = ""
     nameLabel.textColor = UIColor.lmGithubBlue
     nameLabel.font = UIFont.lemonMono(size: 17)
+    briefLabel.text = ""
     briefLabel.font = UIFont.systemFont(ofSize: 12)
     briefLabel.textColor = UIColor.lmDarkGrey
     starButton.type = .star
     forButton.type = .fork
+
+    markdownView.isScrollEnabled = false
+    markdownView.onRendered = { height in
+      self.markdownViewHeight.constant = height + 30
+    }
   }
 }

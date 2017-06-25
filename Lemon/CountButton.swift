@@ -56,8 +56,10 @@ class CountButton: UIButton {
     }
   }
 
-  private func currentImageForState(_ state: CountButtonState) -> UIImage {
+  private func currentImageForState(_ state: CountButtonState) -> UIImage? {
     switch (state, type) {
+    case (.busy, _):
+      return nil
     case (.positive, .star):
       return #imageLiteral(resourceName: "button_star_unstar")
     case (_, .star):
@@ -65,7 +67,7 @@ class CountButton: UIButton {
     case (_, .fork):
       return #imageLiteral(resourceName: "Button_fork_disable")
     default:
-      fatalError("can not reach here")
+      return nil
     }
   }
 

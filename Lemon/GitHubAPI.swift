@@ -15,13 +15,16 @@ public var GitHubProvider = RxMoyaProvider<GitHub>(
 
 let endpointClosure = { (target: GitHub) -> Endpoint<GitHub> in
   let url = target.baseURL.appendingPathComponent(target.path).absoluteString
-  let defaultEndpoint = MoyaProvider.defaultEndpointMapping(for: target)
+  var defaultEndpoint = MoyaProvider.defaultEndpointMapping(for: target)
   
   switch target {
+  case .Readme(_):
+    defaultEndpoint = defaultEndpoint.adding(newHTTPHeaderFields: ["Accept": "application/vnd.github.VERSION.raw"])
   default:
-    guard let token = CacheManager.cachedToken else { return defaultEndpoint }
-    return defaultEndpoint.adding(newHTTPHeaderFields: ["Authorization": "token \(token)"])
+    break
   }
+  guard let token = CacheManager.cachedToken else { return defaultEndpoint }
+  return defaultEndpoint.adding(newHTTPHeaderFields: ["Authorization": "token \(token)"])
 }
 
 public func url(route: TargetType) -> String {
@@ -42,6 +45,8 @@ public enum GitHub {
   case FollowStatus(name: String)
   // https://developer.github.com/v3/activity/starring/
   case StarStatus(repoName: String)
+  // https://developer.github.com/v3/repos/contents/
+  case Readme(name: String)
 }
 
 
@@ -62,6 +67,8 @@ extension GitHub: TargetType {
       return "/user/following/\(name)"
     case .StarStatus(let name):
       return "/user/starred/\(name)"
+    case .Readme(let name):
+      return "/repos/\(name)/readme"
     }
   }
   
@@ -72,6 +79,7 @@ extension GitHub: TargetType {
          .Repo(_),
          .FollowStatus(_),
          .StarStatus(_),
+         .Readme(_),
          .Users(_):
       return .get
     }
@@ -83,6 +91,7 @@ extension GitHub: TargetType {
          .Users(_),
          .FollowStatus(_),
          .StarStatus(_),
+         .Readme(_),
          .Repo(_):
       return nil
     case .Events(_, let page):
