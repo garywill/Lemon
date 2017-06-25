@@ -12,7 +12,7 @@
         <!--Repo View Controller-->
         <scene sceneID="KVI-d5-ayd">
             <objects>
-                <viewController storyboardIdentifier="RepoViewController" automaticallyAdjustsScrollViewInsets="NO" id="nvT-vg-bb9" customClass="RepoViewController" customModule="Lemon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RepoViewController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="nvT-vg-bb9" customClass="RepoViewController" customModule="Lemon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QdQ-tY-iGL"/>
                         <viewControllerLayoutGuide type="bottom" id="Jps-sm-Ars"/>
