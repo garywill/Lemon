@@ -47,6 +47,8 @@ public enum GitHub {
   case StarStatus(repoName: String)
   // https://developer.github.com/v3/repos/contents/
   case Readme(name: String)
+  case FollowUser(name: String)
+  case UnFollowUser(name: String)
 }
 
 
@@ -69,6 +71,10 @@ extension GitHub: TargetType {
       return "/user/starred/\(name)"
     case .Readme(let name):
       return "/repos/\(name)/readme"
+    case .FollowUser(let name):
+      return "/user/following/\(name)"
+    case .UnFollowUser(let name):
+      return "/user/following/\(name)"
     }
   }
   
@@ -82,7 +88,11 @@ extension GitHub: TargetType {
          .Readme(_),
          .Users(_):
       return .get
-    }
+    case .FollowUser(_):
+      return .put
+    case .UnFollowUser(_):
+      return .delete
+      }
   }
   
   public var parameters: [String: Any]? {
@@ -92,6 +102,8 @@ extension GitHub: TargetType {
          .FollowStatus(_),
          .StarStatus(_),
          .Readme(_),
+         .FollowUser(_),
+         .UnFollowUser(_),
          .Repo(_):
       return nil
     case .Events(_, let page):

@@ -52,7 +52,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSI-tR-sky" userLabel="Follow" customClass="FollowButton" customModule="Lemon" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSI-tR-sky" userLabel="Follow" customClass="FollowButton" customModule="Lemon" customModuleProvider="target">
                                                 <rect key="frame" x="275" y="10" width="90" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="90" id="Fod-Zf-5dX"/>

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 enum FollowButtonState {
   case unfollow
@@ -18,10 +20,29 @@ class FollowButton: UIButton {
 
   private let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 
-  var currentState: FollowButtonState = .busy {
+  public let bag = DisposeBag()
+
+  public var username: String? {
     didSet {
-      update(currentState)
+      guard let u = username else { return }
+      GitHubProvider
+        .request(.FollowStatus(name: u))
+        .subscribe(onNext: { res in
+          if res.statusCode == 204 {
+            self.currentState.value = .following
+          } else {
+            self.currentState.value = .unfollow
+          }
+        }, onError: { err in
+        }).addDisposableTo(bag)
     }
+  }
+
+  var currentState = Variable<FollowButtonState>(.busy)
+
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    setup()
   }
 
   func update(_ state: FollowButtonState) {
@@ -45,27 +66,62 @@ class FollowButton: UIButton {
     }
   }
 
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    setup()
-  }
-
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     setup()
   }
 
+  func handleTouch() {
+    guard let u = username else { return }
+    switch self.currentState.value {
+    case .busy:
+      return
+    case .following:
+      self.currentState.value = .busy
+      GitHubProvider
+        .request(.UnFollowUser(name: u))
+        .subscribe(onNext: { res in
+          if res.statusCode == 204 {
+            self.currentState.value = .unfollow
+          } else {
+            self.currentState.value = .following
+          }
+        }, onError: { error in
+          self.currentState.value = .following
+        }).addDisposableTo(bag)
+    case .unfollow:
+      self.currentState.value = .busy
+      GitHubProvider
+        .request(.FollowUser(name: u))
+        .subscribe(onNext: { res in
+          if res.statusCode == 204 {
+            self.currentState.value = .following
+          } else {
+            self.currentState.value = .unfollow
+          }
+        }, onError: { error in
+          self.currentState.value = .unfollow
+        }).addDisposableTo(bag)
+    }
+  }
+
   func setup() {
-    addSubview(loadingIndicator)
-    loadingIndicator.center = CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0)
-
-    currentState = .unfollow
-
     layer.cornerRadius = 7
     layer.masksToBounds = true
     layer.borderWidth = 1
     layer.borderColor = UIColor.lmGithubBlue.cgColor
     titleLabel?.font = UIFont.systemFont(ofSize: 16)
+
+    addSubview(loadingIndicator)
+    loadingIndicator.center = CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0)
+
+    addTarget(self, action: #selector(handleTouch), for: .touchUpInside)
+
+    currentState.asDriver().drive(onNext: { [weak self] state in
+      self?.update(state)
+    }).addDisposableTo(bag)
+
+    currentState.value = .busy
   }
 
 }

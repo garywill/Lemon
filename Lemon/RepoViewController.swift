@@ -70,7 +70,6 @@ class RepoViewController: UIViewController {
         self.refreshUI(r)
       }).addDisposableTo(bag)
 
-    followButton.currentState = .busy
     starButton.currentState = .busy
     forButton.currentState = .busy
 
@@ -79,19 +78,6 @@ class RepoViewController: UIViewController {
       .mapObject(User.self)
       .subscribe(onNext:  { u in
         self.briefLabel.text = u.bio
-      }).addDisposableTo(bag)
-
-    GitHubProvider
-      .request(.FollowStatus(name: login))
-      .subscribe(onNext: { res in
-        if res.statusCode == 204 {
-          self.followButton.currentState = .following
-        } else {
-          // 404 is unfollowed
-          // https://developer.github.com/v3/users/followers/
-          self.followButton.currentState = .unfollow
-        }
-      }, onError: { err in
       }).addDisposableTo(bag)
 
     GitHubProvider
@@ -111,6 +97,8 @@ class RepoViewController: UIViewController {
         guard let rawMD = String(data: res.data, encoding: .utf8) else { return }
         self.markdownView.load(markdown: rawMD)
       }).addDisposableTo(bag)
+
+    followButton.username = login
   }
 
   func refreshUI(_ r: Repository) {
