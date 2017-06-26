@@ -97,6 +97,7 @@ class RepoViewController: UIViewController {
     starButton.count = r.stargazersCount
     forkButton.count = r.forksCount
     forkButton.currentState = .disable
+    forkButton.setImage(#imageLiteral(resourceName: "Button_fork_disable"), for: .normal)
   }
 
   func setupStyles() {
