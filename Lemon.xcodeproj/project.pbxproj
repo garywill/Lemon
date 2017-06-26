@@ -22,6 +22,7 @@
 		A83B7AAD1ECF496B005F08F8 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */; };
 		A84AA5881F008E9A00714650 /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84AA5871F008E9A00714650 /* StarButton.swift */; };
 		A84E6A7B1EFB86DB00D516E2 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E6A7A1EFB86DB00D516E2 /* FollowButton.swift */; };
+		A85DB2F71F013B280092921A /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A85DB2F61F013B280092921A /* ProfileViewController.storyboard */; };
 		A864D56F1EF8160D00C25052 /* TailLoadingCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864D56E1EF8160D00C25052 /* TailLoadingCellNode.swift */; };
 		A86A433B1EFE4842005EA8C4 /* CountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86A433A1EFE4842005EA8C4 /* CountButton.swift */; };
 		A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */; };
@@ -77,6 +78,7 @@
 		A83B7AAC1ECF496B005F08F8 /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		A84AA5871F008E9A00714650 /* StarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarButton.swift; sourceTree = "<group>"; };
 		A84E6A7A1EFB86DB00D516E2 /* FollowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; tabWidth = 2; };
+		A85DB2F61F013B280092921A /* ProfileViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
 		A864D56E1EF8160D00C25052 /* TailLoadingCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TailLoadingCellNode.swift; sourceTree = "<group>"; };
 		A86A433A1EFE4842005EA8C4 /* CountButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountButton.swift; sourceTree = "<group>"; };
 		A87AAB971E71887B00A1BE2F /* Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				A80131AB1E7772B400876D4E /* ProfileViewController.swift */,
+				A85DB2F61F013B280092921A /* ProfileViewController.storyboard */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 			files = (
 				A87AABD81E72FFB100A1BE2F /* OAuthViewController.xib in Resources */,
 				A831C6C41EF9FB0D00CE5D1A /* RepoViewController.storyboard in Resources */,
+				A85DB2F71F013B280092921A /* ProfileViewController.storyboard in Resources */,
 				A87AABA51E71887B00A1BE2F /* LaunchScreen.storyboard in Resources */,
 				A87AABA21E71887B00A1BE2F /* Assets.xcassets in Resources */,
 				A87AABA01E71887B00A1BE2F /* Main.storyboard in Resources */,

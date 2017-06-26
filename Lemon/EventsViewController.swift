@@ -93,6 +93,11 @@ class EventsViewController: UIViewController {
 
   func deal(url: URL?) {
     guard let url = url else { return }
+    if url.absoluteString.contains("users") {
+      let profileVC = ProfileViewController.profileVC(login: url.absoluteString.components(separatedBy: "/").last!)
+      navigationController?.pushViewController(profileVC, animated: true)
+      return
+    }
     LemonLog.Log(url)
     let repoVC = RepoViewController.repoVC(url: url)
     navigationController?.pushViewController(repoVC, animated: true)

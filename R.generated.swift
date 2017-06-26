@@ -130,12 +130,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
+    /// Storyboard `ProfileViewController`.
+    static let profileViewController = _R.storyboard.profileViewController()
     /// Storyboard `RepoViewController`.
     static let repoViewController = _R.storyboard.repoViewController()
     
@@ -147,6 +149,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Main", bundle: ...)`
     static func main(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.main)
+    }
+    
+    /// `UIStoryboard(name: "ProfileViewController", bundle: ...)`
+    static func profileViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.profileViewController)
     }
     
     /// `UIStoryboard(name: "RepoViewController", bundle: ...)`
@@ -198,6 +205,7 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try repoViewController.validate()
+      try profileViewController.validate()
       try main.validate()
     }
     
@@ -220,6 +228,22 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "tabbar_profile") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar_profile' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "tabbar_explore") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar_explore' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "tabbar_events") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'tabbar_events' is used in storyboard 'Main', but couldn't be loaded.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct profileViewController: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "ProfileViewController"
+      let profileViewController = StoryboardViewControllerResource<ProfileViewController>(identifier: "ProfileViewController")
+      
+      func profileViewController(_: Void = ()) -> ProfileViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: profileViewController)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.profileViewController().profileViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'profileViewController' could not be loaded from storyboard 'ProfileViewController' as 'ProfileViewController'.") }
       }
       
       fileprivate init() {}

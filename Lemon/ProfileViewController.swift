@@ -7,29 +7,45 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import PINRemoteImage
 
 class ProfileViewController: UIViewController {
-  
+  @IBOutlet weak var avatarImageView: UIImageView!
+  @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var loginLabel: UILabel!
+  @IBOutlet weak var companyLabel: UILabel!
+  @IBOutlet weak var locationLabel: UILabel!
+  @IBOutlet weak var mailLabel: UILabel!
+  @IBOutlet weak var blogLabel: UILabel!
+
+  var name: String?
+  let bag = DisposeBag()
+
+  class func profileVC(login: String) -> ProfileViewController {
+    let vc = R.storyboard.profileViewController.profileViewController()!
+    vc.name = login
+    return vc
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // Do any additional setup after loading the view.
+
+    guard let u = name else { return }
+
+    GitHubProvider
+      .request(.Users(name: u))
+      .mapObject(User.self)
+      .subscribe(onNext: { user in
+        self.avatarImageView.pin_setImage(from: URL(string: user.avatarUrl ?? ""))
+        self.nameLabel.text = user.name
+        self.loginLabel.text = user.login
+        self.companyLabel.text = user.company
+        self.locationLabel.text = user.location
+        self.mailLabel.text = user.email
+        self.blogLabel.text = user.blog
+      }).addDisposableTo(bag)
   }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
-  
+
 }
