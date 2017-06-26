@@ -23,6 +23,7 @@
 		A84AA5881F008E9A00714650 /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84AA5871F008E9A00714650 /* StarButton.swift */; };
 		A84E6A7B1EFB86DB00D516E2 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E6A7A1EFB86DB00D516E2 /* FollowButton.swift */; };
 		A85DB2F71F013B280092921A /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A85DB2F61F013B280092921A /* ProfileViewController.storyboard */; };
+		A85DB2FA1F0152630092921A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85DB2F91F0152630092921A /* Router.swift */; };
 		A864D56F1EF8160D00C25052 /* TailLoadingCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864D56E1EF8160D00C25052 /* TailLoadingCellNode.swift */; };
 		A86A433B1EFE4842005EA8C4 /* CountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86A433A1EFE4842005EA8C4 /* CountButton.swift */; };
 		A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */; };
@@ -79,6 +80,7 @@
 		A84AA5871F008E9A00714650 /* StarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarButton.swift; sourceTree = "<group>"; };
 		A84E6A7A1EFB86DB00D516E2 /* FollowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; tabWidth = 2; };
 		A85DB2F61F013B280092921A /* ProfileViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
+		A85DB2F91F0152630092921A /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A864D56E1EF8160D00C25052 /* TailLoadingCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TailLoadingCellNode.swift; sourceTree = "<group>"; };
 		A86A433A1EFE4842005EA8C4 /* CountButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountButton.swift; sourceTree = "<group>"; };
 		A87AAB971E71887B00A1BE2F /* Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +186,14 @@
 				A831C6C31EF9FB0D00CE5D1A /* RepoViewController.storyboard */,
 			);
 			name = Repo;
+			sourceTree = "<group>";
+		};
+		A85DB2F81F0152460092921A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A85DB2F91F0152630092921A /* Router.swift */,
+			);
+			name = Router;
 			sourceTree = "<group>";
 		};
 		A87AAB8E1E71887B00A1BE2F = {
@@ -300,6 +310,7 @@
 		A87AABF01E744D3600A1BE2F /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A85DB2F81F0152460092921A /* Router */,
 				A831C6BE1EF9F8AD00CE5D1A /* Repo */,
 				A80131AF1E77737C00876D4E /* Explore */,
 				A80131A81E77727C00876D4E /* TabBar */,
@@ -554,6 +565,7 @@
 				A831C6C21EF9F97300CE5D1A /* RepoViewController.swift in Sources */,
 				A80131AE1E7772C300876D4E /* EventsViewController.swift in Sources */,
 				A87AABF31E74564D00A1BE2F /* UIColor+Lemon.swift in Sources */,
+				A85DB2FA1F0152630092921A /* Router.swift in Sources */,
 				A87AABE81E73C4AF00A1BE2F /* CacheManager.swift in Sources */,
 				A87AAC0A1E75B10A00A1BE2F /* DebugHelper.swift in Sources */,
 				A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */,

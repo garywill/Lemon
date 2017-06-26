@@ -31,24 +31,6 @@ class RepoViewController: UIViewController {
   var name: String?
   var ownerLogin: String?
 
-  class func repoVC(repo: Repository) -> RepoViewController {
-    let vc = R.storyboard.repoViewController.repoViewController()!
-    vc.name = repo.name
-    vc.ownerLogin = repo.owner?.login
-    return vc
-  }
-
-  class func repoVC(url: URL) -> RepoViewController {
-    // https://api.github.com/repos/{user-login}/{repo-name}
-    let vc = R.storyboard.repoViewController.repoViewController()!
-    guard let name = url.absoluteString.components(separatedBy: "/repos/").last else {
-      fatalError("url is not valid")
-    }
-    vc.name = name
-    vc.ownerLogin = name.components(separatedBy: "/").first
-    return vc
-  }
-
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -111,6 +93,11 @@ class RepoViewController: UIViewController {
     markdownView.isScrollEnabled = false
     markdownView.onRendered = { height in
       self.markdownViewHeight.constant = height + 30
+    }
+
+    markdownView.onTouchLink = { [weak self] urlRequest in
+      Router.handleURL(urlRequest.url, self?.navigationController)
+      return false
     }
   }
 }
