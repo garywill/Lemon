@@ -73,7 +73,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="maf-eZ-zNQ">
                                                 <rect key="frame" x="10" y="108" width="355" height="37"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbl-1y-BDv" customClass="CountButton" customModule="Lemon" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbl-1y-BDv" customClass="StarButton" customModule="Lemon" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="168.5" height="37"/>
                                                         <state key="normal" title="Button" image="button_star_unstar"/>
                                                     </button>
@@ -144,12 +144,12 @@
                         <outlet property="contentView" destination="Gn7-w7-oyu" id="7nF-B3-dWn"/>
                         <outlet property="descTextView" destination="LeS-q8-1uI" id="w5W-ah-yfT"/>
                         <outlet property="followButton" destination="WSI-tR-sky" id="4iW-ZT-4Ut"/>
-                        <outlet property="forButton" destination="3lv-Zc-3eX" id="2QV-vt-Mv7"/>
+                        <outlet property="forkButton" destination="3lv-Zc-3eX" id="4zB-nO-DuQ"/>
                         <outlet property="markdownView" destination="S1v-aX-2wc" id="fzL-OT-Gy2"/>
                         <outlet property="markdownViewHeight" destination="FaY-0X-jAJ" id="Kib-iq-doJ"/>
                         <outlet property="nameLabel" destination="h49-Ku-vyQ" id="5Ai-bY-aml"/>
                         <outlet property="scrollView" destination="qUW-45-otP" id="wDw-bs-Tev"/>
-                        <outlet property="starButton" destination="cbl-1y-BDv" id="hh1-2C-Ekb"/>
+                        <outlet property="starButton" destination="cbl-1y-BDv" id="0wG-gx-oY5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XyD-91-TlL" userLabel="First Responder" sceneMemberID="firstResponder"/>

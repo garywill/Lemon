@@ -7,18 +7,14 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 enum CountButtonState {
   case positive
   case normal
   case busy
   case disable
-}
-
-enum CountButtonType {
-  case star
-  case fork
-  case watch
 }
 
 let numberFormatter: NumberFormatter = {
@@ -36,40 +32,9 @@ extension Int {
 
 class CountButton: UIButton {
 
+  let bag = DisposeBag()
+
   private let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-
-  var type: CountButtonType = .star {
-    didSet {
-      switch type {
-      case .star:
-        if currentState == .positive {
-          setImage(#imageLiteral(resourceName: "button_star_unstar"), for: .normal)
-        } else {
-          setImage(#imageLiteral(resourceName: "Button_star_normal"), for: .normal)
-        }
-      case .fork:
-        setImage(#imageLiteral(resourceName: "Button_fork_disable"), for: .normal)
-      case .watch:
-        setImage(#imageLiteral(resourceName: "Button_watch_disable"), for: .normal)
-      }
-      update(currentState)
-    }
-  }
-
-  private func currentImageForState(_ state: CountButtonState) -> UIImage? {
-    switch (state, type) {
-    case (.busy, _):
-      return nil
-    case (.positive, .star):
-      return #imageLiteral(resourceName: "button_star_unstar")
-    case (_, .star):
-      return #imageLiteral(resourceName: "Button_star_normal")
-    case (_, .fork):
-      return #imageLiteral(resourceName: "Button_fork_disable")
-    default:
-      return nil
-    }
-  }
 
   var currentState: CountButtonState = .busy {
     didSet {
@@ -86,7 +51,6 @@ class CountButton: UIButton {
   func update(_ state: CountButtonState) {
     loadingIndicator.stopAnimating()
     loadingIndicator.isHidden = true
-    setImage(currentImageForState(state), for: .normal)
     switch state {
     case .positive:
       setTitle(count.decimaled, for: .normal)
@@ -102,6 +66,7 @@ class CountButton: UIButton {
       setTitle("", for: .normal)
       loadingIndicator.isHidden = false
       loadingIndicator.startAnimating()
+      setImage(nil, for: .normal)
     case .disable:
       setTitle(count.decimaled, for: .normal)
       setTitleColor(UIColor.lmLightGrey, for: .normal)
@@ -125,14 +90,16 @@ class CountButton: UIButton {
     addSubview(loadingIndicator)
     loadingIndicator.center = CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0)
 
-    currentState = .normal
-
     imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
     layer.cornerRadius = 7
     layer.masksToBounds = true
     layer.borderWidth = 1
     layer.borderColor = UIColor.lmGithubBlue.cgColor
     titleLabel?.font = UIFont.systemFont(ofSize: 16)
+
+    defer {
+      currentState = .busy
+    }
   }
   
 }

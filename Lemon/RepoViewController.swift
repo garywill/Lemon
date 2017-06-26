@@ -22,8 +22,8 @@ class RepoViewController: UIViewController {
   @IBOutlet weak var briefLabel: UILabel!
   @IBOutlet weak var descTextView: UITextView!
   @IBOutlet weak var followButton: FollowButton!
-  @IBOutlet weak var starButton: CountButton!
-  @IBOutlet weak var forButton: CountButton!
+  @IBOutlet weak var starButton: StarButton!
+  @IBOutlet weak var forkButton: CountButton!
   @IBOutlet weak var markdownView: MarkdownView!
   @IBOutlet weak var markdownViewHeight: NSLayoutConstraint!
 
@@ -70,26 +70,12 @@ class RepoViewController: UIViewController {
         self.refreshUI(r)
       }).addDisposableTo(bag)
 
-    starButton.currentState = .busy
-    forButton.currentState = .busy
-
     GitHubProvider
       .request(.Users(name: login))
       .mapObject(User.self)
       .subscribe(onNext:  { u in
         self.briefLabel.text = u.bio
       }).addDisposableTo(bag)
-
-    GitHubProvider
-      .request(.StarStatus(repoName: name))
-      .subscribe(onNext: { res in
-        if res.statusCode == 204 {
-          self.starButton.currentState = .positive
-        } else {
-          self.starButton.currentState = .normal
-        }
-      })
-      .addDisposableTo(bag)
 
     GitHubProvider
       .request(.Readme(name: name))
@@ -99,6 +85,7 @@ class RepoViewController: UIViewController {
       }).addDisposableTo(bag)
 
     followButton.username = login
+    starButton.repoName = name
   }
 
   func refreshUI(_ r: Repository) {
@@ -108,8 +95,8 @@ class RepoViewController: UIViewController {
     descTextView.text = r.descriptionField + " " + (r.homepage ?? "")
     nameLabel.text = r.owner?.login
     starButton.count = r.stargazersCount
-    forButton.count = r.forksCount
-    forButton.currentState = .disable
+    forkButton.count = r.forksCount
+    forkButton.currentState = .disable
   }
 
   func setupStyles() {
@@ -119,8 +106,6 @@ class RepoViewController: UIViewController {
     briefLabel.text = ""
     briefLabel.font = UIFont.systemFont(ofSize: 12)
     briefLabel.textColor = UIColor.lmDarkGrey
-    starButton.type = .star
-    forButton.type = .fork
 
     markdownView.isScrollEnabled = false
     markdownView.onRendered = { height in
