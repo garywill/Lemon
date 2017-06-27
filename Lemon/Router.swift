@@ -14,7 +14,12 @@ private let webPrefix = "https://github.com/"
 
 class Router {
   class func handleURL(_ url: String?, _ navigationController: UINavigationController?) {
-    guard let u = url, let nav = navigationController else { return }
+    guard var u = url, let nav = navigationController else { return }
+
+    if u.characters.last == "/" {
+      // remove the last charactor if it is '/'
+      u = u.substring(to: u.index(before: u.endIndex))
+    }
 
     if u.hasPrefix("\(apiPrefix)/repos/") {
       guard let name = u.components(separatedBy: "/repos/").last else { return }
@@ -32,7 +37,6 @@ class Router {
       nav.pushViewController(profileVC, animated: true)
       return
     }
-
 
     /// https://github.com/X140Yu/Switcher
     if u.hasPrefix(webPrefix) && u.replacingOccurrences(of: webPrefix, with: "").components(separatedBy: "/").count == 2 {
