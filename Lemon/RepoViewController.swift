@@ -93,6 +93,8 @@ class RepoViewController: UIViewController {
     briefLabel.font = UIFont.systemFont(ofSize: 12)
     briefLabel.textColor = UIColor.lmDarkGrey
 
+    descTextView.delegate = self
+
     avatarImageView.layer.cornerRadius = avatarImageView.frame.height / 2.0
     avatarImageView.layer.masksToBounds = true
 
@@ -105,5 +107,12 @@ class RepoViewController: UIViewController {
       Router.handleURL(urlRequest.url, self?.navigationController)
       return false
     }
+  }
+}
+
+extension RepoViewController: UITextViewDelegate {
+  func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+    Router.handleURL(URL, navigationController)
+    return false
   }
 }
