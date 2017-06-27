@@ -42,9 +42,10 @@ class RepoViewController: UIViewController {
     guard let name = name, let login = ownerLogin else {
       return
     }
-    markdownView.baseURL = "https://raw.githubusercontent.com/\(name)/master"
+
     // TODO: If the login is the same as current
-    title = name
+    title = name.components(separatedBy: "/").last
+
     GitHubProvider
       .request(.Repo(name: name))
       .mapObject(Repository.self)
@@ -59,6 +60,8 @@ class RepoViewController: UIViewController {
         self.briefLabel.text = u.bio
       }).addDisposableTo(bag)
 
+    // 如果 default branch 不是 master，这里可能会出错，但是这里我们先忽略
+    markdownView.baseURL = "https://raw.githubusercontent.com/\(name)/master"
     GitHubProvider
       .request(.Readme(name: name))
       .subscribe(onNext: { res in
@@ -89,6 +92,9 @@ class RepoViewController: UIViewController {
     briefLabel.text = ""
     briefLabel.font = UIFont.systemFont(ofSize: 12)
     briefLabel.textColor = UIColor.lmDarkGrey
+
+    avatarImageView.layer.cornerRadius = avatarImageView.frame.height / 2.0
+    avatarImageView.layer.masksToBounds = true
 
     markdownView.isScrollEnabled = false
     markdownView.onRendered = { height in
