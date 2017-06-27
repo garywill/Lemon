@@ -60,7 +60,7 @@ PODS:
     - Texture/Core
 
 DEPENDENCIES:
-  - MarkdownView (from `git@github.com:X140Yu/MarkdownView.git`, commit `46721b6`)
+  - MarkdownView (from `git@github.com:X140Yu/MarkdownView.git`, commit `2940ad1`)
   - MBProgressHUD
   - Moya-ObjectMapper/RxSwift
   - Moya/RxSwift
@@ -74,12 +74,12 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   MarkdownView:
-    :commit: 46721b6
+    :commit: 2940ad1
     :git: git@github.com:X140Yu/MarkdownView.git
 
 CHECKOUT OPTIONS:
   MarkdownView:
-    :commit: 46721b6
+    :commit: 2940ad1
     :git: git@github.com:X140Yu/MarkdownView.git
 
 SPEC CHECKSUMS:
@@ -102,6 +102,6 @@ SPEC CHECKSUMS:
   RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
   Texture: e01a363c2b6567e1ff27a878995e0d271fbb424c
 
-PODFILE CHECKSUM: 3aff6503bddcabb39c154ca0e4eb80f8303afe6d
+PODFILE CHECKSUM: f9ecfc2672ecb7bc596f93b78641f5c1183054d9
 
 COCOAPODS: 1.2.1

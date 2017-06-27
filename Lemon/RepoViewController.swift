@@ -38,6 +38,14 @@ class RepoViewController: UIViewController {
     setupStyles()
   }
 
+  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    super.viewWillTransition(to: size, with: coordinator)
+
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) { 
+      self.markdownView.recalculateHeight()
+    }
+  }
+
   func fetchData() {
     guard let name = name, let login = ownerLogin else {
       return

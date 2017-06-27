@@ -7,7 +7,7 @@ target 'Lemon' do
   pod 'MBProgressHUD'
   pod 'R.swift' # https://github.com/mac-cain13/R.swift
   pod 'Texture'
-  pod 'MarkdownView', :git => 'git@github.com:X140Yu/MarkdownView.git', :commit => '46721b6'
+  pod 'MarkdownView', :git => 'git@github.com:X140Yu/MarkdownView.git', :commit => '2940ad1'
   
   # Rx
   pod 'Moya/RxSwift'
