@@ -15,9 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    
+
     /// if we got the access token
-    
     if let _ = CacheManager.cachedToken {
       self.window?.rootViewController = R.storyboard.main().instantiateInitialViewController()
     } else {

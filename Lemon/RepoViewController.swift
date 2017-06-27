@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import PINRemoteImage
 import MarkdownView
+import SafariServices
 
 class RepoViewController: UIViewController {
 
@@ -112,7 +113,12 @@ class RepoViewController: UIViewController {
     }
 
     markdownView.onTouchLink = { [weak self] urlRequest in
-      Router.handleURL(urlRequest.url, self?.navigationController)
+      if !Router.handleURL(urlRequest.url, self?.navigationController) {
+        if let url = urlRequest.url {
+          let safari = SFSafariViewController(url: url)
+          self?.present(safari, animated: true, completion: nil)
+        }
+      }
       return false
     }
   }
@@ -120,7 +126,10 @@ class RepoViewController: UIViewController {
 
 extension RepoViewController: UITextViewDelegate {
   func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-    Router.handleURL(URL, navigationController)
+    if !Router.handleURL(URL, navigationController) {
+      let safari = SFSafariViewController(url: URL)
+      present(safari, animated: true, completion: nil)
+    }
     return false
   }
 }
