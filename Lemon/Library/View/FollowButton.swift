@@ -27,13 +27,12 @@ class FollowButton: UIButton {
       guard let u = username else { return }
       GitHubProvider
         .request(.FollowStatus(name: u))
-        .subscribe(onNext: { res in
+        .subscribe(onSuccess: { (res) in
           if res.statusCode == 204 {
             self.currentState.value = .following
           } else {
             self.currentState.value = .unfollow
           }
-        }, onError: { err in
         }).addDisposableTo(bag)
     }
   }
@@ -81,7 +80,7 @@ class FollowButton: UIButton {
       self.currentState.value = .busy
       GitHubProvider
         .request(.UnFollowUser(name: u))
-        .subscribe(onNext: { res in
+        .subscribe(onSuccess: { (res) in
           if res.statusCode == 204 {
             self.currentState.value = .unfollow
           } else {
@@ -94,7 +93,7 @@ class FollowButton: UIButton {
       self.currentState.value = .busy
       GitHubProvider
         .request(.FollowUser(name: u))
-        .subscribe(onNext: { res in
+        .subscribe(onSuccess: { (res) in
           if res.statusCode == 204 {
             self.currentState.value = .following
           } else {

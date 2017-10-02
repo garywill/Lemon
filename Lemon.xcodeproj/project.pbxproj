@@ -15,6 +15,38 @@
 		A87AABB01E71887B00A1BE2F /* LemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABAF1E71887B00A1BE2F /* LemonTests.swift */; };
 		A87AABD41E72FAB800A1BE2F /* OAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABD31E72FAB800A1BE2F /* OAuthTests.swift */; };
 		A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABDD1E73098600A1BE2F /* R.generated.swift */; };
+		A8FC3C031F8204BD003257A8 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EBE1F82013F00F0F35C /* CacheManager.swift */; };
+		A8FC3C041F8204CB003257A8 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751ED01F82013F00F0F35C /* TabBarViewController.swift */; };
+		A8FC3C051F8204CF003257A8 /* LemonNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751ECF1F82013F00F0F35C /* LemonNavigationViewController.swift */; };
+		A8FC3C061F8204D3003257A8 /* DebugHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751ED21F82013F00F0F35C /* DebugHelper.swift */; };
+		A8FC3C071F8204DE003257A8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EC01F82013F00F0F35C /* Constants.swift */; };
+		A8FC3C081F8204E5003257A8 /* Date+ago.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EB91F82013F00F0F35C /* Date+ago.swift */; };
+		A8FC3C091F8204E5003257A8 /* UIImage+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EBA1F82013F00F0F35C /* UIImage+Lemon.swift */; };
+		A8FC3C0A1F8204E5003257A8 /* UIFont+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EBB1F82013F00F0F35C /* UIFont+Lemon.swift */; };
+		A8FC3C0B1F8204E5003257A8 /* UIColor+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EBC1F82013F00F0F35C /* UIColor+Lemon.swift */; };
+		A8FC3C0C1F8204ED003257A8 /* TailLoadingCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EC41F82013F00F0F35C /* TailLoadingCellNode.swift */; };
+		A8FC3C0D1F8204ED003257A8 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EC51F82013F00F0F35C /* ProgressHUD.swift */; };
+		A8FC3C0E1F8204ED003257A8 /* CountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EC61F82013F00F0F35C /* CountButton.swift */; };
+		A8FC3C0F1F8204ED003257A8 /* StarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EC71F82013F00F0F35C /* StarButton.swift */; };
+		A8FC3C101F8204ED003257A8 /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EC81F82013F00F0F35C /* FollowButton.swift */; };
+		A8FC3C111F8204F2003257A8 /* GitHubEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751ECA1F82013F00F0F35C /* GitHubEvent.swift */; };
+		A8FC3C121F8204F2003257A8 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751ECB1F82013F00F0F35C /* GitHubAPI.swift */; };
+		A8FC3C131F8204F2003257A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751ECC1F82013F00F0F35C /* User.swift */; };
+		A8FC3C141F8204F2003257A8 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751ECD1F82013F00F0F35C /* Repository.swift */; };
+		A8FC3C151F8204FC003257A8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751ED41F82013F00F0F35C /* Router.swift */; };
+		A8FC3C161F820508003257A8 /* RepoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8751EA61F82013400F0F35C /* RepoViewController.storyboard */; };
+		A8FC3C171F82050F003257A8 /* RepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EA71F82013400F0F35C /* RepoViewController.swift */; };
+		A8FC3C181F820515003257A8 /* OAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EA91F82013400F0F35C /* OAuthViewModel.swift */; };
+		A8FC3C191F820515003257A8 /* OAuthConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EAA1F82013400F0F35C /* OAuthConstants.swift */; };
+		A8FC3C1A1F820515003257A8 /* OAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EAB1F82013400F0F35C /* OAuthHelper.swift */; };
+		A8FC3C1B1F820515003257A8 /* OAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8751EAC1F82013400F0F35C /* OAuthViewController.xib */; };
+		A8FC3C1C1F820515003257A8 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EAD1F82013400F0F35C /* OAuthViewController.swift */; };
+		A8FC3C1D1F820519003257A8 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EAF1F82013400F0F35C /* ExploreViewController.swift */; };
+		A8FC3C1E1F82051D003257A8 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8751EB11F82013400F0F35C /* ProfileViewController.storyboard */; };
+		A8FC3C1F1F82051D003257A8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EB21F82013400F0F35C /* ProfileViewController.swift */; };
+		A8FC3C201F820522003257A8 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EB41F82013400F0F35C /* EventsViewController.swift */; };
+		A8FC3C211F820522003257A8 /* EventCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EB51F82013400F0F35C /* EventCellNode.swift */; };
+		A8FC3C221F820522003257A8 /* EventCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EB61F82013400F0F35C /* EventCellViewModel.swift */; };
 		E8BE42F6C53E77A52DD02337 /* Pods_Lemon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */; };
 /* End PBXBuildFile section */
 
@@ -391,7 +423,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "X140Yu <zhaoxinyu1994@gmail.com>";
 				TargetAttributes = {
 					A87AAB961E71887B00A1BE2F = {
@@ -431,7 +463,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8FC3C1B1F820515003257A8 /* OAuthViewController.xib in Resources */,
 				A87AABA51E71887B00A1BE2F /* LaunchScreen.storyboard in Resources */,
+				A8FC3C1E1F82051D003257A8 /* ProfileViewController.storyboard in Resources */,
+				A8FC3C161F820508003257A8 /* RepoViewController.storyboard in Resources */,
 				A87AABA21E71887B00A1BE2F /* Assets.xcassets in Resources */,
 				A87AABA01E71887B00A1BE2F /* Main.storyboard in Resources */,
 			);
@@ -468,13 +503,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Lemon-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8A537A046DF86F16943114B9 /* [CP] Embed Pods Frameworks */ = {
@@ -483,9 +521,44 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Lemon/Pods-Lemon-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkdownView/MarkdownView.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya-ObjectMapper/Moya_ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
+				"${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework",
+				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxOptional/RxOptional.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Texture/AsyncDisplayKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINOperation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxOptional.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AsyncDisplayKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -511,13 +584,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LemonTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D5C11D02FBF0F110ABB222FC /* [CP] Embed Pods Frameworks */ = {
@@ -557,8 +633,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8FC3C171F82050F003257A8 /* RepoViewController.swift in Sources */,
+				A8FC3C0F1F8204ED003257A8 /* StarButton.swift in Sources */,
+				A8FC3C121F8204F2003257A8 /* GitHubAPI.swift in Sources */,
+				A8FC3C201F820522003257A8 /* EventsViewController.swift in Sources */,
+				A8FC3C0A1F8204E5003257A8 /* UIFont+Lemon.swift in Sources */,
+				A8FC3C091F8204E5003257A8 /* UIImage+Lemon.swift in Sources */,
+				A8FC3C0D1F8204ED003257A8 /* ProgressHUD.swift in Sources */,
+				A8FC3C041F8204CB003257A8 /* TabBarViewController.swift in Sources */,
+				A8FC3C081F8204E5003257A8 /* Date+ago.swift in Sources */,
+				A8FC3C141F8204F2003257A8 /* Repository.swift in Sources */,
+				A8FC3C0B1F8204E5003257A8 /* UIColor+Lemon.swift in Sources */,
+				A8FC3C1C1F820515003257A8 /* OAuthViewController.swift in Sources */,
+				A8FC3C111F8204F2003257A8 /* GitHubEvent.swift in Sources */,
+				A8FC3C151F8204FC003257A8 /* Router.swift in Sources */,
+				A8FC3C221F820522003257A8 /* EventCellViewModel.swift in Sources */,
 				A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */,
+				A8FC3C181F820515003257A8 /* OAuthViewModel.swift in Sources */,
+				A8FC3C0C1F8204ED003257A8 /* TailLoadingCellNode.swift in Sources */,
+				A8FC3C031F8204BD003257A8 /* CacheManager.swift in Sources */,
+				A8FC3C0E1F8204ED003257A8 /* CountButton.swift in Sources */,
+				A8FC3C1F1F82051D003257A8 /* ProfileViewController.swift in Sources */,
+				A8FC3C211F820522003257A8 /* EventCellNode.swift in Sources */,
 				A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */,
+				A8FC3C101F8204ED003257A8 /* FollowButton.swift in Sources */,
+				A8FC3C071F8204DE003257A8 /* Constants.swift in Sources */,
+				A8FC3C051F8204CF003257A8 /* LemonNavigationViewController.swift in Sources */,
+				A8FC3C1A1F820515003257A8 /* OAuthHelper.swift in Sources */,
+				A8FC3C1D1F820519003257A8 /* ExploreViewController.swift in Sources */,
+				A8FC3C191F820515003257A8 /* OAuthConstants.swift in Sources */,
+				A8FC3C061F8204D3003257A8 /* DebugHelper.swift in Sources */,
+				A8FC3C131F8204F2003257A8 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,7 +715,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -618,7 +725,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -661,7 +772,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -669,7 +782,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

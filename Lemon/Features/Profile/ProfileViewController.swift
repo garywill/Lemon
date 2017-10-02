@@ -37,7 +37,7 @@ class ProfileViewController: UIViewController {
     GitHubProvider
       .request(.Users(name: u))
       .mapObject(User.self)
-      .subscribe(onNext: { user in
+      .subscribe(onSuccess: { (user) in
         self.avatarImageView.pin_setImage(from: URL(string: user.avatarUrl ?? ""))
         self.nameLabel.text = user.name
         self.loginLabel.text = user.login

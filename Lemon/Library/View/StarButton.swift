@@ -15,7 +15,7 @@ class StarButton: CountButton {
       guard let name = repoName else { return }
       GitHubProvider
         .request(.StarStatus(repoName: name))
-        .subscribe(onNext: { res in
+        .subscribe(onSuccess: { (res) in
           if res.statusCode == 204 {
             self.currentState = .positive
           } else {
@@ -37,7 +37,7 @@ class StarButton: CountButton {
       self.currentState = .busy
       GitHubProvider
         .request(.UnStarRepo(repoName: u))
-        .subscribe(onNext: { res in
+        .subscribe(onSuccess: { (res) in
           if res.statusCode == 204 {
             self.currentState = .normal
           } else {
@@ -50,7 +50,7 @@ class StarButton: CountButton {
       self.currentState = .busy
       GitHubProvider
         .request(.StarRepo(repoName: u))
-        .subscribe(onNext: { res in
+        .subscribe(onSuccess: { (res) in
           if res.statusCode == 204 {
             self.currentState = .positive
           } else {

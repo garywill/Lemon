@@ -41,16 +41,24 @@ class EventsViewController: UIViewController {
     let firstPage = GitHubProvider
       .request(.User)
       .mapObject(User.self)
-      .flatMap { user -> Observable<[GitHubEvent]> in
-        if let login = user.login {
-          return GitHubProvider
-            .request(.Events(login: login, page: 1))
-            .mapArray(GitHubEvent.self)
-            .observeOn(MainScheduler.instance)
+      .flatMap({ (user) -> Single<[GitHubEvent]> in
+        guard let login = user.login else {
+          return Single<[GitHubEvent]>.just([])
         }
-        return Observable.from([])
-      }
-      .debug()
+        return GitHubProvider
+          .request(GitHub.Events(login: login, page: 1))
+          .mapArray(GitHubEvent.self)
+          .observeOn(MainScheduler.instance)
+      }).debug()
+//      .flatMap({ (user) -> Observable<[GitHubEvent]> in
+//        if let login = user.login {
+//          return GitHubProvider
+//            .request(.Events(login: login, page: 1))
+//            .mapArray(GitHubEvent.self)
+//            .observeOn(MainScheduler.instance)
+//        }
+//        return Observable.from([])
+//      })
 
     refreshControl.backgroundColor = UIColor.clear
     refreshControl.tintColor = UIColor.lmLightGrey
@@ -155,16 +163,16 @@ extension EventsViewController: ASTableDataSource, ASTableDelegate {
     GitHubProvider
       .request(.User)
       .mapObject(User.self)
-      .flatMap { user -> Observable<[GitHubEvent]> in
+      .flatMap { user -> Single<[GitHubEvent]> in
         if let login = user.login {
           return GitHubProvider
             .request(.Events(login: login, page: self.state.page + 1))
             .mapArray(GitHubEvent.self)
             .observeOn(MainScheduler.instance)
         }
-        return Observable.just([])
+        return Single<[GitHubEvent]>.just([])
       }
-      .subscribe(onNext: { e in
+      .subscribe(onSuccess: { (e) in
         let action = Action.endBatchFetch(resultCount: e.count)
         let oldState = self.state
         self.state = EventsViewController.handleAction(action, fromState: oldState)

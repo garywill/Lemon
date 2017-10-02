@@ -204,8 +204,8 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try repoViewController.validate()
       try profileViewController.validate()
+      try repoViewController.validate()
       try main.validate()
     }
     

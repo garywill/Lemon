@@ -55,6 +55,11 @@ public enum GitHub {
 
 
 extension GitHub: TargetType {
+
+  public var headers: [String : String]? {
+    return nil
+  }
+
   public var baseURL: URL { return URL(string: "https://api.github.com")! }
   
   public var path: String {
@@ -133,7 +138,7 @@ extension GitHub: TargetType {
   }
   
   public var task: Task {
-    return .request
+    return .requestPlain
   }
   
   public var sampleData: Data {

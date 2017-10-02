@@ -58,14 +58,14 @@ class RepoViewController: UIViewController {
     GitHubProvider
       .request(.Repo(name: name))
       .mapObject(Repository.self)
-      .subscribe(onNext: { r in
+      .subscribe(onSuccess: { (r) in
         self.refreshUI(r)
       }).addDisposableTo(bag)
 
     GitHubProvider
       .request(.Users(name: login))
       .mapObject(User.self)
-      .subscribe(onNext:  { u in
+      .subscribe(onSuccess: { (u) in
         self.briefLabel.text = u.bio
       }).addDisposableTo(bag)
 
@@ -73,7 +73,7 @@ class RepoViewController: UIViewController {
     markdownView.baseURL = "https://raw.githubusercontent.com/\(name)/master"
     GitHubProvider
       .request(.Readme(name: name))
-      .subscribe(onNext: { res in
+      .subscribe(onSuccess: { (res) in
         guard let rawMD = String(data: res.data, encoding: .utf8) else { return }
         self.markdownView.load(markdown: rawMD)
       }).addDisposableTo(bag)

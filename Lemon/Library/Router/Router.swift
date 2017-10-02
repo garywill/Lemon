@@ -18,7 +18,7 @@ class Router {
 
     if u.characters.last == "/" {
       // remove the last charactor if it is '/'
-      u = u.substring(to: u.index(before: u.endIndex))
+      u = String(u.dropLast())
     }
 
     if u.hasPrefix("\(apiPrefix)/repos/") {
@@ -81,6 +81,7 @@ class Router {
     return false
   }
 
+  @discardableResult
   class func handleURL(_ URL: URL?, _ navigationController: UINavigationController?) -> Bool {
     return handleURL(URL?.absoluteString, navigationController)
   }
