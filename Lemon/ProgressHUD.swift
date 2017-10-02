@@ -103,7 +103,7 @@ public class ProgressHUDManager :NSObject {
   public func showSuccess(text:String? = nil, inView:UIView? = nil) -> HUDType {
     let image = R.image.progressHud_Success_normal()
     let hud = self.showSquaredInner(image: image, text: text, inView: inView)
-    hud.customView?.tintColor = UIColor(colorLiteralRed: 99.0/255.0, green: 99.0/255.0, blue: 99.0/255.0, alpha: 1.0)
+    hud.customView?.tintColor = UIColor(red: 99.0/255.0, green: 99.0/255.0, blue: 99.0/255.0, alpha: 1.0)
     self.dismiss(after: self.succeedDissmissedTime)
     return hud
   }
@@ -111,7 +111,7 @@ public class ProgressHUDManager :NSObject {
   public func showFailure(text:String? = nil, inView:UIView? = nil) -> HUDType {
     let image = R.image.progressHud_Fail_normal()
     let hud = self.showSquaredInner(image: image, text: text, inView: inView)
-    hud.customView?.tintColor = UIColor(colorLiteralRed: 99.0/255.0, green: 99.0/255.0, blue: 99.0/255.0, alpha: 1.0)
+    hud.customView?.tintColor = UIColor(red: 99.0/255.0, green: 99.0/255.0, blue: 99.0/255.0, alpha: 1.0)
     self.dismissWithDeley()
     return hud
   }
@@ -159,7 +159,7 @@ public class ProgressHUDManager :NSObject {
     
     self.dismissImmediately()
     self.currentHUD = hud
-    hud.label.textColor = UIColor(colorLiteralRed: 99.0/255.0, green: 99.0/255.0, blue: 99.0/255.0, alpha: 1.0)
+    hud.label.textColor = UIColor(red: 99.0/255.0, green: 99.0/255.0, blue: 99.0/255.0, alpha: 1.0)
     let view = inView ?? ProgressHUDManager.targetView
     view?.addSubview(hud)
     hud.show(animated: true)
@@ -201,7 +201,7 @@ private class HUDFactory {
     let loading = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     UIActivityIndicatorView.appearance(
       whenContainedInInstancesOf: [MBProgressHUD.self]).color
-      = UIColor(colorLiteralRed: 99.0/255.0, green: 99.0/255.0, blue: 99.0/255.0, alpha: 1.0)
+      = UIColor(red: 99.0/255.0, green: 99.0/255.0, blue: 99.0/255.0, alpha: 1.0)
     loading.startAnimating()
     hud.customView = loading
     hud.margin = 15

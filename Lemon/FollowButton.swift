@@ -71,6 +71,7 @@ class FollowButton: UIButton {
     setup()
   }
 
+  @objc
   func handleTouch() {
     guard let u = username else { return }
     switch self.currentState.value {

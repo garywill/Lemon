@@ -54,25 +54,25 @@ public final class EventCellViewModel: EventViewModelType, EventViewModelOutputs
           let userNameAttrString = NSAttributedString(string: userName,
                                                       attributes:
             [
-              NSForegroundColorAttributeName: UIColor.lmGithubBlue,
-              NSFontAttributeName: UIFont.lemonMono(size: 17),
-              linkAttributeName: URL(string: userURL)!
+              NSAttributedStringKey.foregroundColor: UIColor.lmGithubBlue,
+              NSAttributedStringKey.font: UIFont.lemonMono(size: 17),
+              NSAttributedStringKey(rawValue: linkAttributeName): URL(string: userURL)!
             ])
           attrString.append(userNameAttrString)
         }
         let actionAttrString = NSAttributedString(string: " " + action + "\n", attributes:
           [
-            NSForegroundColorAttributeName: UIColor.lmDarkGrey,
-            NSFontAttributeName: UIFont.lemonMono(size: 17)
+            NSAttributedStringKey.foregroundColor: UIColor.lmDarkGrey,
+            NSAttributedStringKey.font: UIFont.lemonMono(size: 17)
           ]
         )
         attrString.append(actionAttrString)
         if let repo = event.repo?.name, let repoURL = event.repo?.url {
           let repoAttrString = NSAttributedString(string: repo, attributes:
             [
-              NSForegroundColorAttributeName: UIColor.lmGithubBlue,
-              NSFontAttributeName: UIFont.lemonMono(size: 17),
-              linkAttributeName: URL(string: repoURL)!
+              NSAttributedStringKey.foregroundColor: UIColor.lmGithubBlue,
+              NSAttributedStringKey.font: UIFont.lemonMono(size: 17),
+              NSAttributedStringKey(rawValue: linkAttributeName): URL(string: repoURL)!
             ])
           attrString.append(repoAttrString)
         }
@@ -85,14 +85,14 @@ public final class EventCellViewModel: EventViewModelType, EventViewModelOutputs
 
     let paraStyle = NSMutableParagraphStyle()
     paraStyle.lineSpacing = 3
-    attrString.addAttributes([NSParagraphStyleAttributeName: paraStyle], range: NSRange(location: 0, length: attrString.length))
+    attrString.addAttributes([NSAttributedStringKey.paragraphStyle: paraStyle], range: NSRange(location: 0, length: attrString.length))
     eventAttributedString = attrString
 
     if let date = event.createdAt {
       dateAttributedString = NSAttributedString(string: date.lm_ago(), attributes:
         [
-          NSForegroundColorAttributeName: UIColor.lmLightGrey,
-          NSFontAttributeName: UIFont.lemonMono(size: 14)
+          NSAttributedStringKey.foregroundColor: UIColor.lmLightGrey,
+          NSAttributedStringKey.font: UIFont.lemonMono(size: 14)
         ])
     }
 

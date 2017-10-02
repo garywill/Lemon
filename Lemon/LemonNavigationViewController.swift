@@ -16,8 +16,8 @@ class LemonNavigationViewController: UINavigationController {
       navigationBar.barTintColor = UIColor.lmNavDarkGrey
       navigationBar.isTranslucent = false
       navigationBar.titleTextAttributes = [
-        NSForegroundColorAttributeName: UIColor.white,
-        NSFontAttributeName: UIFont(name: "Menlo-Regular", size: 20)!
+        NSAttributedStringKey.foregroundColor: UIColor.white,
+        NSAttributedStringKey.font: UIFont(name: "Menlo-Regular", size: 20)!
       ]
     }
 

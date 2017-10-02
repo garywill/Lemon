@@ -71,6 +71,7 @@ class EventCellNode: ASCellNode {
   }
 
 
+  @objc
   func handleAvatarTouched() {
     if let u = viewModel.event.actor?.url {
       viewModel.inputs.didTapLink.onNext(URL(string: u))
