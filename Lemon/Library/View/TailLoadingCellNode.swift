@@ -1,11 +1,3 @@
-//
-//  TailLoadingCellNode.swift
-//  Lemon
-//
-//  Created by X140Yu on 19/6/2017.
-//  Copyright © 2017 X140Yu <zhaoxinyu1994@gmail.com>. All rights reserved.
-//
-
 import AsyncDisplayKit
 import UIKit
 

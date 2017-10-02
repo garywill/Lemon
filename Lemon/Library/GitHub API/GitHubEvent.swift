@@ -1,14 +1,5 @@
-//
-//	Event.swift
-//
-//	Create by X140Yu Zhao on 13/3/2017
-//	Copyright © 2017. All rights reserved.
-//	Model file generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
-
 import Foundation
 import ObjectMapper
-
-
 
 enum EventType {
   // when user stars a repo

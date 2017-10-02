@@ -1,11 +1,3 @@
-//
-//  CountButton.swift
-//  Lemon
-//
-//  Created by X140Yu on 24/6/2017.
-//  Copyright © 2017 X140Yu <zhaoxinyu1994@gmail.com>. All rights reserved.
-//
-
 import UIKit
 import RxSwift
 import RxCocoa
