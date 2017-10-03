@@ -95,26 +95,6 @@ extension GitHub: TargetType {
       return .delete
       }
   }
-  
-  public var parameters: [String: Any]? {
-    switch self {
-    case .User,
-         .Users(_),
-         .FollowStatus(_),
-         .StarStatus(_),
-         .Readme(_),
-         .FollowUser(_),
-         .UnFollowUser(_),
-         .StarRepo(_),
-         .UnStarRepo(_),
-         .Repo(_):
-      return nil
-    case .Events(_, let page):
-      var params: [String : AnyObject] = [:]
-      params["page"] = page as AnyObject
-      return params
-    }
-  }
 
   var multipartBody: [MultipartFormData]? {
     return nil
@@ -130,7 +110,23 @@ extension GitHub: TargetType {
   }
   
   public var task: Task {
-    return .requestPlain
+    switch self {
+    case .User,
+         .Users(_),
+         .FollowStatus(_),
+         .StarStatus(_),
+         .Readme(_),
+         .FollowUser(_),
+         .UnFollowUser(_),
+         .StarRepo(_),
+         .UnStarRepo(_),
+         .Repo(_):
+      return .requestPlain
+    case .Events(_, let page):
+      var params: [String : AnyObject] = [:]
+      params["page"] = page as AnyObject
+      return .requestParameters(parameters: params, encoding: URLEncoding.default)
+    }
   }
   
   public var sampleData: Data {
@@ -141,5 +137,5 @@ extension GitHub: TargetType {
     }
     
   }
-  
+
 }

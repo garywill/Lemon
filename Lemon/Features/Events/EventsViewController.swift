@@ -42,15 +42,6 @@ class EventsViewController: UIViewController {
           .mapArray(GitHubEvent.self)
           .observeOn(MainScheduler.instance)
       }).debug()
-//      .flatMap({ (user) -> Observable<[GitHubEvent]> in
-//        if let login = user.login {
-//          return GitHubProvider
-//            .request(.Events(login: login, page: 1))
-//            .mapArray(GitHubEvent.self)
-//            .observeOn(MainScheduler.instance)
-//        }
-//        return Observable.from([])
-//      })
 
     refreshControl.backgroundColor = UIColor.clear
     refreshControl.tintColor = UIColor.lmLightGrey
@@ -161,6 +152,7 @@ extension EventsViewController: ASTableDataSource, ASTableDelegate {
             .request(.Events(login: login, page: self.state.page + 1))
             .mapArray(GitHubEvent.self)
             .observeOn(MainScheduler.instance)
+            .debug()
         }
         return Single<[GitHubEvent]>.just([])
       }

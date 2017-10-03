@@ -9,6 +9,8 @@ class LemonNavigationViewController: UINavigationController {
   }
 
   private func style() {
+    navigationBar.isTranslucent = false
+
     let color = UIColor.lmDarkGrey
     guard let font = UIFont(name: "Menlo-Regular", size: 20) else {
       navigationBar.titleTextAttributes = [
@@ -22,6 +24,5 @@ class LemonNavigationViewController: UINavigationController {
       NSAttributedStringKey.font: font
     ]
   }
-
 
 }
