@@ -2,16 +2,26 @@ import UIKit
 
 class LemonNavigationViewController: UINavigationController {
 
-    override func viewDidLoad() {
-      super.viewDidLoad()
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-      navigationBar.barTintColor = UIColor.lmNavDarkGrey
-      navigationBar.isTranslucent = false
+    style()
+  }
+
+  private func style() {
+    let color = UIColor.lmDarkGrey
+    guard let font = UIFont(name: "Menlo-Regular", size: 20) else {
       navigationBar.titleTextAttributes = [
-        NSAttributedStringKey.foregroundColor: UIColor.white,
-        NSAttributedStringKey.font: UIFont(name: "Menlo-Regular", size: 20)!
+        NSAttributedStringKey.foregroundColor: color
       ]
+      return
     }
+
+    navigationBar.titleTextAttributes = [
+      NSAttributedStringKey.foregroundColor: color,
+      NSAttributedStringKey.font: font
+    ]
+  }
 
 
 }
