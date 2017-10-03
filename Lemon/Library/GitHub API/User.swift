@@ -35,7 +35,7 @@ class User: Mappable {
   var url : String?
   
   public init(){}
-  public required init?(map: Map){}
+  public required init?(map: Map) {}
   public func mapping(map: Map)
   {
     avatarUrl <- map["avatar_url"]

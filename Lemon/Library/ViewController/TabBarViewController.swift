@@ -2,12 +2,20 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
+  override func awakeFromNib() {
+    super.awakeFromNib()
 
-    doInDebug {
-      selectedIndex = 1
+    if let navController = self.viewControllers?.last as? LemonNavigationViewController, let profileViewController = navController.viewControllers.first as? ProfileViewController {
+      profileViewController.isMine = true
+      profileViewController.name = CacheManager.cachedToken
     }
   }
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    performWhenDebug {
+      selectedIndex = 2
+    }
+  }
 }

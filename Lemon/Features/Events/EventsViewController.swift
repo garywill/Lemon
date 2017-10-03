@@ -37,6 +37,7 @@ class EventsViewController: UIViewController {
         guard let login = user.login else {
           return Single<[GitHubEvent]>.just([])
         }
+        CacheManager.cachedUsername = user.login
         return GitHubProvider
           .request(GitHub.Events(login: login, page: 1))
           .mapArray(GitHubEvent.self)

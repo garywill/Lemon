@@ -1,6 +1,6 @@
 import Foundation
 
-func doInDebug(_ something: () -> ()) {
+func performWhenDebug(_ something: () -> ()) {
   #if DEBUG
     something()
   #endif
@@ -9,7 +9,7 @@ func doInDebug(_ something: () -> ()) {
 /// conform `CustomDebugStringConvertible` to print object
 struct LemonLog {
   static func Log<T>(_ object: @autoclosure () -> T, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
-    doInDebug {
+    performWhenDebug {
       let value = object()
       let fileURL = NSURL(string: file)?.lastPathComponent ?? "Unknown file"
       let queue = Thread.isMainThread ? "UI" : "BG"

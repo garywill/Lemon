@@ -83,25 +83,6 @@
             </objects>
             <point key="canvasLocation" x="2007.2" y="-457.42128935532236"/>
         </scene>
-        <!--Profile View Controller-->
-        <scene sceneID="H57-RM-IdV">
-            <objects>
-                <viewController id="c03-e2-Xzb" customClass="ProfileViewController" customModule="Lemon" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="FzI-Rr-pwQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="tWo-Kr-dLG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wGX-67-EWb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Smx-PM-Dpd"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K5o-Aj-tg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="561" y="947"/>
-        </scene>
         <!--Profile-->
         <scene sceneID="hcM-5k-Fl6">
             <objects>
@@ -114,12 +95,22 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="c03-e2-Xzb" kind="relationship" relationship="rootViewController" id="uxu-P0-mBt"/>
+                        <segue destination="gj0-Uw-atE" kind="relationship" relationship="rootViewController" id="uQa-Nz-9pC"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KIP-B7-x25" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-84" y="947"/>
+        </scene>
+        <!--ProfileViewController-->
+        <scene sceneID="rvG-l8-q35">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProfileViewController" id="gj0-Uw-atE" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hVq-r9-NGY"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dyA-PE-Kuu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="574" y="958"/>
         </scene>
         <!--Explore-->
         <scene sceneID="Tx6-NP-eBT">

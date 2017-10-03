@@ -233,7 +233,9 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct profileViewController: Rswift.StoryboardResourceType, Rswift.Validatable {
+    struct profileViewController: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = ProfileViewController
+      
       let bundle = R.hostingBundle
       let name = "ProfileViewController"
       let profileViewController = StoryboardViewControllerResource<ProfileViewController>(identifier: "ProfileViewController")
