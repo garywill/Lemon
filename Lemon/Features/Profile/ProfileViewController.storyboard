@@ -29,47 +29,6 @@
                                     <constraint firstAttribute="width" constant="100" id="psE-zI-Sk0"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="H47-fU-Acd">
-                                <rect key="frame" x="124" y="30" width="235" height="148"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6Q-Wh-LEi">
-                                        <rect key="frame" x="0.0" y="0.0" width="235" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bga-CE-K0K">
-                                        <rect key="frame" x="0.0" y="25.5" width="235" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ml-Sb-sy2">
-                                        <rect key="frame" x="0.0" y="51" width="235" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ig-xo-CEq">
-                                        <rect key="frame" x="0.0" y="76.5" width="235" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pi6-Q8-ZkT">
-                                        <rect key="frame" x="0.0" y="102" width="235" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2x-Of-NdE">
-                                        <rect key="frame" x="0.0" y="127.5" width="235" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cNN-p1-GrJ">
                                 <rect key="frame" x="16" y="188" width="343" height="128"/>
                                 <subviews>
@@ -153,12 +112,78 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="H47-fU-Acd">
+                                <rect key="frame" x="132" y="30" width="227" height="148"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7b-8H-p0R" userLabel="Name Text View" customClass="UITextViewFixed" customModule="Lemon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="227" height="20.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="contentStretch" x="0.050000000000000003" y="0.0" width="1" height="1"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.5" id="ovv-aW-bay"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6g-Ta-Ykn" userLabel="Login Text View" customClass="UITextViewFixed" customModule="Lemon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="25.5" width="227" height="20.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.5" id="86c-fP-HNT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="df2-IH-bZI" userLabel="Company Text View" customClass="UITextViewFixed" customModule="Lemon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="51" width="227" height="20.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.5" id="qzI-73-lEI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiH-TL-zhZ" userLabel="Location Text View" customClass="UITextViewFixed" customModule="Lemon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="76.5" width="227" height="20.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.5" id="zqu-2u-Mwt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRA-dw-T8E" userLabel="Mail Text View" customClass="UITextViewFixed" customModule="Lemon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="102" width="227" height="20.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.5" id="iDg-4c-x0s"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDb-cq-H1k" userLabel="Blog Text View" customClass="UITextViewFixed" customModule="Lemon" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="127.5" width="227" height="20.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.5" id="q9f-5l-GZX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="H47-fU-Acd" secondAttribute="trailing" constant="16" id="9OS-eb-7sR"/>
                             <constraint firstItem="H47-fU-Acd" firstAttribute="top" secondItem="Byu-kw-z9M" secondAttribute="bottom" constant="10" id="IDv-ug-E55"/>
-                            <constraint firstItem="H47-fU-Acd" firstAttribute="leading" secondItem="T9k-Q7-BF4" secondAttribute="trailing" constant="8" id="OWt-6p-kvz"/>
+                            <constraint firstItem="H47-fU-Acd" firstAttribute="leading" secondItem="T9k-Q7-BF4" secondAttribute="trailing" constant="16" id="OWt-6p-kvz"/>
                             <constraint firstAttribute="leadingMargin" secondItem="T9k-Q7-BF4" secondAttribute="leading" id="Ysp-be-J8K"/>
                             <constraint firstAttribute="trailing" secondItem="cNN-p1-GrJ" secondAttribute="trailing" constant="16" id="lPn-CG-M0u"/>
                             <constraint firstItem="T9k-Q7-BF4" firstAttribute="top" secondItem="Byu-kw-z9M" secondAttribute="bottom" constant="10" id="pow-25-TdJ"/>
@@ -168,14 +193,14 @@
                     </view>
                     <connections>
                         <outlet property="avatarImageView" destination="T9k-Q7-BF4" id="dNO-WP-JIJ"/>
-                        <outlet property="blogLabel" destination="i2x-Of-NdE" id="tBo-zB-d0H"/>
-                        <outlet property="companyLabel" destination="9ml-Sb-sy2" id="B8p-ii-lBG"/>
+                        <outlet property="blogTextView" destination="mDb-cq-H1k" id="1Yv-X4-CeE"/>
+                        <outlet property="companyTextView" destination="df2-IH-bZI" id="t4Q-um-gzt"/>
                         <outlet property="followersCountLabel" destination="cp8-yg-nPj" id="jLk-Pz-LaH"/>
                         <outlet property="followingCountLabel" destination="dd8-G0-3OV" id="Oqc-7t-TcN"/>
-                        <outlet property="locationLabel" destination="3ig-xo-CEq" id="Xg8-YG-Sx2"/>
-                        <outlet property="loginLabel" destination="Bga-CE-K0K" id="SzX-UW-xo1"/>
-                        <outlet property="mailLabel" destination="pi6-Q8-ZkT" id="czf-8B-JPh"/>
-                        <outlet property="nameLabel" destination="K6Q-Wh-LEi" id="6rL-9H-tF2"/>
+                        <outlet property="locationTextView" destination="uiH-TL-zhZ" id="eTD-uK-Rsf"/>
+                        <outlet property="loginTextView" destination="T6g-Ta-Ykn" id="Ojo-FQ-tXE"/>
+                        <outlet property="mailTextView" destination="MRA-dw-T8E" id="lb1-AJ-fmf"/>
+                        <outlet property="nameTextView" destination="z7b-8H-p0R" id="HRZ-Af-bnb"/>
                         <outlet property="repoCountLabel" destination="mKP-Sq-xDL" id="4Sf-ec-SBN"/>
                     </connections>
                 </viewController>

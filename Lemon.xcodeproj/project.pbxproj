@@ -15,6 +15,7 @@
 		A87AABB01E71887B00A1BE2F /* LemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABAF1E71887B00A1BE2F /* LemonTests.swift */; };
 		A87AABD41E72FAB800A1BE2F /* OAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABD31E72FAB800A1BE2F /* OAuthTests.swift */; };
 		A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABDD1E73098600A1BE2F /* R.generated.swift */; };
+		A8EEBB981F854040001ACCB5 /* UITextViewFixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EEBB971F854040001ACCB5 /* UITextViewFixed.swift */; };
 		A8FC3C031F8204BD003257A8 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EBE1F82013F00F0F35C /* CacheManager.swift */; };
 		A8FC3C041F8204CB003257A8 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751ED01F82013F00F0F35C /* TabBarViewController.swift */; };
 		A8FC3C051F8204CF003257A8 /* LemonNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751ECF1F82013F00F0F35C /* LemonNavigationViewController.swift */; };
@@ -108,6 +109,7 @@
 		A87AABB11E71887B00A1BE2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A87AABD31E72FAB800A1BE2F /* OAuthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthTests.swift; sourceTree = "<group>"; };
 		A87AABDD1E73098600A1BE2F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		A8EEBB971F854040001ACCB5 /* UITextViewFixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewFixed.swift; sourceTree = "<group>"; };
 		AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lemon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19E4BD50D67E92A86A1DC15 /* Pods-Lemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lemon/Pods-Lemon.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -269,6 +271,7 @@
 				A8751EC61F82013F00F0F35C /* CountButton.swift */,
 				A8751EC71F82013F00F0F35C /* StarButton.swift */,
 				A8751EC81F82013F00F0F35C /* FollowButton.swift */,
+				A8EEBB971F854040001ACCB5 /* UITextViewFixed.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				A8FC3C121F8204F2003257A8 /* GitHubAPI.swift in Sources */,
 				A8FC3C201F820522003257A8 /* EventsViewController.swift in Sources */,
 				A8FC3C0A1F8204E5003257A8 /* UIFont+Lemon.swift in Sources */,
+				A8EEBB981F854040001ACCB5 /* UITextViewFixed.swift in Sources */,
 				A8FC3C091F8204E5003257A8 /* UIImage+Lemon.swift in Sources */,
 				A8FC3C0D1F8204ED003257A8 /* ProgressHUD.swift in Sources */,
 				A8FC3C041F8204CB003257A8 /* TabBarViewController.swift in Sources */,

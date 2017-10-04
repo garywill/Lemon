@@ -6,12 +6,12 @@ import PINRemoteImage
 
 class ProfileViewController: UIViewController {
   @IBOutlet weak var avatarImageView: UIImageView!
-  @IBOutlet weak var nameLabel: UILabel!
-  @IBOutlet weak var loginLabel: UILabel!
-  @IBOutlet weak var companyLabel: UILabel!
-  @IBOutlet weak var locationLabel: UILabel!
-  @IBOutlet weak var mailLabel: UILabel!
-  @IBOutlet weak var blogLabel: UILabel!
+  @IBOutlet weak var nameTextView: UITextView!
+  @IBOutlet weak var loginTextView: UITextView!
+  @IBOutlet weak var companyTextView: UITextView!
+  @IBOutlet weak var locationTextView: UITextView!
+  @IBOutlet weak var mailTextView: UITextView!
+  @IBOutlet weak var blogTextView: UITextView!
   @IBOutlet weak var repoCountLabel: UILabel!
   @IBOutlet weak var followersCountLabel: UILabel!
   @IBOutlet weak var followingCountLabel: UILabel!
@@ -59,12 +59,12 @@ class ProfileViewController: UIViewController {
         .subscribeOn(MainScheduler.instance)
         .subscribe(onSuccess: { [weak self] (user) in
           self?.avatarImageView.pin_setImage(from: URL(string: user.avatarUrl ?? ""))
-          self?.nameLabel.text = user.name
-          self?.loginLabel.text = user.login
-          self?.companyLabel.text = user.company
-          self?.locationLabel.text = user.location
-          self?.mailLabel.text = user.email
-          self?.blogLabel.text = user.blog
+          self?.nameTextView.text = user.name
+          self?.loginTextView.text = user.login
+          self?.companyTextView.text = user.company
+          self?.locationTextView.text = user.location
+          self?.mailTextView.text = user.email
+          self?.blogTextView.text = user.blog
           self?.followersCountLabel.text = "\(user.followers)"
           self?.followingCountLabel.text = "\(user.following)"
           self?.repoCountLabel.text = "\(user.publicRepos)"
@@ -81,12 +81,17 @@ class ProfileViewController: UIViewController {
     ProfileViewController.getUser(u)
       .subscribe(onSuccess: { [weak self] (user) in
         self?.avatarImageView.pin_setImage(from: URL(string: user.avatarUrl ?? ""))
-        self?.nameLabel.text = user.name
-        self?.loginLabel.text = user.login
-        self?.companyLabel.text = user.company
-        self?.locationLabel.text = user.location
-        self?.mailLabel.text = user.email
-        self?.blogLabel.text = user.blog
+        self?.nameTextView.text = user.name
+        self?.loginTextView.text = user.login
+        self?.companyTextView.text = user.company
+        self?.locationTextView.text = user.location
+        self?.mailTextView.text = user.email
+        self?.blogTextView.text = user.blog
+        self?.followersCountLabel.text = "\(user.followers)"
+        self?.followingCountLabel.text = "\(user.following)"
+        self?.repoCountLabel.text = "\(user.publicRepos)"
+
+        self?.loadingView.removeFromSuperview()
       }).addDisposableTo(bag)
   }
 
