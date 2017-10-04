@@ -10,9 +10,9 @@ class User: Mappable {
   var createdAt : String?
   var email : String?
   var eventsUrl : String?
-  var followers : Int?
+  var followers : Int = 0
   var followersUrl : String?
-  var following : Int?
+  var following : Int = 0
   var followingUrl : String?
   var gistsUrl : String?
   var gravatarId : String?
@@ -23,8 +23,8 @@ class User: Mappable {
   var login : String?
   var name : String?
   var organizationsUrl : String?
-  var publicGists : Int?
-  var publicRepos : Int?
+  var publicGists : Int = 0
+  var publicRepos : Int = 0
   var receivedEventsUrl : String?
   var reposUrl : String?
   var siteAdmin : Bool?

@@ -1,6 +1,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SnapKit
 import PINRemoteImage
 
 class ProfileViewController: UIViewController {
@@ -11,6 +12,21 @@ class ProfileViewController: UIViewController {
   @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var mailLabel: UILabel!
   @IBOutlet weak var blogLabel: UILabel!
+  @IBOutlet weak var repoCountLabel: UILabel!
+  @IBOutlet weak var followersCountLabel: UILabel!
+  @IBOutlet weak var followingCountLabel: UILabel!
+
+  lazy var loadingView: UIView = {
+    let v = UIView()
+    v.backgroundColor = UIColor.white
+    let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    v.addSubview(spinner)
+    spinner.startAnimating()
+    spinner.snp.makeConstraints({ (maker) in
+      maker.center.equalTo(v)
+    })
+    return v
+  }()
 
   var name: String?
   var isMine: Bool = false
@@ -25,7 +41,12 @@ class ProfileViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    if isMine && CacheManager.cachedUsername == nil {
+    view.addSubview(loadingView)
+    loadingView.snp.makeConstraints { (maker) in
+      maker.edges.equalTo(view)
+    }
+
+    if isMine {
       GitHubProvider
         .request(.User)
         .mapObject(User.self)
@@ -44,6 +65,11 @@ class ProfileViewController: UIViewController {
           self?.locationLabel.text = user.location
           self?.mailLabel.text = user.email
           self?.blogLabel.text = user.blog
+          self?.followersCountLabel.text = "\(user.followers)"
+          self?.followingCountLabel.text = "\(user.following)"
+          self?.repoCountLabel.text = "\(user.publicRepos)"
+
+          self?.loadingView.removeFromSuperview()
         }, onError: { (error) in
 
         }).addDisposableTo(bag)
