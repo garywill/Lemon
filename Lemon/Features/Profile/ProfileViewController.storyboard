@@ -29,8 +29,8 @@
                                     <constraint firstAttribute="width" constant="100" id="psE-zI-Sk0"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cNN-p1-GrJ">
-                                <rect key="frame" x="16" y="188" width="343" height="128"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cNN-p1-GrJ">
+                                <rect key="frame" x="16" y="162.5" width="343" height="128"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mbk-Yp-Djd">
                                         <rect key="frame" x="0.0" y="0.0" width="114.5" height="128"/>
@@ -113,7 +113,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="H47-fU-Acd">
-                                <rect key="frame" x="132" y="30" width="227" height="148"/>
+                                <rect key="frame" x="132" y="30" width="227" height="122.5"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7b-8H-p0R" userLabel="Name Text View" customClass="UITextViewFixed" customModule="Lemon" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="227" height="20.5"/>
@@ -126,18 +126,8 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6g-Ta-Ykn" userLabel="Login Text View" customClass="UITextViewFixed" customModule="Lemon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="25.5" width="227" height="20.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20.5" id="86c-fP-HNT"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
-                                    </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="df2-IH-bZI" userLabel="Company Text View" customClass="UITextViewFixed" customModule="Lemon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="51" width="227" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="25.5" width="227" height="20.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20.5" id="qzI-73-lEI"/>
@@ -147,7 +137,7 @@
                                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiH-TL-zhZ" userLabel="Location Text View" customClass="UITextViewFixed" customModule="Lemon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="76.5" width="227" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="51" width="227" height="20.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20.5" id="zqu-2u-Mwt"/>
@@ -157,7 +147,7 @@
                                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRA-dw-T8E" userLabel="Mail Text View" customClass="UITextViewFixed" customModule="Lemon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="102" width="227" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="76.5" width="227" height="20.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20.5" id="iDg-4c-x0s"/>
@@ -167,7 +157,7 @@
                                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDb-cq-H1k" userLabel="Blog Text View" customClass="UITextViewFixed" customModule="Lemon" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="127.5" width="227" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="102" width="227" height="20.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20.5" id="q9f-5l-GZX"/>
@@ -184,11 +174,12 @@
                             <constraint firstAttribute="trailing" secondItem="H47-fU-Acd" secondAttribute="trailing" constant="16" id="9OS-eb-7sR"/>
                             <constraint firstItem="H47-fU-Acd" firstAttribute="top" secondItem="Byu-kw-z9M" secondAttribute="bottom" constant="10" id="IDv-ug-E55"/>
                             <constraint firstItem="H47-fU-Acd" firstAttribute="leading" secondItem="T9k-Q7-BF4" secondAttribute="trailing" constant="16" id="OWt-6p-kvz"/>
+                            <constraint firstItem="cNN-p1-GrJ" firstAttribute="top" secondItem="H47-fU-Acd" secondAttribute="bottom" constant="10" id="YLW-rL-5En"/>
                             <constraint firstAttribute="leadingMargin" secondItem="T9k-Q7-BF4" secondAttribute="leading" id="Ysp-be-J8K"/>
+                            <constraint firstItem="cNN-p1-GrJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="T9k-Q7-BF4" secondAttribute="bottom" constant="5" id="bgR-0R-gBZ"/>
                             <constraint firstAttribute="trailing" secondItem="cNN-p1-GrJ" secondAttribute="trailing" constant="16" id="lPn-CG-M0u"/>
                             <constraint firstItem="T9k-Q7-BF4" firstAttribute="top" secondItem="Byu-kw-z9M" secondAttribute="bottom" constant="10" id="pow-25-TdJ"/>
                             <constraint firstItem="cNN-p1-GrJ" firstAttribute="leading" secondItem="yZ9-Q5-ca5" secondAttribute="leading" constant="16" id="tq5-3m-7LC"/>
-                            <constraint firstItem="cNN-p1-GrJ" firstAttribute="top" secondItem="H47-fU-Acd" secondAttribute="bottom" constant="10" id="uT2-F1-vZH"/>
                         </constraints>
                     </view>
                     <connections>
@@ -198,15 +189,15 @@
                         <outlet property="followersCountLabel" destination="cp8-yg-nPj" id="jLk-Pz-LaH"/>
                         <outlet property="followingCountLabel" destination="dd8-G0-3OV" id="Oqc-7t-TcN"/>
                         <outlet property="locationTextView" destination="uiH-TL-zhZ" id="eTD-uK-Rsf"/>
-                        <outlet property="loginTextView" destination="T6g-Ta-Ykn" id="Ojo-FQ-tXE"/>
                         <outlet property="mailTextView" destination="MRA-dw-T8E" id="lb1-AJ-fmf"/>
                         <outlet property="nameTextView" destination="z7b-8H-p0R" id="HRZ-Af-bnb"/>
                         <outlet property="repoCountLabel" destination="mKP-Sq-xDL" id="4Sf-ec-SBN"/>
+                        <outlet property="topprofileStackView" destination="H47-fU-Acd" id="I7w-Na-Yv5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mNn-on-idp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="37.600000000000001" y="120.98950524737631"/>
+            <point key="canvasLocation" x="-327" y="114"/>
         </scene>
     </scenes>
 </document>

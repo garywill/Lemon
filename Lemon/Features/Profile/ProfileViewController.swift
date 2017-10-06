@@ -7,9 +7,10 @@ import PINRemoteImage
 class ProfileViewController: UIViewController {
   @IBOutlet weak var avatarImageView: UIImageView!
   @IBOutlet weak var nameTextView: UITextView!
-  @IBOutlet weak var loginTextView: UITextView!
   @IBOutlet weak var companyTextView: UITextView!
   @IBOutlet weak var locationTextView: UITextView!
+
+  @IBOutlet weak var topprofileStackView: UIStackView!
   @IBOutlet weak var mailTextView: UITextView!
   @IBOutlet weak var blogTextView: UITextView!
   @IBOutlet weak var repoCountLabel: UILabel!
@@ -58,13 +59,8 @@ class ProfileViewController: UIViewController {
         }
         .subscribeOn(MainScheduler.instance)
         .subscribe(onSuccess: { [weak self] (user) in
-          self?.avatarImageView.pin_setImage(from: URL(string: user.avatarUrl ?? ""))
-          self?.nameTextView.text = user.name
-          self?.loginTextView.text = user.login
-          self?.companyTextView.text = user.company
-          self?.locationTextView.text = user.location
-          self?.mailTextView.text = user.email
-          self?.blogTextView.text = user.blog
+          self?.updateTopProfileStackView(user: user)
+
           self?.followersCountLabel.text = "\(user.followers)"
           self?.followingCountLabel.text = "\(user.following)"
           self?.repoCountLabel.text = "\(user.publicRepos)"
@@ -80,13 +76,8 @@ class ProfileViewController: UIViewController {
 
     ProfileViewController.getUser(u)
       .subscribe(onSuccess: { [weak self] (user) in
-        self?.avatarImageView.pin_setImage(from: URL(string: user.avatarUrl ?? ""))
-        self?.nameTextView.text = user.name
-        self?.loginTextView.text = user.login
-        self?.companyTextView.text = user.company
-        self?.locationTextView.text = user.location
-        self?.mailTextView.text = user.email
-        self?.blogTextView.text = user.blog
+        self?.updateTopProfileStackView(user: user)
+
         self?.followersCountLabel.text = "\(user.followers)"
         self?.followingCountLabel.text = "\(user.following)"
         self?.repoCountLabel.text = "\(user.publicRepos)"
@@ -99,6 +90,26 @@ class ProfileViewController: UIViewController {
     return GitHubProvider
       .request(.Users(name: login))
       .mapObject(User.self)
+  }
+
+  private func updateTopProfileStackView(user: User) {
+    avatarImageView.pin_setImage(from: URL(string: user.avatarUrl ?? ""))
+    nameTextView.text = user.name
+    title = user.login
+
+    setStatckViewSubViewsDetail(detail: user.company, subView: companyTextView)
+    setStatckViewSubViewsDetail(detail: user.location, subView: locationTextView)
+    setStatckViewSubViewsDetail(detail: user.email, subView: mailTextView)
+    setStatckViewSubViewsDetail(detail: user.blog, subView: blogTextView)
+  }
+
+  private func setStatckViewSubViewsDetail(detail: String?, subView: UITextView) {
+    if detail?.count ?? 0 <= 0 {
+      topprofileStackView.removeArrangedSubview(subView)
+      return
+    }
+
+    subView.text = detail
   }
 
 }
