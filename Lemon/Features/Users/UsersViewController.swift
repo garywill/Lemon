@@ -33,7 +33,6 @@ class UsersViewController: UIViewController {
 
   override func viewWillLayoutSubviews() {
     super.viewWillLayoutSubviews()
-    let tabBarheight = self.tabBarController?.tabBar.bounds.size.height ?? 0
     tableNode.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
   }
 
