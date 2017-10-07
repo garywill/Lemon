@@ -18,6 +18,7 @@
 		A87AABD41E72FAB800A1BE2F /* OAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABD31E72FAB800A1BE2F /* OAuthTests.swift */; };
 		A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABDD1E73098600A1BE2F /* R.generated.swift */; };
 		A8AF32DD1F88E83C009FA986 /* UsersViewControllerProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AF32DC1F88E83C009FA986 /* UsersViewControllerProviders.swift */; };
+		A8AF32DF1F88F8DB009FA986 /* UIRefreshControl+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AF32DE1F88F8DB009FA986 /* UIRefreshControl+Lemon.swift */; };
 		A8EEBB981F854040001ACCB5 /* UITextViewFixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EEBB971F854040001ACCB5 /* UITextViewFixed.swift */; };
 		A8FC3C031F8204BD003257A8 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EBE1F82013F00F0F35C /* CacheManager.swift */; };
 		A8FC3C041F8204CB003257A8 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751ED01F82013F00F0F35C /* TabBarViewController.swift */; };
@@ -115,6 +116,7 @@
 		A87AABD31E72FAB800A1BE2F /* OAuthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthTests.swift; sourceTree = "<group>"; };
 		A87AABDD1E73098600A1BE2F /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		A8AF32DC1F88E83C009FA986 /* UsersViewControllerProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewControllerProviders.swift; sourceTree = "<group>"; };
+		A8AF32DE1F88F8DB009FA986 /* UIRefreshControl+Lemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+Lemon.swift"; sourceTree = "<group>"; };
 		A8EEBB971F854040001ACCB5 /* UITextViewFixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewFixed.swift; sourceTree = "<group>"; };
 		AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lemon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19E4BD50D67E92A86A1DC15 /* Pods-Lemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lemon/Pods-Lemon.release.xcconfig"; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				A8751EBA1F82013F00F0F35C /* UIImage+Lemon.swift */,
 				A8751EBB1F82013F00F0F35C /* UIFont+Lemon.swift */,
 				A8751EBC1F82013F00F0F35C /* UIColor+Lemon.swift */,
+				A8AF32DE1F88F8DB009FA986 /* UIRefreshControl+Lemon.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -670,6 +673,7 @@
 				A8FC3C141F8204F2003257A8 /* Repository.swift in Sources */,
 				A8FC3C0B1F8204E5003257A8 /* UIColor+Lemon.swift in Sources */,
 				A8FC3C1C1F820515003257A8 /* OAuthViewController.swift in Sources */,
+				A8AF32DF1F88F8DB009FA986 /* UIRefreshControl+Lemon.swift in Sources */,
 				A8FC3C111F8204F2003257A8 /* GitHubEvent.swift in Sources */,
 				A8FC3C151F8204FC003257A8 /* Router.swift in Sources */,
 				A8FC3C221F820522003257A8 /* EventCellViewModel.swift in Sources */,

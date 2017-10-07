@@ -9,7 +9,7 @@ class EventsViewController: UIViewController {
   let tableNode = ASTableNode()
   let refreshControl = UIRefreshControl()
 
-  var events = Variable<[GitHubEvent]>([])
+  var events = [GitHubEvent]()
 
   let disposeBag = DisposeBag()
 
@@ -42,7 +42,7 @@ class EventsViewController: UIViewController {
           .request(GitHub.Events(login: login, page: 1))
           .mapArray(GitHubEvent.self)
           .observeOn(MainScheduler.instance)
-      }).debug()
+      })
 
     refreshControl.backgroundColor = UIColor.clear
     refreshControl.tintColor = UIColor.lmLightGrey
@@ -50,13 +50,16 @@ class EventsViewController: UIViewController {
       .flatMap { _ in
         return firstPage
       }
-      .subscribe(onNext: { events in
-        self.events.value = events
+      .subscribe(onNext: { [weak self] events in
+        guard let `self` = self else { return }
+        self.events = events
         self.refreshControl.endRefreshing()
         self.state.page = 1
         self.state.itemCount = events.count
         self.state = EventsViewController.handleAction(.endBatchFetch(resultCount: 20), fromState: self.state)
-      }, onError: { error in
+        self.tableNode.reloadData()
+      }, onError: { [weak self] error in
+        guard let `self` = self else { return }
         self.refreshControl.endRefreshing()
       })
       .disposed(by: disposeBag)
@@ -67,14 +70,7 @@ class EventsViewController: UIViewController {
     tableNode.dataSource = self
     tableNode.delegate = self
 
-    events.asObservable()
-      .subscribeOn(MainScheduler.instance)
-      .subscribe(onNext: { [weak self] events in
-        self?.tableNode.reloadData()
-        self?.state.itemCount = events.count
-      })
-      .disposed(by: disposeBag)
-
+    refreshControl.refreshManually()
   }
 
   override func viewWillLayoutSubviews() {
@@ -98,7 +94,7 @@ extension EventsViewController: ASTableDataSource, ASTableDelegate {
 
   func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
     tableNode.deselectRow(at: indexPath, animated: true)
-    let event = events.value[indexPath.row]
+    let event = events[indexPath.row]
     if let URLString = event.repo?.url {
       self.deal(url: URL(string: URLString))
     }
@@ -109,7 +105,7 @@ extension EventsViewController: ASTableDataSource, ASTableDelegate {
   }
 
   func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
-    var count = events.value.count
+    var count = events.count
     if state.fetchingMore {
       count += 1
     }
@@ -125,7 +121,7 @@ extension EventsViewController: ASTableDataSource, ASTableDelegate {
       return node
     }
 
-    let event = events.value[indexPath.row]
+    let event = events[indexPath.row]
     let viewModel = EventCellViewModel(event: event)
     let node = EventCellNode(viewModel: viewModel)
     viewModel.outputs.linkURL.asObservable()
@@ -138,7 +134,7 @@ extension EventsViewController: ASTableDataSource, ASTableDelegate {
 
   func tableNode(_ tableNode: ASTableNode, willBeginBatchFetchWith context: ASBatchContext) {
 
-    if events.value.count == 0 {
+    if events.count == 0 {
       context.completeBatchFetching(true)
       return
     }
@@ -153,7 +149,6 @@ extension EventsViewController: ASTableDataSource, ASTableDelegate {
             .request(.Events(login: login, page: self.state.page + 1))
             .mapArray(GitHubEvent.self)
             .observeOn(MainScheduler.instance)
-            .debug()
         }
         return Single<[GitHubEvent]>.just([])
       }
@@ -162,8 +157,16 @@ extension EventsViewController: ASTableDataSource, ASTableDelegate {
         let oldState = self.state
         self.state = EventsViewController.handleAction(action, fromState: oldState)
         self.state.page += 1
-        self.events.value.append(contentsOf: e)
         self.state.fetchingMore = false
+
+        var initial = self.events.count - 1
+        let indexPaths =  e.map { _ -> IndexPath in
+          initial += 1
+          return IndexPath(row: initial, section: 0)
+        }
+        self.events.append(contentsOf: e)
+        self.state.itemCount = self.events.count
+        self.tableNode.insertRows(at: indexPaths, with: UITableViewRowAnimation.fade)
         context.completeBatchFetching(true)
       }, onError: { e in
         let e = e as! MoyaError
