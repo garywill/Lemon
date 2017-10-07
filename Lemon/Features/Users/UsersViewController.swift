@@ -23,6 +23,7 @@ class UsersViewController: UIViewController {
     self.provider = provider
     super.init(nibName: nil, bundle: nil)
 
+    hidesBottomBarWhenPushed = true
     view.backgroundColor = .white
     tableNode.delegate = self
     tableNode.dataSource = self
@@ -33,7 +34,7 @@ class UsersViewController: UIViewController {
   override func viewWillLayoutSubviews() {
     super.viewWillLayoutSubviews()
     let tabBarheight = self.tabBarController?.tabBar.bounds.size.height ?? 0
-    tableNode.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height - tabBarheight)
+    tableNode.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
   }
 
   private var users = [User]()
