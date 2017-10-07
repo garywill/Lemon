@@ -2,6 +2,16 @@ import RxSwift
 import RxCocoa
 import AsyncDisplayKit
 
+enum UsersViewControllerProviderFetchResult {
+  case success(users: [User])
+  case error(error: Error)
+}
+
+protocol UsersViewControllerProvider {
+  var title: String { get }
+  func fetchData(page: Int, completion: @escaping (UsersViewControllerProviderFetchResult) -> Void)
+}
+
 class UsersViewController: UIViewController {
   let tableNode = ASTableNode()
 
@@ -9,12 +19,8 @@ class UsersViewController: UIViewController {
     fatalError("init(coder:) has not been implemented")
   }
 
-  init?(user: User?) {
-    guard let login = user?.login else {
-      return nil
-    }
-
-    self.login = login
+  init(provider: UsersViewControllerProvider) {
+    self.provider = provider
     super.init(nibName: nil, bundle: nil)
 
     view.backgroundColor = .white
@@ -22,14 +28,14 @@ class UsersViewController: UIViewController {
     tableNode.dataSource = self
   }
 
+  private let provider: UsersViewControllerProvider
+
   override func viewWillLayoutSubviews() {
     super.viewWillLayoutSubviews()
     let tabBarheight = self.tabBarController?.tabBar.bounds.size.height ?? 0
     tableNode.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height - tabBarheight)
   }
 
-  let login: String
-  private let bag = DisposeBag()
   private var users = [User]()
   private var currentPage = 2
   private var noMore = false
@@ -38,16 +44,17 @@ class UsersViewController: UIViewController {
     super.viewDidLoad()
 
     view.addSubnode(tableNode)
-    title = "Following"
+    title = provider.title
 
-    GitHubProvider
-      .request(.Followings(login: login, page: 1))
-      .mapArray(User.self)
-      .subscribe(onSuccess: { [weak self] (users) in
+    provider.fetchData(page: 1) { [weak self] (result) in
+      switch result {
+      case .success(let users):
         self?.users = users
         self?.tableNode.reloadData()
-      }) { (error) in
-    }.addDisposableTo(bag)
+      case .error(let error):
+        ProgressHUD.showFailure(error.localizedDescription)
+      }
+    }
   }
 }
 
@@ -88,19 +95,30 @@ extension UsersViewController: ASTableDataSource, ASTableDelegate {
     if noMore {
       return
     }
-    GitHubProvider
-      .request(.Followings(login: login, page: currentPage))
-      .mapArray(User.self)
-      .subscribe(onSuccess: { [weak self] (users) in
+
+    provider.fetchData(page: currentPage) { [weak self] (result) in
+      guard let `self` = self else { return }
+      switch result {
+      case .success(let users):
         if users.count == 0 {
-          self?.noMore = true
+          self.noMore = true
         }
-        self?.users += users
-        self?.tableNode.reloadData()
-        self?.currentPage += 1
+
+        var initial = self.users.count - 1
+        let indexPaths = users.map { _ -> IndexPath in
+          initial += 1
+          return IndexPath(row: initial, section: 0)
+        }
+
+        self.users += users
+        self.tableNode.insertRows(at: indexPaths, with: UITableViewRowAnimation.fade)
+        self.currentPage += 1
         context.completeBatchFetching(true)
-      }) { (error) in
+      case .error(let error):
+        ProgressHUD.showFailure(error.localizedDescription)
         context.completeBatchFetching(true)
-      }.addDisposableTo(bag)
+      }
+    }
+
   }
 }

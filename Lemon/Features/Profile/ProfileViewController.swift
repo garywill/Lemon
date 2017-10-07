@@ -21,13 +21,19 @@ class ProfileViewController: UIViewController {
   }
 
   @IBAction func handleFollowersControl(_ sender: UIControl) {
+    guard let login = user?.login else {
+      return
+    }
+    let followingVC = FollowersProvider.viewController(login: login)
+    navigationController?.pushViewController(followingVC, animated: true)
   }
 
 
   @IBAction func handleFollowingsControl(_ sender: UIControl) {
-    guard let followingVC = UsersViewController(user: user) else {
+    guard let login = user?.login else {
       return
     }
+    let followingVC = FollowingsProvider.viewController(login: login)
     navigationController?.pushViewController(followingVC, animated: true)
   }
 

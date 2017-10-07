@@ -33,6 +33,7 @@ public enum GitHub {
   case User
   case Events(login: String, page: Int)
   case Followings(login: String, page: Int)
+  case Followers(login: String, page: Int)
   case Repo(name: String)
   case Users(name: String)
   case FollowStatus(name: String)
@@ -63,6 +64,8 @@ extension GitHub: TargetType {
       return "/users/\(login)/received_events"
     case .Followings(let login, _):
       return "/users/\(login)/following"
+    case .Followers(let login, _):
+      return "/users/\(login)/followers"
     case .Repo(let name):
       return "/repos/\(name)"
     case .Users(let name):
@@ -85,6 +88,7 @@ extension GitHub: TargetType {
     case .User,
          .Events(_),
          .Followings(_),
+         .Followers(_),
          .Repo(_),
          .FollowStatus(_),
          .StarStatus(_),
@@ -127,6 +131,7 @@ extension GitHub: TargetType {
          .Repo(_):
       return .requestPlain
     case .Events(_, let page),
+         .Followers(_, let page),
          .Followings(_, let page):
       var params: [String : AnyObject] = [:]
       params["page"] = page as AnyObject
