@@ -2,7 +2,7 @@ import RxSwift
 import RxCocoa
 import AsyncDisplayKit
 
-class FollowingsViewController: UIViewController {
+class UsersViewController: UIViewController {
   let tableNode = ASTableNode()
 
   required init?(coder aDecoder: NSCoder) {
@@ -51,7 +51,7 @@ class FollowingsViewController: UIViewController {
   }
 }
 
-extension FollowingsViewController: ASTableDataSource, ASTableDelegate {
+extension UsersViewController: ASTableDataSource, ASTableDelegate {
   func tableNode(_ tableNode: ASTableNode, constrainedSizeForRowAt indexPath: IndexPath) -> ASSizeRange {
     let width = UIScreen.main.bounds.size.width;
     return ASSizeRangeMake(CGSize(width: width, height: 60))

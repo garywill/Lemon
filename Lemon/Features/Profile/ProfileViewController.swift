@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController {
 
 
   @IBAction func handleFollowingsControl(_ sender: UIControl) {
-    guard let followingVC = FollowingsViewController(user: user) else {
+    guard let followingVC = UsersViewController(user: user) else {
       return
     }
     navigationController?.pushViewController(followingVC, animated: true)
@@ -43,7 +43,7 @@ class ProfileViewController: UIViewController {
     return v
   }()
 
-  var name: String?
+  public var name: String?
   var isMine: Bool = false
   var user: User?
   let bag = DisposeBag()
