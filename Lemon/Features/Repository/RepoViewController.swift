@@ -23,6 +23,12 @@ class RepoViewController: UIViewController {
   let bag = DisposeBag()
   var name: String?
   var ownerLogin: String?
+  let topTapGesture = UITapGestureRecognizer()
+
+  @IBAction func handleTopGesture(_ sender: UITapGestureRecognizer) {
+    guard let login = self.ownerLogin else { return }
+    Navigator.navigate(.Profile(login: login), responder: self)
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -61,7 +67,7 @@ class RepoViewController: UIViewController {
         self.briefLabel.text = u.bio
       }).addDisposableTo(bag)
 
-    // 如果 default branch 不是 master，这里可能会出错，但是这里我们先忽略
+    // TODO: 如果 default branch 不是 master，这里可能会出错，但是这里我们先忽略
     markdownView.baseURL = "https://raw.githubusercontent.com/\(name)/master"
     GitHubProvider
       .request(.Readme(name: name))
