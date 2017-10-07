@@ -32,6 +32,7 @@ private extension String {
 public enum GitHub {
   case User
   case Events(login: String, page: Int)
+  case Followings(login: String, page: Int)
   case Repo(name: String)
   case Users(name: String)
   case FollowStatus(name: String)
@@ -60,6 +61,8 @@ extension GitHub: TargetType {
       return "/user"
     case .Events(let login, _):
       return "/users/\(login)/received_events"
+    case .Followings(let login, _):
+      return "/users/\(login)/following"
     case .Repo(let name):
       return "/repos/\(name)"
     case .Users(let name):
@@ -81,6 +84,7 @@ extension GitHub: TargetType {
     switch self {
     case .User,
          .Events(_),
+         .Followings(_),
          .Repo(_),
          .FollowStatus(_),
          .StarStatus(_),
@@ -122,7 +126,8 @@ extension GitHub: TargetType {
          .UnStarRepo(_),
          .Repo(_):
       return .requestPlain
-    case .Events(_, let page):
+    case .Events(_, let page),
+         .Followings(_, let page):
       var params: [String : AnyObject] = [:]
       params["page"] = page as AnyObject
       return .requestParameters(parameters: params, encoding: URLEncoding.default)

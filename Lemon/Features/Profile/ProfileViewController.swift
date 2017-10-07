@@ -5,17 +5,31 @@ import SnapKit
 import PINRemoteImage
 
 class ProfileViewController: UIViewController {
+  // @IB releated
   @IBOutlet weak var avatarImageView: UIImageView!
   @IBOutlet weak var nameTextView: UITextView!
   @IBOutlet weak var companyTextView: UITextView!
   @IBOutlet weak var locationTextView: UITextView!
-
   @IBOutlet weak var topprofileStackView: UIStackView!
   @IBOutlet weak var mailTextView: UITextView!
   @IBOutlet weak var blogTextView: UITextView!
   @IBOutlet weak var repoCountLabel: UILabel!
   @IBOutlet weak var followersCountLabel: UILabel!
   @IBOutlet weak var followingCountLabel: UILabel!
+
+  @IBAction func handleReposControl(_ sender: UIControl) {
+  }
+
+  @IBAction func handleFollowersControl(_ sender: UIControl) {
+  }
+
+
+  @IBAction func handleFollowingsControl(_ sender: UIControl) {
+    guard let followingVC = FollowingsViewController(user: user) else {
+      return
+    }
+    navigationController?.pushViewController(followingVC, animated: true)
+  }
 
   lazy var loadingView: UIView = {
     let v = UIView()
@@ -31,6 +45,7 @@ class ProfileViewController: UIViewController {
 
   var name: String?
   var isMine: Bool = false
+  var user: User?
   let bag = DisposeBag()
 
   class func profileVC(login: String) -> ProfileViewController {
@@ -41,6 +56,9 @@ class ProfileViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    avatarImageView.layer.cornerRadius = 10
+    avatarImageView.layer.masksToBounds = true
 
     view.addSubview(loadingView)
     loadingView.snp.makeConstraints { (maker) in
@@ -93,6 +111,7 @@ class ProfileViewController: UIViewController {
   }
 
   private func updateTopProfileStackView(user: User) {
+    self.user = user
     avatarImageView.pin_setImage(from: URL(string: user.avatarUrl ?? ""))
     nameTextView.text = user.name
     title = user.login

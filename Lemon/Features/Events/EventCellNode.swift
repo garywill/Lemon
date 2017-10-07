@@ -47,7 +47,7 @@ class EventCellNode: ASCellNode {
     eventLabel.style.maxWidth = ASDimensionMake(300)
     eventLabel.style.flexGrow = 1.0
     // corner radius
-    avatar.imageModificationBlock = { $0.lm_cornerRadiused() }
+    avatar.imageModificationBlock = { $0.lm_cornerRadiused(10) }
 
     let icon = ASInsetLayoutSpec(insets: UIEdgeInsets.init(top: 5, left: .infinity, bottom: .infinity, right: 5) , child: iconNode)
 
