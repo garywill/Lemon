@@ -54,6 +54,11 @@ class RepoViewController: UIViewController {
       .addDisposableTo(bag)
   }
 
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    userActivity?.invalidate()
+  }
+
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     super.viewWillTransition(to: size, with: coordinator)
 
