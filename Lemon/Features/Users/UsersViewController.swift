@@ -19,6 +19,11 @@ class UsersViewController: UIViewController {
     fatalError("init(coder:) has not been implemented")
   }
 
+  lazy var loadingView: LoadableViewProvider = {
+    let v = LoadableViewProvider(contentView: view)
+    return v
+  }()
+
   init(provider: UsersViewControllerProvider) {
     self.provider = provider
     super.init(nibName: nil, bundle: nil)
@@ -43,6 +48,7 @@ class UsersViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+
     view.addSubnode(tableNode)
     title = provider.title
 
@@ -54,7 +60,10 @@ class UsersViewController: UIViewController {
       case .error(let error):
         ProgressHUD.showFailure(error.localizedDescription)
       }
+      self?.loadingView.stopLoading()
     }
+
+    loadingView.startLoading()
   }
 }
 

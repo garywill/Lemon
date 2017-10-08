@@ -37,15 +37,8 @@ class ProfileViewController: UIViewController {
     navigationController?.pushViewController(followingVC, animated: true)
   }
 
-  lazy var loadingView: UIView = {
-    let v = UIView()
-    v.backgroundColor = UIColor.white
-    let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-    v.addSubview(spinner)
-    spinner.startAnimating()
-    spinner.snp.makeConstraints({ (maker) in
-      maker.center.equalTo(v)
-    })
+  lazy var loadingView: LoadableViewProvider = {
+    let v = LoadableViewProvider(contentView: view)
     return v
   }()
 
@@ -63,13 +56,10 @@ class ProfileViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    loadingView.startLoading()
+
     avatarImageView.layer.cornerRadius = 10
     avatarImageView.layer.masksToBounds = true
-
-    view.addSubview(loadingView)
-    loadingView.snp.makeConstraints { (maker) in
-      maker.edges.equalTo(view)
-    }
 
     if isMine {
       GitHubProvider
@@ -89,9 +79,9 @@ class ProfileViewController: UIViewController {
           self?.followingCountLabel.text = "\(user.following)"
           self?.repoCountLabel.text = "\(user.publicRepos)"
 
-          self?.loadingView.removeFromSuperview()
-        }, onError: { (error) in
-
+          self?.loadingView.stopLoading()
+        }, onError: { [weak self] (error) in
+          self?.loadingView.stopLoading()
         }).addDisposableTo(bag)
       return
     }
@@ -106,7 +96,7 @@ class ProfileViewController: UIViewController {
         self?.followingCountLabel.text = "\(user.following)"
         self?.repoCountLabel.text = "\(user.publicRepos)"
 
-        self?.loadingView.removeFromSuperview()
+        self?.loadingView.stopLoading()
       }).addDisposableTo(bag)
   }
 

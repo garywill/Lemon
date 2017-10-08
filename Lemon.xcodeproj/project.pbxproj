@@ -21,6 +21,7 @@
 		A8AF32DF1F88F8DB009FA986 /* UIRefreshControl+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AF32DE1F88F8DB009FA986 /* UIRefreshControl+Lemon.swift */; };
 		A8AF32E21F88FC12009FA986 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AF32E11F88FC12009FA986 /* Navigator.swift */; };
 		A8AF32E41F88FE0E009FA986 /* UIResponder+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AF32E31F88FE0E009FA986 /* UIResponder+Lemon.swift */; };
+		A8BFA92C1F89D79000A59F57 /* LoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BFA92B1F89D79000A59F57 /* LoadableView.swift */; };
 		A8EEBB981F854040001ACCB5 /* UITextViewFixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EEBB971F854040001ACCB5 /* UITextViewFixed.swift */; };
 		A8FC3C031F8204BD003257A8 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EBE1F82013F00F0F35C /* CacheManager.swift */; };
 		A8FC3C041F8204CB003257A8 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751ED01F82013F00F0F35C /* TabBarViewController.swift */; };
@@ -121,6 +122,7 @@
 		A8AF32DE1F88F8DB009FA986 /* UIRefreshControl+Lemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+Lemon.swift"; sourceTree = "<group>"; };
 		A8AF32E11F88FC12009FA986 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		A8AF32E31F88FE0E009FA986 /* UIResponder+Lemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Lemon.swift"; sourceTree = "<group>"; };
+		A8BFA92B1F89D79000A59F57 /* LoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableView.swift; sourceTree = "<group>"; };
 		A8EEBB971F854040001ACCB5 /* UITextViewFixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewFixed.swift; sourceTree = "<group>"; };
 		AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lemon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19E4BD50D67E92A86A1DC15 /* Pods-Lemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lemon/Pods-Lemon.release.xcconfig"; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		A8751EB71F82013F00F0F35C /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				A8BFA92A1F89D78200A59F57 /* Protocol */,
 				A8AF32E01F88FBFF009FA986 /* Navigator */,
 				A8751EBF1F82013F00F0F35C /* Config */,
 				A8751EBD1F82013F00F0F35C /* Cache */,
@@ -397,6 +400,14 @@
 				A8AF32E11F88FC12009FA986 /* Navigator.swift */,
 			);
 			path = Navigator;
+			sourceTree = "<group>";
+		};
+		A8BFA92A1F89D78200A59F57 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				A8BFA92B1F89D79000A59F57 /* LoadableView.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		D8A36D5A0674B46CCEF76595 /* Frameworks */ = {
@@ -693,6 +704,7 @@
 				A8FC3C151F8204FC003257A8 /* Router.swift in Sources */,
 				A8FC3C221F820522003257A8 /* EventCellViewModel.swift in Sources */,
 				A8AF32E41F88FE0E009FA986 /* UIResponder+Lemon.swift in Sources */,
+				A8BFA92C1F89D79000A59F57 /* LoadableView.swift in Sources */,
 				A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */,
 				A8FC3C181F820515003257A8 /* OAuthViewModel.swift in Sources */,
 				A8FC3C0C1F8204ED003257A8 /* TailLoadingCellNode.swift in Sources */,
