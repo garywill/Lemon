@@ -42,6 +42,11 @@ class ProfileViewController: UIViewController {
     return v
   }()
 
+  lazy var shareProvider: SharebleViewControllerProvider = {
+    let v = SharebleViewControllerProvider(viewController: self)
+    return v
+  }()
+
   public var name: String?
   var isMine: Bool = false
   var user: User?
@@ -60,6 +65,12 @@ class ProfileViewController: UIViewController {
 
     avatarImageView.layer.cornerRadius = 10
     avatarImageView.layer.masksToBounds = true
+
+    loadingView.isLoading
+      .asDriver()
+      .map { !$0 }
+      .drive(shareProvider.shareButton.rx.isEnabled)
+      .addDisposableTo(bag)
 
     if isMine {
       GitHubProvider
@@ -116,6 +127,10 @@ class ProfileViewController: UIViewController {
     setStatckViewSubViewsDetail(detail: user.location, subView: locationTextView)
     setStatckViewSubViewsDetail(detail: user.email, subView: mailTextView)
     setStatckViewSubViewsDetail(detail: user.blog, subView: blogTextView)
+
+    if let urlString = user.htmlUrl, let url = URL(string: urlString) {
+      shareProvider.shareItems = [ url ]
+    }
   }
 
   private func setStatckViewSubViewsDetail(detail: String?, subView: UITextView) {
