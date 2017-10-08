@@ -12,7 +12,6 @@
 		A8270CEA1F8775E4001B1D19 /* UserCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8270CE91F8775E4001B1D19 /* UserCellNode.swift */; };
 		A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */; };
 		A87AABA01E71887B00A1BE2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A87AAB9E1E71887B00A1BE2F /* Main.storyboard */; };
-		A87AABA21E71887B00A1BE2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A87AABA11E71887B00A1BE2F /* Assets.xcassets */; };
 		A87AABA51E71887B00A1BE2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A87AABA31E71887B00A1BE2F /* LaunchScreen.storyboard */; };
 		A87AABB01E71887B00A1BE2F /* LemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABAF1E71887B00A1BE2F /* LemonTests.swift */; };
 		A87AABD41E72FAB800A1BE2F /* OAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AABD31E72FAB800A1BE2F /* OAuthTests.swift */; };
@@ -22,6 +21,7 @@
 		A8AF32E21F88FC12009FA986 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AF32E11F88FC12009FA986 /* Navigator.swift */; };
 		A8AF32E41F88FE0E009FA986 /* UIResponder+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8AF32E31F88FE0E009FA986 /* UIResponder+Lemon.swift */; };
 		A8BFA92C1F89D79000A59F57 /* LoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8BFA92B1F89D79000A59F57 /* LoadableView.swift */; };
+		A8BFA92E1F89E28300A59F57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8BFA92D1F89E21600A59F57 /* Assets.xcassets */; };
 		A8EEBB981F854040001ACCB5 /* UITextViewFixed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EEBB971F854040001ACCB5 /* UITextViewFixed.swift */; };
 		A8FC3C031F8204BD003257A8 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EBE1F82013F00F0F35C /* CacheManager.swift */; };
 		A8FC3C041F8204CB003257A8 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751ED01F82013F00F0F35C /* TabBarViewController.swift */; };
@@ -110,7 +110,6 @@
 		A87AAB971E71887B00A1BE2F /* Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A87AAB9F1E71887B00A1BE2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A87AABA11E71887B00A1BE2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A87AABA41E71887B00A1BE2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A87AABA61E71887B00A1BE2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A87AABAB1E71887B00A1BE2F /* LemonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LemonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +122,7 @@
 		A8AF32E11F88FC12009FA986 /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
 		A8AF32E31F88FE0E009FA986 /* UIResponder+Lemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Lemon.swift"; sourceTree = "<group>"; };
 		A8BFA92B1F89D79000A59F57 /* LoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableView.swift; sourceTree = "<group>"; };
+		A8BFA92D1F89E21600A59F57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8EEBB971F854040001ACCB5 /* UITextViewFixed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewFixed.swift; sourceTree = "<group>"; };
 		AA6B6AD0DCF6CBCFAC3341A7 /* Pods_Lemon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lemon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19E4BD50D67E92A86A1DC15 /* Pods-Lemon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lemon/Pods-Lemon.release.xcconfig"; sourceTree = "<group>"; };
@@ -387,7 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				A87AABDD1E73098600A1BE2F /* R.generated.swift */,
-				A87AABA11E71887B00A1BE2F /* Assets.xcassets */,
+				A8BFA92D1F89E21600A59F57 /* Assets.xcassets */,
 				A87AABA31E71887B00A1BE2F /* LaunchScreen.storyboard */,
 				A87AABA61E71887B00A1BE2F /* Info.plist */,
 			);
@@ -511,11 +511,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8BFA92E1F89E28300A59F57 /* Assets.xcassets in Resources */,
 				A8FC3C1B1F820515003257A8 /* OAuthViewController.xib in Resources */,
 				A87AABA51E71887B00A1BE2F /* LaunchScreen.storyboard in Resources */,
 				A8FC3C1E1F82051D003257A8 /* ProfileViewController.storyboard in Resources */,
 				A8FC3C161F820508003257A8 /* RepoViewController.storyboard in Resources */,
-				A87AABA21E71887B00A1BE2F /* Assets.xcassets in Resources */,
 				A87AABA01E71887B00A1BE2F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

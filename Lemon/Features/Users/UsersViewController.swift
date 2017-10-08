@@ -79,7 +79,8 @@ extension UsersViewController: ASTableDataSource, ASTableDelegate {
       return
     }
     let user = users[indexPath.row]
-    LemonLog.Log(user)
+    guard let login = user.login else { return }
+    Navigator.navigate(.Profile(login: login), responder: self)
   }
 
   func numberOfSections(in tableNode: ASTableNode) -> Int {

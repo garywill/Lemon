@@ -1,4 +1,6 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
 protocol Loadable {
   var ld_contentView: UIView { get }
@@ -8,6 +10,7 @@ protocol Loadable {
 
 class LoadableViewProvider: Loadable {
   var ld_contentView: UIView
+  let isLoading = Variable<Bool>(false)
 
   lazy var loadingView: UIView = {
     let v = UIView()
@@ -23,10 +26,12 @@ class LoadableViewProvider: Loadable {
 
   init(contentView: UIView) {
     ld_contentView = contentView
+    isLoading.value = false
   }
 
   func startLoading() {
     stopLoading()
+    isLoading.value = true
     ld_contentView.addSubview(loadingView)
     loadingView.snp.makeConstraints { (maker) in
       maker.edges.equalTo(ld_contentView)
@@ -34,6 +39,7 @@ class LoadableViewProvider: Loadable {
   }
 
   func stopLoading() {
+    isLoading.value = false
     loadingView.removeFromSuperview()
   }
 }

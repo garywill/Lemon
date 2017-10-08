@@ -23,7 +23,13 @@ class RepoViewController: UIViewController {
   let bag = DisposeBag()
   var name: String?
   var ownerLogin: String?
+  var repo: Repository?
   let topTapGesture = UITapGestureRecognizer()
+  let shareButton = UIButton()
+  lazy var loadingView: LoadableViewProvider = {
+    let v = LoadableViewProvider(contentView: view)
+    return v
+  }()
 
   @IBAction func handleTopGesture(_ sender: UITapGestureRecognizer) {
     guard let login = self.ownerLogin else { return }
@@ -35,6 +41,14 @@ class RepoViewController: UIViewController {
 
     fetchData()
     setupStyles()
+
+    loadingView.startLoading()
+
+    loadingView.isLoading
+      .asDriver()
+      .map { !$0 }
+      .drive(shareButton.rx.isEnabled)
+      .addDisposableTo(bag)
   }
 
   override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -81,9 +95,11 @@ class RepoViewController: UIViewController {
   }
 
   func refreshUI(_ r: Repository) {
+    repo = r
     if let a = r.owner?.avatarUrl, let url = URL(string: a) {
       self.avatarImageView.pin_setImage(from: url)
     }
+    loadingView.stopLoading()
     descTextView.text = r.descriptionField + " " + (r.homepage ?? "")
     nameLabel.text = r.owner?.login
     starButton.count = r.stargazersCount
@@ -93,6 +109,21 @@ class RepoViewController: UIViewController {
   }
 
   func setupStyles() {
+    shareButton.setImage(#imageLiteral(resourceName: "share"), for: .normal)
+    shareButton.rx.controlEvent(.touchUpInside)
+      .map { _ in return URL(string: self.repo?.url ?? "") }
+      .filterNil()
+      .subscribe(onNext: { [weak self] url in
+        guard let `self` = self else { return }
+        // set up activity view controller
+        let textToShare = [ url ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+      }).addDisposableTo(bag)
+    let shareBarButton = UIBarButtonItem(customView: shareButton)
+    navigationItem.rightBarButtonItem = shareBarButton
+
     nameLabel.text = ""
     nameLabel.textColor = UIColor.lmGithubBlue
     nameLabel.font = UIFont.lemonMono(size: 17)

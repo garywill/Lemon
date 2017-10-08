@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 10 images.
+  /// This `R.image` struct is generated, and contains static references to 11 images.
   struct image {
     /// Image `Button_fork_disable`.
     static let button_fork_disable = Rswift.ImageResource(bundle: R.hostingBundle, name: "Button_fork_disable")
@@ -47,6 +47,8 @@ struct R: Rswift.Validatable {
     static let button_star_unstar = Rswift.ImageResource(bundle: R.hostingBundle, name: "button_star_unstar")
     /// Image `event_star`.
     static let event_star = Rswift.ImageResource(bundle: R.hostingBundle, name: "event_star")
+    /// Image `share`.
+    static let share = Rswift.ImageResource(bundle: R.hostingBundle, name: "share")
     /// Image `tabbar_events`.
     static let tabbar_events = Rswift.ImageResource(bundle: R.hostingBundle, name: "tabbar_events")
     /// Image `tabbar_explore`.
@@ -87,6 +89,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "event_star", bundle: ..., traitCollection: ...)`
     static func event_star(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.event_star, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "share", bundle: ..., traitCollection: ...)`
+    static func share(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.share, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "tabbar_events", bundle: ..., traitCollection: ...)`
