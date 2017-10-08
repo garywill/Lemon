@@ -73,24 +73,17 @@ class RepoViewController: UIViewController {
     GitHubProvider
       .request(.Repo(name: name))
       .mapObject(Repository.self)
-      .subscribe(onSuccess: { (r) in
-        self.refreshUI(r)
-      }).addDisposableTo(bag)
-
-    GitHubProvider
-      .request(.Users(name: login))
-      .mapObject(User.self)
-      .subscribe(onSuccess: { (u) in
-        self.briefLabel.text = u.bio
+      .subscribe(onSuccess: { [weak self] (r) in
+        self?.refreshUI(r)
       }).addDisposableTo(bag)
 
     // TODO: 如果 default branch 不是 master，这里可能会出错，但是这里我们先忽略
     markdownView.baseURL = "https://raw.githubusercontent.com/\(name)/master"
     GitHubProvider
       .request(.Readme(name: name))
-      .subscribe(onSuccess: { (res) in
+      .subscribe(onSuccess: { [weak self] (res) in
         guard let rawMD = String(data: res.data, encoding: .utf8) else { return }
-        self.markdownView.load(markdown: rawMD)
+        self?.markdownView.load(markdown: rawMD)
       }).addDisposableTo(bag)
 
     followButton.username = login
@@ -98,6 +91,17 @@ class RepoViewController: UIViewController {
   }
 
   func refreshUI(_ r: Repository) {
+
+    if let userType = r.owner?.type {
+      switch userType {
+      case .Organization:
+        followButton.isHidden = true
+        briefLabel.text = "Organization"
+      case .User:
+        break
+      }
+    }
+
     repo = r
     if let a = r.owner?.avatarUrl, let url = URL(string: a) {
       self.avatarImageView.pin_setImage(from: url)
@@ -111,6 +115,12 @@ class RepoViewController: UIViewController {
     forkButton.setImage(#imageLiteral(resourceName: "Button_fork_disable"), for: .normal)
     if let urlString = r.htmlUrl, let url = URL(string: urlString) {
       shareProvider.shareItems = [url]
+
+      let activity = NSUserActivity(activityType: "com.lemon.repo")
+      activity.title = "Repo"
+      activity.webpageURL = url
+      userActivity = activity
+      userActivity?.becomeCurrent()
     }
   }
 
@@ -119,7 +129,7 @@ class RepoViewController: UIViewController {
     nameLabel.textColor = UIColor.lmGithubBlue
     nameLabel.font = UIFont.lemonMono(size: 17)
     briefLabel.text = ""
-    briefLabel.font = UIFont.systemFont(ofSize: 12)
+    briefLabel.font = UIFont.systemFont(ofSize: 15)
     briefLabel.textColor = UIColor.lmDarkGrey
 
     descTextView.delegate = self

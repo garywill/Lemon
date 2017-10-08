@@ -131,6 +131,8 @@ class ProfileViewController: UIViewController {
     if let urlString = user.htmlUrl, let url = URL(string: urlString) {
       shareProvider.shareItems = [ url ]
     }
+
+    LemonLog.Log(user.type)
   }
 
   private func setStatckViewSubViewsDetail(detail: String?, subView: UITextView) {

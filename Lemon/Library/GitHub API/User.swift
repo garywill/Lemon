@@ -1,6 +1,23 @@
 import Foundation
 import ObjectMapper
 
+enum UserType {
+  case User
+  case Organization
+}
+
+extension UserType {
+  init(typeString: String) {
+    if typeString == "Organization" {
+      self = .Organization
+//    } else if typeString == "User" {
+//      self = .User
+    } else {
+      self = .User
+    }
+  }
+}
+
 class User: Mappable {
   
   var avatarUrl : String?
@@ -30,7 +47,7 @@ class User: Mappable {
   var siteAdmin : Bool?
   var starredUrl : String?
   var subscriptionsUrl : String?
-  var type : String?
+  var type : UserType = .User
   var updatedAt : String?
   var url : String?
   
@@ -65,7 +82,10 @@ class User: Mappable {
     siteAdmin <- map["site_admin"]
     starredUrl <- map["starred_url"]
     subscriptionsUrl <- map["subscriptions_url"]
-    type <- map["type"]
+    if let typeString = map["type"].currentValue as? String {
+      type = UserType(typeString: typeString)
+    }
+//    type <- map["type"]
     updatedAt <- map["updated_at"]
     url <- map["url"]
     
