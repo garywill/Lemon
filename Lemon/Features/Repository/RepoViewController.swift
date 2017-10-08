@@ -108,7 +108,7 @@ class RepoViewController: UIViewController {
     }
 
     repo = r
-    if let a = r.owner?.avatarUrl, let url = URL(string: a) {
+    if let url = r.owner?.avatarUrl?.lm_url {
       self.avatarImageView.pin_setImage(from: url)
     }
     loadingView.stopLoading()
@@ -118,7 +118,7 @@ class RepoViewController: UIViewController {
     forkButton.count = r.forksCount
     forkButton.currentState = .disable
     forkButton.setImage(#imageLiteral(resourceName: "Button_fork_disable"), for: .normal)
-    if let urlString = r.htmlUrl, let url = URL(string: urlString) {
+    if let url = r.htmlUrl.lm_url {
       shareProvider.shareItems = [url]
 
       let activity = NSUserActivity(activityType: "com.lemon.repo")

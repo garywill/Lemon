@@ -42,13 +42,13 @@ public final class EventCellViewModel: EventViewModelType, EventViewModelOutputs
     if let eventType = event.eventType {
       switch eventType {
       case .WatchEvent(let action):
-        if let userName = event.actor?.login, let userURL = event.actor?.url {
+        if let userName = event.actor?.login, let userURL = event.actor?.url?.lm_url {
           let userNameAttrString = NSAttributedString(string: userName,
                                                       attributes:
             [
               NSAttributedStringKey.foregroundColor: UIColor.lmGithubBlue,
               NSAttributedStringKey.font: UIFont.lemonMono(size: 17),
-              NSAttributedStringKey(rawValue: linkAttributeName): URL(string: userURL)!
+              NSAttributedStringKey(rawValue: linkAttributeName): userURL
             ])
           attrString.append(userNameAttrString)
         }
@@ -59,12 +59,12 @@ public final class EventCellViewModel: EventViewModelType, EventViewModelOutputs
           ]
         )
         attrString.append(actionAttrString)
-        if let repo = event.repo?.name, let repoURL = event.repo?.url {
+        if let repo = event.repo?.name, let repoURL = event.repo?.url?.lm_url {
           let repoAttrString = NSAttributedString(string: repo, attributes:
             [
               NSAttributedStringKey.foregroundColor: UIColor.lmGithubBlue,
               NSAttributedStringKey.font: UIFont.lemonMono(size: 17),
-              NSAttributedStringKey(rawValue: linkAttributeName): URL(string: repoURL)!
+              NSAttributedStringKey(rawValue: linkAttributeName): repoURL
             ])
           attrString.append(repoAttrString)
         }

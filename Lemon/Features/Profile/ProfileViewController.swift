@@ -111,6 +111,12 @@ class ProfileViewController: UIViewController {
       }).addDisposableTo(bag)
   }
 
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+
+    userActivity?.invalidate()
+  }
+
   private class func getUser(_ login: String) -> Single<User> {
     return GitHubProvider
       .request(.Users(name: login))
@@ -127,7 +133,9 @@ class ProfileViewController: UIViewController {
     }
 
     self.user = user
-    avatarImageView.pin_setImage(from: URL(string: user.avatarUrl ?? ""))
+    if let url = user.avatarUrl?.lm_url {
+      avatarImageView.pin_setImage(from: url)
+    }
     nameTextView.text = user.name
     title = user.login
 
@@ -136,8 +144,14 @@ class ProfileViewController: UIViewController {
     setStatckViewSubViewsDetail(detail: user.email, subView: mailTextView)
     setStatckViewSubViewsDetail(detail: user.blog, subView: blogTextView)
 
-    if let urlString = user.htmlUrl, let url = URL(string: urlString) {
+    if let url = user.htmlUrl?.lm_url {
       shareProvider.shareItems = [ url ]
+
+      let activity = NSUserActivity(activityType: "com.lemon.profile")
+      activity.title = "Profile"
+      activity.webpageURL = url
+      userActivity = activity
+      userActivity?.becomeCurrent()
     }
 
     LemonLog.Log(user.type)

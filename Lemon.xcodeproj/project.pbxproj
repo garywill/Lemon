@@ -11,6 +11,7 @@
 		A8270CE81F8754BC001B1D19 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8270CE71F8754BC001B1D19 /* UsersViewController.swift */; };
 		A8270CEA1F8775E4001B1D19 /* UserCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8270CE91F8775E4001B1D19 /* UserCellNode.swift */; };
 		A839C3E81F8A02AC00830DC5 /* SharebleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A839C3E71F8A02AC00830DC5 /* SharebleViewController.swift */; };
+		A839C3EA1F8A660100830DC5 /* String+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A839C3E91F8A660100830DC5 /* String+Lemon.swift */; };
 		A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */; };
 		A87AABA01E71887B00A1BE2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A87AAB9E1E71887B00A1BE2F /* Main.storyboard */; };
 		A87AABA51E71887B00A1BE2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A87AABA31E71887B00A1BE2F /* LaunchScreen.storyboard */; };
@@ -29,7 +30,7 @@
 		A8FC3C051F8204CF003257A8 /* LemonNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751ECF1F82013F00F0F35C /* LemonNavigationViewController.swift */; };
 		A8FC3C061F8204D3003257A8 /* DebugHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751ED21F82013F00F0F35C /* DebugHelper.swift */; };
 		A8FC3C071F8204DE003257A8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EC01F82013F00F0F35C /* Constants.swift */; };
-		A8FC3C081F8204E5003257A8 /* Date+ago.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EB91F82013F00F0F35C /* Date+ago.swift */; };
+		A8FC3C081F8204E5003257A8 /* Date+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EB91F82013F00F0F35C /* Date+Lemon.swift */; };
 		A8FC3C091F8204E5003257A8 /* UIImage+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EBA1F82013F00F0F35C /* UIImage+Lemon.swift */; };
 		A8FC3C0A1F8204E5003257A8 /* UIFont+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EBB1F82013F00F0F35C /* UIFont+Lemon.swift */; };
 		A8FC3C0B1F8204E5003257A8 /* UIColor+Lemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8751EBC1F82013F00F0F35C /* UIColor+Lemon.swift */; };
@@ -77,6 +78,7 @@
 		A8270CE71F8754BC001B1D19 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		A8270CE91F8775E4001B1D19 /* UserCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellNode.swift; sourceTree = "<group>"; };
 		A839C3E71F8A02AC00830DC5 /* SharebleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharebleViewController.swift; sourceTree = "<group>"; };
+		A839C3E91F8A660100830DC5 /* String+Lemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Lemon.swift"; sourceTree = "<group>"; };
 		A8751EA61F82013400F0F35C /* RepoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepoViewController.storyboard; sourceTree = "<group>"; };
 		A8751EA71F82013400F0F35C /* RepoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewController.swift; sourceTree = "<group>"; };
 		A8751EA91F82013400F0F35C /* OAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthViewModel.swift; sourceTree = "<group>"; };
@@ -90,7 +92,7 @@
 		A8751EB41F82013400F0F35C /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		A8751EB51F82013400F0F35C /* EventCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellNode.swift; sourceTree = "<group>"; };
 		A8751EB61F82013400F0F35C /* EventCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellViewModel.swift; sourceTree = "<group>"; };
-		A8751EB91F82013F00F0F35C /* Date+ago.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ago.swift"; sourceTree = "<group>"; };
+		A8751EB91F82013F00F0F35C /* Date+Lemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Lemon.swift"; sourceTree = "<group>"; };
 		A8751EBA1F82013F00F0F35C /* UIImage+Lemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Lemon.swift"; sourceTree = "<group>"; };
 		A8751EBB1F82013F00F0F35C /* UIFont+Lemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Lemon.swift"; sourceTree = "<group>"; };
 		A8751EBC1F82013F00F0F35C /* UIColor+Lemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Lemon.swift"; sourceTree = "<group>"; };
@@ -254,12 +256,13 @@
 		A8751EB81F82013F00F0F35C /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				A8751EB91F82013F00F0F35C /* Date+ago.swift */,
+				A8751EB91F82013F00F0F35C /* Date+Lemon.swift */,
 				A8751EBA1F82013F00F0F35C /* UIImage+Lemon.swift */,
 				A8751EBB1F82013F00F0F35C /* UIFont+Lemon.swift */,
 				A8751EBC1F82013F00F0F35C /* UIColor+Lemon.swift */,
 				A8AF32DE1F88F8DB009FA986 /* UIRefreshControl+Lemon.swift */,
 				A8AF32E31F88FE0E009FA986 /* UIResponder+Lemon.swift */,
+				A839C3E91F8A660100830DC5 /* String+Lemon.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -698,7 +701,7 @@
 				A8270CEA1F8775E4001B1D19 /* UserCellNode.swift in Sources */,
 				A8FC3C0D1F8204ED003257A8 /* ProgressHUD.swift in Sources */,
 				A8FC3C041F8204CB003257A8 /* TabBarViewController.swift in Sources */,
-				A8FC3C081F8204E5003257A8 /* Date+ago.swift in Sources */,
+				A8FC3C081F8204E5003257A8 /* Date+Lemon.swift in Sources */,
 				A8FC3C141F8204F2003257A8 /* Repository.swift in Sources */,
 				A8FC3C0B1F8204E5003257A8 /* UIColor+Lemon.swift in Sources */,
 				A8FC3C1C1F820515003257A8 /* OAuthViewController.swift in Sources */,
@@ -715,6 +718,7 @@
 				A8AF32DD1F88E83C009FA986 /* UsersViewControllerProviders.swift in Sources */,
 				A8FC3C031F8204BD003257A8 /* CacheManager.swift in Sources */,
 				A8FC3C0E1F8204ED003257A8 /* CountButton.swift in Sources */,
+				A839C3EA1F8A660100830DC5 /* String+Lemon.swift in Sources */,
 				A8FC3C1F1F82051D003257A8 /* ProfileViewController.swift in Sources */,
 				A8FC3C211F820522003257A8 /* EventCellNode.swift in Sources */,
 				A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */,

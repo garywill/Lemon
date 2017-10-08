@@ -18,9 +18,7 @@ class UserCellNode: ASCellNode {
 
     guard let login = user.login else { return }
     loginLabel.attributedText = NSAttributedString(string: login, attributes: [NSAttributedStringKey.foregroundColor : UIColor.darkGray, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 15)])
-    if let avatarURLString = user.avatarUrl  {
-      avatar.url = URL(string: avatarURLString)
-    }
+    avatar.url = user.avatarUrl?.lm_url
 
     loginLabel.passthroughNonlinkTouches = true
     addSubnode(avatar)
