@@ -21,7 +21,7 @@ class ProfileViewController: UIViewController {
   }
 
   @IBAction func handleFollowersControl(_ sender: UIControl) {
-    guard let login = user?.login else {
+    guard let login = user?.login, user?.followers ?? 0 > 0 else {
       return
     }
     let followingVC = FollowersProvider.viewController(login: login)
@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController {
 
 
   @IBAction func handleFollowingsControl(_ sender: UIControl) {
-    guard let login = user?.login else {
+    guard let login = user?.login, user?.following ?? 0 > 0 else {
       return
     }
     let followingVC = FollowingsProvider.viewController(login: login)
@@ -118,6 +118,14 @@ class ProfileViewController: UIViewController {
   }
 
   private func updateTopProfileStackView(user: User) {
+
+    switch user.type {
+    case .User:
+      break
+    case .Organization:
+      break
+    }
+
     self.user = user
     avatarImageView.pin_setImage(from: URL(string: user.avatarUrl ?? ""))
     nameTextView.text = user.name
