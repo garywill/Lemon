@@ -25,9 +25,12 @@ class RepoViewController: UIViewController {
   var ownerLogin: String?
   var repo: Repository?
   let topTapGesture = UITapGestureRecognizer()
-  let shareButton = UIButton()
   lazy var loadingView: LoadableViewProvider = {
     let v = LoadableViewProvider(contentView: view)
+    return v
+  }()
+  lazy var shareProvider: SharebleViewControllerProvider = {
+    let v = SharebleViewControllerProvider(viewController: self)
     return v
   }()
 
@@ -47,7 +50,7 @@ class RepoViewController: UIViewController {
     loadingView.isLoading
       .asDriver()
       .map { !$0 }
-      .drive(shareButton.rx.isEnabled)
+      .drive(shareProvider.shareButton.rx.isEnabled)
       .addDisposableTo(bag)
   }
 
@@ -106,24 +109,12 @@ class RepoViewController: UIViewController {
     forkButton.count = r.forksCount
     forkButton.currentState = .disable
     forkButton.setImage(#imageLiteral(resourceName: "Button_fork_disable"), for: .normal)
+    if let urlString = r.htmlUrl, let url = URL(string: urlString) {
+      shareProvider.shareItems = [url]
+    }
   }
 
   func setupStyles() {
-    shareButton.setImage(#imageLiteral(resourceName: "share"), for: .normal)
-    shareButton.rx.controlEvent(.touchUpInside)
-      .map { _ in return URL(string: self.repo?.url ?? "") }
-      .filterNil()
-      .subscribe(onNext: { [weak self] url in
-        guard let `self` = self else { return }
-        // set up activity view controller
-        let textToShare = [ url ]
-        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        self.present(activityViewController, animated: true, completion: nil)
-      }).addDisposableTo(bag)
-    let shareBarButton = UIBarButtonItem(customView: shareButton)
-    navigationItem.rightBarButtonItem = shareBarButton
-
     nameLabel.text = ""
     nameLabel.textColor = UIColor.lmGithubBlue
     nameLabel.font = UIFont.lemonMono(size: 17)

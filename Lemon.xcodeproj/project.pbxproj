@@ -10,6 +10,7 @@
 		5821D74A290750E8892C8C52 /* Pods_LemonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D017D4186E8B110D3ABB714 /* Pods_LemonTests.framework */; };
 		A8270CE81F8754BC001B1D19 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8270CE71F8754BC001B1D19 /* UsersViewController.swift */; };
 		A8270CEA1F8775E4001B1D19 /* UserCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8270CE91F8775E4001B1D19 /* UserCellNode.swift */; };
+		A839C3E81F8A02AC00830DC5 /* SharebleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A839C3E71F8A02AC00830DC5 /* SharebleViewController.swift */; };
 		A87AAB9B1E71887B00A1BE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87AAB9A1E71887B00A1BE2F /* AppDelegate.swift */; };
 		A87AABA01E71887B00A1BE2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A87AAB9E1E71887B00A1BE2F /* Main.storyboard */; };
 		A87AABA51E71887B00A1BE2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A87AABA31E71887B00A1BE2F /* LaunchScreen.storyboard */; };
@@ -75,6 +76,7 @@
 		8883C0328350522278D325A2 /* Pods-LemonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LemonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LemonTests/Pods-LemonTests.release.xcconfig"; sourceTree = "<group>"; };
 		A8270CE71F8754BC001B1D19 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		A8270CE91F8775E4001B1D19 /* UserCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellNode.swift; sourceTree = "<group>"; };
+		A839C3E71F8A02AC00830DC5 /* SharebleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharebleViewController.swift; sourceTree = "<group>"; };
 		A8751EA61F82013400F0F35C /* RepoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RepoViewController.storyboard; sourceTree = "<group>"; };
 		A8751EA71F82013400F0F35C /* RepoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewController.swift; sourceTree = "<group>"; };
 		A8751EA91F82013400F0F35C /* OAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthViewModel.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 			isa = PBXGroup;
 			children = (
 				A8BFA92B1F89D79000A59F57 /* LoadableView.swift */,
+				A839C3E71F8A02AC00830DC5 /* SharebleViewController.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				A8FC3C111F8204F2003257A8 /* GitHubEvent.swift in Sources */,
 				A8FC3C151F8204FC003257A8 /* Router.swift in Sources */,
 				A8FC3C221F820522003257A8 /* EventCellViewModel.swift in Sources */,
+				A839C3E81F8A02AC00830DC5 /* SharebleViewController.swift in Sources */,
 				A8AF32E41F88FE0E009FA986 /* UIResponder+Lemon.swift in Sources */,
 				A8BFA92C1F89D79000A59F57 /* LoadableView.swift in Sources */,
 				A87AABDE1E73098600A1BE2F /* R.generated.swift in Sources */,
