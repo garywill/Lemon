@@ -111,10 +111,14 @@ class ProfileViewController: UIViewController {
       }).addDisposableTo(bag)
   }
 
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    userActivity?.becomeCurrent()
+  }
+
   override func viewDidDisappear(_ animated: Bool) {
     super.viewDidDisappear(animated)
-
-    userActivity?.invalidate()
+    userActivity?.resignCurrent()
   }
 
   private class func getUser(_ login: String) -> Single<User> {
