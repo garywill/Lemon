@@ -31,15 +31,20 @@ extension UIColor {
 }
 
 extension UIColor {
-    func image() -> UIImage {
-        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
-        self.setFill()
-        UIRectFill(rect)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return image
-    }
+  func image() -> UIImage {
+    return image(size: CGSize(width: 1, height: 1))
+  }
+
+  func image(size: CGSize) -> UIImage {
+    let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+    UIGraphicsBeginImageContextWithOptions(rect.size, false, UIScreen.main.scale)
+    self.setFill()
+    UIRectFill(rect)
+    let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+    UIGraphicsEndImageContext()
+    return image
+  }
+
 }
 
 // init
