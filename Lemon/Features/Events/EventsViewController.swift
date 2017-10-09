@@ -40,6 +40,7 @@ class EventsViewController: UIViewController {
         CacheManager.cachedUsername = user.login
         return GitHubProvider
           .request(GitHub.Events(login: login, page: 1))
+          .timeout(10, scheduler: MainScheduler.instance)
           .mapArray(GitHubEvent.self)
           .observeOn(MainScheduler.instance)
       })
@@ -148,6 +149,7 @@ extension EventsViewController: ASTableDataSource, ASTableDelegate {
           return GitHubProvider
             .request(.Events(login: login, page: self.state.page + 1))
             .mapArray(GitHubEvent.self)
+            .timeout(10, scheduler: MainScheduler.instance)
             .observeOn(MainScheduler.instance)
         }
         return Single<[GitHubEvent]>.just([])
