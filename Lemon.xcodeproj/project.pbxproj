@@ -439,6 +439,7 @@
 				A87AAB951E71887B00A1BE2F /* Resources */,
 				8A537A046DF86F16943114B9 /* [CP] Embed Pods Frameworks */,
 				22493D5C782A8B86AF2BB4E4 /* [CP] Copy Pods Resources */,
+				A849F03B1F8B337800897E6D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -620,6 +621,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lemon/Pods-Lemon-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A849F03B1F8B337800897E6D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 853106d1fff82369489efb63a96fc24872cca297 c553d2ba5ccacaef2dad1bbece8766b793b509aff87a03dac37b0b87b30941f1";
 		};
 		A87AABDC1E73093200A1BE2F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

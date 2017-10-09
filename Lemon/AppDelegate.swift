@@ -1,4 +1,6 @@
 import UIKit
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -7,6 +9,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+    Fabric.with([Crashlytics.self])
 
     /// if we got the access token
     if let _ = CacheManager.cachedToken {

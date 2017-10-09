@@ -11,6 +11,9 @@ target 'Lemon' do
   pod 'MarkdownView', :git => 'git@github.com:X140Yu/MarkdownView.git', :commit => 'e94fc4f54b9b1ec9002e01ea0ff8a4da5e058a75'
   pod 'SnapKit', '~> 3.0'
 
+  pod 'Fabric'
+  pod 'Crashlytics'
+
   # Rx
   pod 'Moya/RxSwift'
   pod 'RxAlamofire'
