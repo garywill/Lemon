@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5821D74A290750E8892C8C52 /* Pods_LemonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D017D4186E8B110D3ABB714 /* Pods_LemonTests.framework */; };
+		A80D81AA1F8B89A800B7C6D4 /* RepoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80D81A91F8B89A800B7C6D4 /* RepoListViewController.swift */; };
+		A80D81AC1F8B8BEC00B7C6D4 /* RepoCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80D81AB1F8B8BEC00B7C6D4 /* RepoCellNode.swift */; };
 		A8270CE81F8754BC001B1D19 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8270CE71F8754BC001B1D19 /* UsersViewController.swift */; };
 		A8270CEA1F8775E4001B1D19 /* UserCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8270CE91F8775E4001B1D19 /* UserCellNode.swift */; };
 		A839C3E81F8A02AC00830DC5 /* SharebleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A839C3E71F8A02AC00830DC5 /* SharebleViewController.swift */; };
@@ -75,6 +77,8 @@
 		7DED9CF752472A94611E688A /* Pods-LemonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LemonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LemonTests/Pods-LemonTests.debug.xcconfig"; sourceTree = "<group>"; };
 		874744732D132BED779D86B4 /* Pods-Lemon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lemon/Pods-Lemon.debug.xcconfig"; sourceTree = "<group>"; };
 		8883C0328350522278D325A2 /* Pods-LemonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LemonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LemonTests/Pods-LemonTests.release.xcconfig"; sourceTree = "<group>"; };
+		A80D81A91F8B89A800B7C6D4 /* RepoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListViewController.swift; sourceTree = "<group>"; };
+		A80D81AB1F8B8BEC00B7C6D4 /* RepoCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCellNode.swift; sourceTree = "<group>"; };
 		A8270CE71F8754BC001B1D19 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		A8270CE91F8775E4001B1D19 /* UserCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellNode.swift; sourceTree = "<group>"; };
 		A839C3E71F8A02AC00830DC5 /* SharebleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharebleViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +195,8 @@
 			children = (
 				A8751EA61F82013400F0F35C /* RepoViewController.storyboard */,
 				A8751EA71F82013400F0F35C /* RepoViewController.swift */,
+				A80D81A91F8B89A800B7C6D4 /* RepoListViewController.swift */,
+				A80D81AB1F8B8BEC00B7C6D4 /* RepoCellNode.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -731,6 +737,7 @@
 				A8FC3C0C1F8204ED003257A8 /* TailLoadingCellNode.swift in Sources */,
 				A8AF32DD1F88E83C009FA986 /* UsersViewControllerProviders.swift in Sources */,
 				A8FC3C031F8204BD003257A8 /* CacheManager.swift in Sources */,
+				A80D81AC1F8B8BEC00B7C6D4 /* RepoCellNode.swift in Sources */,
 				A8FC3C0E1F8204ED003257A8 /* CountButton.swift in Sources */,
 				A839C3EA1F8A660100830DC5 /* String+Lemon.swift in Sources */,
 				A8FC3C1F1F82051D003257A8 /* ProfileViewController.swift in Sources */,
@@ -743,6 +750,7 @@
 				A8FC3C1D1F820519003257A8 /* ExploreViewController.swift in Sources */,
 				A8FC3C191F820515003257A8 /* OAuthConstants.swift in Sources */,
 				A8FC3C061F8204D3003257A8 /* DebugHelper.swift in Sources */,
+				A80D81AA1F8B89A800B7C6D4 /* RepoListViewController.swift in Sources */,
 				A8FC3C131F8204F2003257A8 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

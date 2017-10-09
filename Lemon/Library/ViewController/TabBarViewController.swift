@@ -15,7 +15,7 @@ class TabBarViewController: UITabBarController {
     super.viewDidLoad()
 
     performWhenDebug {
-      selectedIndex = 2
+      selectedIndex = 1
     }
   }
 }

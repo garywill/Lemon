@@ -74,6 +74,22 @@ public struct Repository: Mappable {
   var watchersCount : Int = 0
   
   public init?(map: Map){}
+
+  public static func mock() -> Repository {
+    return Repository(JSON: [
+      "name": "Lemon",
+      "description": self.randomText(),
+      "language": "Swift",
+      "owner": [
+        "name": "X140Yu"
+      ]
+      ])!
+  }
+
+  public static func randomText() -> String {
+    let count = arc4random() % 100
+    return (1...count).map { _ in return "xxxxxxxxxx" }.reduce("", +)
+  }
   
   public mutating func mapping(map: Map)
   {
