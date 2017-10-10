@@ -20,11 +20,11 @@ class RepoCellNode: ASCellNode {
 
   init(repo: Repository) {
     super.init()
-    nameLabel.attributedText = NSAttributedString(string: repo.name ?? "", attributes: [NSAttributedStringKey.foregroundColor : UIColor.darkGray, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 15)])
+    nameLabel.attributedText = (repo.name ?? "").lm_cellTitleAttribute
 
     desctionLabel.attributedText = NSAttributedString(string: repo.descriptionField, attributes: [NSAttributedStringKey.foregroundColor : UIColor.darkGray, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 15)])
 
-    starsCountLabel.attributedText = NSAttributedString(string: "⭐️ 1.4k", attributes: [NSAttributedStringKey.foregroundColor : UIColor.darkGray, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 15)])
+    starsCountLabel.attributedText = NSAttributedString(string: "⭐️ 1.4k · 🍴 200", attributes: [NSAttributedStringKey.foregroundColor : UIColor.darkGray, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 15)])
 
     ownerNameLabel.attributedText = NSAttributedString(string: repo.owner?.name ?? "", attributes: [NSAttributedStringKey.foregroundColor : UIColor.darkGray, NSAttributedStringKey.font : UIFont.systemFont(ofSize: 15)])
 
@@ -53,7 +53,9 @@ class RepoCellNode: ASCellNode {
 
     let icon = ASInsetLayoutSpec(insets: UIEdgeInsets.init(top: 0, left: .infinity, bottom: .infinity, right: 0) , child: iconNode)
 
-    let bottomStack = ASStackLayoutSpec(direction: .horizontal, spacing: 10, justifyContent: .start, alignItems: .stretch, children: [starsCountLabel, ownerAvatar, ownerNameLabel, langImage, langLabel])
+    let bottomLeftStack = ASStackLayoutSpec(direction: .horizontal, spacing: 10, justifyContent: .end, alignItems: .stretch, children: [ownerAvatar, ownerNameLabel, langImage, langLabel])
+
+    let bottomStack = ASStackLayoutSpec(direction: .horizontal, spacing: 10, justifyContent: .spaceBetween, alignItems: .stretch, children: [starsCountLabel, bottomLeftStack])
 
     let vertical = ASStackLayoutSpec(direction: .vertical, spacing: 10, justifyContent: .start, alignItems: .stretch, children: [nameLabel, desctionLabel, bottomStack])
 

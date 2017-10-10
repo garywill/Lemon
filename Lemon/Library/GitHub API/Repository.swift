@@ -87,8 +87,8 @@ public struct Repository: Mappable {
   }
 
   public static func randomText() -> String {
-    let count = arc4random() % 100
-    return (1...count).map { _ in return "xxxxxxxxxx" }.reduce("", +)
+    let count = arc4random() % 100 + 1
+    return (1...count).map { _ in return "x" }.reduce("", +)
   }
   
   public mutating func mapping(map: Map)
